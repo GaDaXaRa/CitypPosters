@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F4863E61972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
+		3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E71972CC0A0072668B /* CoreGraphics.framework */; };
+		3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
+		3F4863EC1972CC0A0072668B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863EB1972CC0A0072668B /* CoreData.framework */; };
+		3F4863F21972CC0A0072668B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F4863F01972CC0A0072668B /* InfoPlist.strings */; };
+		3F4863F41972CC0A0072668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F31972CC0A0072668B /* main.m */; };
+		3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F71972CC0A0072668B /* CYPAppDelegate.m */; };
+		3F4863FB1972CC0A0072668B /* CitypPosters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */; };
+		3F4863FD1972CC0A0072668B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4863FC1972CC0A0072668B /* Images.xcassets */; };
+		3F4864041972CC0A0072668B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4864031972CC0A0072668B /* XCTest.framework */; };
+		3F4864051972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
+		3F4864061972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
+		3F4864071972CC0A0072668B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863EB1972CC0A0072668B /* CoreData.framework */; };
+		3F48640F1972CC0A0072668B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F48640D1972CC0A0072668B /* InfoPlist.strings */; };
+		3F4864111972CC0A0072668B /* CitypPostersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864101972CC0A0072668B /* CitypPostersTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3F4864081972CC0A0072668B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F4863DA1972CC0A0072668B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F4863E11972CC0A0072668B;
+			remoteInfo = CitypPosters;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3F4863E21972CC0A0072668B /* CitypPosters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitypPosters.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4863E51972CC0A0072668B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3F4863E71972CC0A0072668B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3F4863E91972CC0A0072668B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3F4863EB1972CC0A0072668B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3F4863EF1972CC0A0072668B /* CitypPosters-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CitypPosters-Info.plist"; sourceTree = "<group>"; };
+		3F4863F11972CC0A0072668B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F4863F31972CC0A0072668B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F4863F51972CC0A0072668B /* CitypPosters-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CitypPosters-Prefix.pch"; sourceTree = "<group>"; };
+		3F4863F61972CC0A0072668B /* CYPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYPAppDelegate.h; sourceTree = "<group>"; };
+		3F4863F71972CC0A0072668B /* CYPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYPAppDelegate.m; sourceTree = "<group>"; };
+		3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CitypPosters.xcdatamodel; sourceTree = "<group>"; };
+		3F4863FC1972CC0A0072668B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3F4864021972CC0A0072668B /* CitypPostersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitypPostersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F4864031972CC0A0072668B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3F48640C1972CC0A0072668B /* CitypPostersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CitypPostersTests-Info.plist"; sourceTree = "<group>"; };
+		3F48640E1972CC0A0072668B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3F4864101972CC0A0072668B /* CitypPostersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitypPostersTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F4863DF1972CC0A0072668B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */,
+				3F4863EC1972CC0A0072668B /* CoreData.framework in Frameworks */,
+				3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */,
+				3F4863E61972CC0A0072668B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4863FF1972CC0A0072668B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4864041972CC0A0072668B /* XCTest.framework in Frameworks */,
+				3F4864071972CC0A0072668B /* CoreData.framework in Frameworks */,
+				3F4864061972CC0A0072668B /* UIKit.framework in Frameworks */,
+				3F4864051972CC0A0072668B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F4863D91972CC0A0072668B = {
+			isa = PBXGroup;
+			children = (
+				3F4863ED1972CC0A0072668B /* CitypPosters */,
+				3F48640A1972CC0A0072668B /* CitypPostersTests */,
+				3F4863E41972CC0A0072668B /* Frameworks */,
+				3F4863E31972CC0A0072668B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F4863E31972CC0A0072668B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F4863E21972CC0A0072668B /* CitypPosters.app */,
+				3F4864021972CC0A0072668B /* CitypPostersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F4863E41972CC0A0072668B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F4863E51972CC0A0072668B /* Foundation.framework */,
+				3F4863E71972CC0A0072668B /* CoreGraphics.framework */,
+				3F4863E91972CC0A0072668B /* UIKit.framework */,
+				3F4863EB1972CC0A0072668B /* CoreData.framework */,
+				3F4864031972CC0A0072668B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F4863ED1972CC0A0072668B /* CitypPosters */ = {
+			isa = PBXGroup;
+			children = (
+				3F4863F61972CC0A0072668B /* CYPAppDelegate.h */,
+				3F4863F71972CC0A0072668B /* CYPAppDelegate.m */,
+				3F4863FC1972CC0A0072668B /* Images.xcassets */,
+				3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */,
+				3F4863EE1972CC0A0072668B /* Supporting Files */,
+			);
+			path = CitypPosters;
+			sourceTree = "<group>";
+		};
+		3F4863EE1972CC0A0072668B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F4863EF1972CC0A0072668B /* CitypPosters-Info.plist */,
+				3F4863F01972CC0A0072668B /* InfoPlist.strings */,
+				3F4863F31972CC0A0072668B /* main.m */,
+				3F4863F51972CC0A0072668B /* CitypPosters-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F48640A1972CC0A0072668B /* CitypPostersTests */ = {
+			isa = PBXGroup;
+			children = (
+				3F4864101972CC0A0072668B /* CitypPostersTests.m */,
+				3F48640B1972CC0A0072668B /* Supporting Files */,
+			);
+			path = CitypPostersTests;
+			sourceTree = "<group>";
+		};
+		3F48640B1972CC0A0072668B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F48640C1972CC0A0072668B /* CitypPostersTests-Info.plist */,
+				3F48640D1972CC0A0072668B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F4863E11972CC0A0072668B /* CitypPosters */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4864141972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPosters" */;
+			buildPhases = (
+				3F4863DE1972CC0A0072668B /* Sources */,
+				3F4863DF1972CC0A0072668B /* Frameworks */,
+				3F4863E01972CC0A0072668B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CitypPosters;
+			productName = CitypPosters;
+			productReference = 3F4863E21972CC0A0072668B /* CitypPosters.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3F4864011972CC0A0072668B /* CitypPostersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F4864171972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPostersTests" */;
+			buildPhases = (
+				3F4863FE1972CC0A0072668B /* Sources */,
+				3F4863FF1972CC0A0072668B /* Frameworks */,
+				3F4864001972CC0A0072668B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F4864091972CC0A0072668B /* PBXTargetDependency */,
+			);
+			name = CitypPostersTests;
+			productName = CitypPostersTests;
+			productReference = 3F4864021972CC0A0072668B /* CitypPostersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F4863DA1972CC0A0072668B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CYP;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = gadaxara;
+				TargetAttributes = {
+					3F4864011972CC0A0072668B = {
+						TestTargetID = 3F4863E11972CC0A0072668B;
+					};
+				};
+			};
+			buildConfigurationList = 3F4863DD1972CC0A0072668B /* Build configuration list for PBXProject "CitypPosters" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3F4863D91972CC0A0072668B;
+			productRefGroup = 3F4863E31972CC0A0072668B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F4863E11972CC0A0072668B /* CitypPosters */,
+				3F4864011972CC0A0072668B /* CitypPostersTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F4863E01972CC0A0072668B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4863F21972CC0A0072668B /* InfoPlist.strings in Resources */,
+				3F4863FD1972CC0A0072668B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4864001972CC0A0072668B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F48640F1972CC0A0072668B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F4863DE1972CC0A0072668B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4863F41972CC0A0072668B /* main.m in Sources */,
+				3F4863FB1972CC0A0072668B /* CitypPosters.xcdatamodeld in Sources */,
+				3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F4863FE1972CC0A0072668B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F4864111972CC0A0072668B /* CitypPostersTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F4864091972CC0A0072668B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F4863E11972CC0A0072668B /* CitypPosters */;
+			targetProxy = 3F4864081972CC0A0072668B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F4863F01972CC0A0072668B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F4863F11972CC0A0072668B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3F48640D1972CC0A0072668B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F48640E1972CC0A0072668B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3F4864121972CC0A0072668B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3F4864131972CC0A0072668B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F4864151972CC0A0072668B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CitypPosters/CitypPosters-Prefix.pch";
+				INFOPLIST_FILE = "CitypPosters/CitypPosters-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3F4864161972CC0A0072668B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CitypPosters/CitypPosters-Prefix.pch";
+				INFOPLIST_FILE = "CitypPosters/CitypPosters-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3F4864181972CC0A0072668B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CitypPosters.app/CitypPosters";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CitypPosters/CitypPosters-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CitypPostersTests/CitypPostersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3F4864191972CC0A0072668B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CitypPosters.app/CitypPosters";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CitypPosters/CitypPosters-Prefix.pch";
+				INFOPLIST_FILE = "CitypPostersTests/CitypPostersTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F4863DD1972CC0A0072668B /* Build configuration list for PBXProject "CitypPosters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4864121972CC0A0072668B /* Debug */,
+				3F4864131972CC0A0072668B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F4864141972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPosters" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4864151972CC0A0072668B /* Debug */,
+				3F4864161972CC0A0072668B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3F4864171972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPostersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F4864181972CC0A0072668B /* Debug */,
+				3F4864191972CC0A0072668B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */,
+			);
+			currentVersion = 3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */;
+			path = CitypPosters.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3F4863DA1972CC0A0072668B /* Project object */;
+}
