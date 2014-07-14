@@ -14,6 +14,8 @@
 @interface CYPEvent : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * posterPath;
+@property (nonatomic, retain) NSString * eventId;
 @property (nonatomic, retain) NSSet *dates;
 @property (nonatomic, retain) NSSet *mainArtists;
 @property (nonatomic, retain) NSSet *invitedArtists;

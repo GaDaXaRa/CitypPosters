@@ -9,16 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CYPEvent;
+@class CYPCity, CYPEvent;
 
 @interface CYPVenue : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSNumber * zip;
 @property (nonatomic, retain) NSString * country;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSSet *events;
+@property (nonatomic, retain) CYPCity *city;
 @end
 
 @interface CYPVenue (CoreDataGeneratedAccessors)

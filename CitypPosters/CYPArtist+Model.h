@@ -1,5 +1,5 @@
 //
-//  CYPArtist.m
+//  CYPArtist+Model.h
 //  CitypPosters
 //
 //  Created by Miguel Santiago Rodríguez on 14/07/14.
@@ -7,14 +7,7 @@
 //
 
 #import "CYPArtist.h"
-#import "CYPEvent.h"
 
-
-@implementation CYPArtist
-
-@dynamic name;
-@dynamic artistId;
-@dynamic events;
-@dynamic invitedToEvents;
+@interface CYPArtist (Model)
 
 @end

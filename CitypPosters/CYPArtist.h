@@ -14,6 +14,7 @@
 @interface CYPArtist : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * artistId;
 @property (nonatomic, retain) NSSet *events;
 @property (nonatomic, retain) NSSet *invitedToEvents;
 @end

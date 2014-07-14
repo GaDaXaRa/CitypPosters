@@ -16,6 +16,8 @@
 @implementation CYPEvent
 
 @dynamic name;
+@dynamic posterPath;
+@dynamic eventId;
 @dynamic dates;
 @dynamic mainArtists;
 @dynamic invitedArtists;

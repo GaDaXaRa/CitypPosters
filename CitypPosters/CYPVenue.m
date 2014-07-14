@@ -7,16 +7,19 @@
 //
 
 #import "CYPVenue.h"
+#import "CYPCity.h"
 #import "CYPEvent.h"
 
 
 @implementation CYPVenue
 
 @dynamic name;
-@dynamic city;
 @dynamic address;
 @dynamic zip;
 @dynamic country;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic events;
+@dynamic city;
 
 @end
