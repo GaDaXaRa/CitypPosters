@@ -74,7 +74,6 @@ static NSString *const VENUE_COUNTRY = @"Spain";
     sut.city = [self buildCity];
     sut.address = VENUE_ADDRESS;
     sut.zip = venueZIP;
-    sut.country = VENUE_COUNTRY;
     sut.latitude = latitude;
     sut.longitude = longitude;
     [context save:NULL];
@@ -141,11 +140,6 @@ static NSString *const VENUE_COUNTRY = @"Spain";
 - (void) testVenueShouldHaveZIPCode {
     XCTAssertNotNil(sut.zip, @"Venue should have a ZIP Code");
     XCTAssertEqualObjects(venueZIP, sut.zip, @"Venue ZIP should be %@", venueZIP);
-}
-
-- (void) testVenueShouldHaveCountry {
-    XCTAssertNotNil(sut.country, @"Venue should have a ZIP Code");
-    XCTAssertEqualObjects(VENUE_COUNTRY, sut.country, @"Venue ZIP should be %@", VENUE_COUNTRY);
 }
 
 - (void) testShouldHaveLatitudeAndLongitude {

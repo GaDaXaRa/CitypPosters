@@ -35,13 +35,17 @@
 		3F48647C1973E65D0072668B /* CYPGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48647B1973E65D0072668B /* CYPGenre.m */; };
 		3F4864881973F4DC0072668B /* CYPModelDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864871973F4DC0072668B /* CYPModelDocument.m */; };
 		3F48648A1973F4F30072668B /* CYPModelDocumentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864891973F4F30072668B /* CYPModelDocumentTests.m */; };
-		3F48648D197409A50072668B /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48648C197409A50072668B /* CYPEvent.m */; };
 		3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48648F197409BA0072668B /* CYPEvent+Model.m */; };
 		3F48649219740CDA0072668B /* CYPArtistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48649119740CDA0072668B /* CYPArtistTests.m */; };
 		3F48649519740D620072668B /* CYPArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48649419740D620072668B /* CYPArtist.m */; };
 		3F48649819740D7E0072668B /* CYPArtist+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48649719740D7E0072668B /* CYPArtist+Model.m */; };
 		3F48649E19740E140072668B /* CYPCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48649D19740E140072668B /* CYPCity.m */; };
-		3F4864A4197414160072668B /* CYPVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864A3197414160072668B /* CYPVenue.m */; };
+		3F4864AA197422F40072668B /* CYPVenue+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864A9197422F40072668B /* CYPVenue+Model.m */; };
+		3F4864AD1974276E0072668B /* CYPVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864AC1974276E0072668B /* CYPVenue.m */; };
+		3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864AF1974280D0072668B /* CYPCity+Model.m */; };
+		3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4897971974630B00A507E1 /* CYPGenre+Model.m */; };
+		3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979A1974659A00A507E1 /* CYPDates+Model.m */; };
+		3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979D19746A9F00A507E1 /* CYPEvent.m */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -94,8 +98,6 @@
 		3F4864861973F4DC0072668B /* CYPModelDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPModelDocument.h; sourceTree = "<group>"; };
 		3F4864871973F4DC0072668B /* CYPModelDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPModelDocument.m; sourceTree = "<group>"; };
 		3F4864891973F4F30072668B /* CYPModelDocumentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPModelDocumentTests.m; sourceTree = "<group>"; };
-		3F48648B197409A50072668B /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
-		3F48648C197409A50072668B /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
 		3F48648E197409BA0072668B /* CYPEvent+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPEvent+Model.h"; sourceTree = "<group>"; };
 		3F48648F197409BA0072668B /* CYPEvent+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPEvent+Model.m"; sourceTree = "<group>"; };
 		3F48649119740CDA0072668B /* CYPArtistTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPArtistTests.m; sourceTree = "<group>"; };
@@ -105,8 +107,18 @@
 		3F48649719740D7E0072668B /* CYPArtist+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPArtist+Model.m"; sourceTree = "<group>"; };
 		3F48649C19740E140072668B /* CYPCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPCity.h; sourceTree = "<group>"; };
 		3F48649D19740E140072668B /* CYPCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPCity.m; sourceTree = "<group>"; };
-		3F4864A2197414160072668B /* CYPVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPVenue.h; sourceTree = "<group>"; };
-		3F4864A3197414160072668B /* CYPVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPVenue.m; sourceTree = "<group>"; };
+		3F4864A8197422F40072668B /* CYPVenue+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPVenue+Model.h"; sourceTree = "<group>"; };
+		3F4864A9197422F40072668B /* CYPVenue+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPVenue+Model.m"; sourceTree = "<group>"; };
+		3F4864AB1974276E0072668B /* CYPVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPVenue.h; sourceTree = "<group>"; };
+		3F4864AC1974276E0072668B /* CYPVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPVenue.m; sourceTree = "<group>"; };
+		3F4864AE1974280D0072668B /* CYPCity+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPCity+Model.h"; sourceTree = "<group>"; };
+		3F4864AF1974280D0072668B /* CYPCity+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPCity+Model.m"; sourceTree = "<group>"; };
+		3F4897961974630B00A507E1 /* CYPGenre+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPGenre+Model.h"; sourceTree = "<group>"; };
+		3F4897971974630B00A507E1 /* CYPGenre+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPGenre+Model.m"; sourceTree = "<group>"; };
+		3F4897991974659A00A507E1 /* CYPDates+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPDates+Model.h"; sourceTree = "<group>"; };
+		3F48979A1974659A00A507E1 /* CYPDates+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPDates+Model.m"; sourceTree = "<group>"; };
+		3F48979C19746A9F00A507E1 /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
+		3F48979D19746A9F00A507E1 /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -293,22 +305,30 @@
 		3F4864401973BF840072668B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3F4864A2197414160072668B /* CYPVenue.h */,
-				3F4864A3197414160072668B /* CYPVenue.m */,
+				3F48979C19746A9F00A507E1 /* CYPEvent.h */,
+				3F48979D19746A9F00A507E1 /* CYPEvent.m */,
+				3F4864AB1974276E0072668B /* CYPVenue.h */,
+				3F4864AC1974276E0072668B /* CYPVenue.m */,
 				3F48649C19740E140072668B /* CYPCity.h */,
 				3F48649D19740E140072668B /* CYPCity.m */,
 				3F48648E197409BA0072668B /* CYPEvent+Model.h */,
 				3F48648F197409BA0072668B /* CYPEvent+Model.m */,
 				3F48649319740D620072668B /* CYPArtist.h */,
 				3F48649419740D620072668B /* CYPArtist.m */,
-				3F48648B197409A50072668B /* CYPEvent.h */,
-				3F48648C197409A50072668B /* CYPEvent.m */,
 				3F48647A1973E65D0072668B /* CYPGenre.h */,
 				3F48647B1973E65D0072668B /* CYPGenre.m */,
 				3F4864511973D0E20072668B /* CYPDates.h */,
 				3F4864521973D0E20072668B /* CYPDates.m */,
 				3F48649619740D7E0072668B /* CYPArtist+Model.h */,
 				3F48649719740D7E0072668B /* CYPArtist+Model.m */,
+				3F4864A8197422F40072668B /* CYPVenue+Model.h */,
+				3F4864A9197422F40072668B /* CYPVenue+Model.m */,
+				3F4864AE1974280D0072668B /* CYPCity+Model.h */,
+				3F4864AF1974280D0072668B /* CYPCity+Model.m */,
+				3F4897961974630B00A507E1 /* CYPGenre+Model.h */,
+				3F4897971974630B00A507E1 /* CYPGenre+Model.m */,
+				3F4897991974659A00A507E1 /* CYPDates+Model.h */,
+				3F48979A1974659A00A507E1 /* CYPDates+Model.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -483,19 +503,23 @@
 			files = (
 				3F4864881973F4DC0072668B /* CYPModelDocument.m in Sources */,
 				3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */,
-				3F4864A4197414160072668B /* CYPVenue.m in Sources */,
-				3F48648D197409A50072668B /* CYPEvent.m in Sources */,
 				3F48649519740D620072668B /* CYPArtist.m in Sources */,
 				3F48649E19740E140072668B /* CYPCity.m in Sources */,
+				3F4864AA197422F40072668B /* CYPVenue+Model.m in Sources */,
 				3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */,
 				3F4864201972CD5D0072668B /* CYPPostersViewController.m in Sources */,
 				3F4863F41972CC0A0072668B /* main.m in Sources */,
 				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
+				3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */,
 				3F48643D197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m in Sources */,
+				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
+				3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */,
+				3F4864AD1974276E0072668B /* CYPVenue.m in Sources */,
 				3F48649819740D7E0072668B /* CYPArtist+Model.m in Sources */,
 				3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */,
 				3F48647C1973E65D0072668B /* CYPGenre.m in Sources */,
+				3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */,
 				3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */,
 				3F4864531973D0E20072668B /* CYPDates.m in Sources */,
 			);

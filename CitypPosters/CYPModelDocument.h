@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface CYPModelDocument : UIManagedDocument
 
-+ (CYPModelDocument *)createModelDocument;
+- (void)importDataWithEvents:(NSArray *)events error:(NSError *__autoreleasing *)error;
 
 @end

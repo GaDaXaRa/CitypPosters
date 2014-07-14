@@ -20,7 +20,6 @@
 static NSString *const EVENT_NAME = @"Mega event";
 static NSString *const GENRE_ROCK = @"Rock";
 static NSString *const GENRE_HEAVY_METAL = @"Heavy Metal";
-static NSString *const POSTER_PATH = @"Documents/Posters/poster1.jpg";
 
 @interface CYPEventTests : XCTestCase {
     // Core Data stack objects.
@@ -82,7 +81,6 @@ static NSString *const POSTER_PATH = @"Documents/Posters/poster1.jpg";
     sut.invitedArtists = artists;
     sut.dates = dates;
     sut.venue = eventVenue;
-    sut.posterPath = POSTER_PATH;
     [context save:NULL];
 }
 
@@ -160,11 +158,6 @@ static NSString *const POSTER_PATH = @"Documents/Posters/poster1.jpg";
     XCTAssertNotNil(genresArray, @"Event should have music genres");
     XCTAssertTrue([genresArray count] == 2, @"Event should have 2 genres");
     XCTAssertTrue([genresArray[0] name] == GENRE_ROCK || [genresArray[0] name] == GENRE_HEAVY_METAL, @"Event should contain %@", GENRE_ROCK);
-}
-
-- (void)testEventShouldHaveAPosterPath {
-    XCTAssertNotNil(sut.posterPath, @"Event should have a posterPath");
-    XCTAssertEqualObjects(POSTER_PATH, sut.posterPath, @"Poster path should equals %@", POSTER_PATH);
 }
 
 - (void)testEventShouldHaveAnUUID {

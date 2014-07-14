@@ -8,6 +8,10 @@
 
 #import "CYPArtist.h"
 
+extern NSString *const artistPropertyName;
+
 @interface CYPArtist (Model)
+
++ (instancetype)artistInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary;
 
 @end

@@ -7,35 +7,19 @@
 //
 
 #import "CYPModelDocument.h"
+#import "CYPEvent+Model.h"
 
 @implementation CYPModelDocument
 
-+ (CYPModelDocument *)createModelDocument {
-    CYPModelDocument *modelDocument;
-    
-    NSURL *modelUrl = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CYPModel.model"];
-    modelDocument = [[CYPModelDocument alloc] initWithFileURL:modelUrl];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:[modelUrl path]]) {
-        [modelDocument openWithCompletionHandler:^(BOOL success) {
-            if (!success) {
-                //ERROR
-            }
-        }];
-    } else {
-        [modelDocument saveToURL:modelUrl forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-            if (!success) {
-                //ERROR
-            }
-        }];
-    }
-    
-    return modelDocument;
+- (void)importDataWithEvents:(NSArray *)events error:(NSError *__autoreleasing *)error {
+    [self importEvents:events];
+    [self.managedObjectContext save:error];
 }
 
-+ (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+- (void)importEvents:(NSArray *)events {
+    for (NSDictionary *eventDictionary in events) {
+        [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
+    }
 }
 
 @end

@@ -13,14 +13,13 @@
 
 @interface CYPEvent : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * posterPath;
 @property (nonatomic, retain) NSString * eventId;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *dates;
-@property (nonatomic, retain) NSSet *mainArtists;
-@property (nonatomic, retain) NSSet *invitedArtists;
-@property (nonatomic, retain) CYPVenue *venue;
 @property (nonatomic, retain) NSSet *genres;
+@property (nonatomic, retain) NSSet *invitedArtists;
+@property (nonatomic, retain) NSSet *mainArtists;
+@property (nonatomic, retain) CYPVenue *venue;
 @end
 
 @interface CYPEvent (CoreDataGeneratedAccessors)
@@ -30,19 +29,19 @@
 - (void)addDates:(NSSet *)values;
 - (void)removeDates:(NSSet *)values;
 
-- (void)addMainArtistsObject:(CYPArtist *)value;
-- (void)removeMainArtistsObject:(CYPArtist *)value;
-- (void)addMainArtists:(NSSet *)values;
-- (void)removeMainArtists:(NSSet *)values;
+- (void)addGenresObject:(CYPGenre *)value;
+- (void)removeGenresObject:(CYPGenre *)value;
+- (void)addGenres:(NSSet *)values;
+- (void)removeGenres:(NSSet *)values;
 
 - (void)addInvitedArtistsObject:(CYPArtist *)value;
 - (void)removeInvitedArtistsObject:(CYPArtist *)value;
 - (void)addInvitedArtists:(NSSet *)values;
 - (void)removeInvitedArtists:(NSSet *)values;
 
-- (void)addGenresObject:(CYPGenre *)value;
-- (void)removeGenresObject:(CYPGenre *)value;
-- (void)addGenres:(NSSet *)values;
-- (void)removeGenres:(NSSet *)values;
+- (void)addMainArtistsObject:(CYPArtist *)value;
+- (void)removeMainArtistsObject:(CYPArtist *)value;
+- (void)addMainArtists:(NSSet *)values;
+- (void)removeMainArtists:(NSSet *)values;
 
 @end

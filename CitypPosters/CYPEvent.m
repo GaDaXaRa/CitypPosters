@@ -15,13 +15,12 @@
 
 @implementation CYPEvent
 
-@dynamic name;
-@dynamic posterPath;
 @dynamic eventId;
+@dynamic name;
 @dynamic dates;
-@dynamic mainArtists;
-@dynamic invitedArtists;
-@dynamic venue;
 @dynamic genres;
+@dynamic invitedArtists;
+@dynamic mainArtists;
+@dynamic venue;
 
 @end

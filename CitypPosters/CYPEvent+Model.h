@@ -8,6 +8,16 @@
 
 #import "CYPEvent.h"
 
+extern NSString *const eventNameKey;
+extern NSString *const eventPosterUrlKey;
+extern NSString *const eventDatesKey;
+extern NSString *const genresKey;
+extern NSString *const mainArtistsKey;
+extern NSString *const invitedArtistsKey;
+extern NSString *const venueKey;
+
 @interface CYPEvent (Model)
+
++ (instancetype)eventInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary;
 
 @end

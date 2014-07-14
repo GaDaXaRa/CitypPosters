@@ -8,7 +8,17 @@
 
 #import "CYPArtist+Model.h"
 
+NSString *const artistPropertyName = @"name";
+
 @implementation CYPArtist (Model)
+
++ (instancetype)artistInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary {
+    CYPArtist *artist = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPArtist class]) inManagedObjectContext:context];
+    
+    artist.name = dictionary[artistPropertyName];
+    
+    return artist;
+}
 
 - (void)awakeFromInsert {
     self.artistId = [[NSUUID UUID] UUIDString];

@@ -16,9 +16,9 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSNumber * zip;
-@property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * venueId;
 @property (nonatomic, retain) NSSet *events;
 @property (nonatomic, retain) CYPCity *city;
 @end

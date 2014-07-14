@@ -16,9 +16,9 @@
 @dynamic name;
 @dynamic address;
 @dynamic zip;
-@dynamic country;
 @dynamic latitude;
 @dynamic longitude;
+@dynamic venueId;
 @dynamic events;
 @dynamic city;
 
