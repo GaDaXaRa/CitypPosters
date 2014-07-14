@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CYPArtist" representedClassName="CYPArtist" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="mainArtists" inverseEntity="CYPEvent" syncable="YES"/>
+        <relationship name="invitedToEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="invitedArtists" inverseEntity="CYPEvent" syncable="YES"/>
+    </entity>
+    <entity name="CYPDates" representedClassName="CYPDates" syncable="YES">
+        <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="dates" inverseEntity="CYPEvent" syncable="YES"/>
+    </entity>
+    <entity name="CYPEvent" representedClassName="CYPEvent" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="dates" toMany="YES" deletionRule="Nullify" destinationEntity="CYPDates" inverseName="events" inverseEntity="CYPDates" syncable="YES"/>
+        <relationship name="genres" toMany="YES" deletionRule="Nullify" destinationEntity="CYPGenre" inverseName="events" inverseEntity="CYPGenre" syncable="YES"/>
+        <relationship name="invitedArtists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPArtist" inverseName="invitedToEvents" inverseEntity="CYPArtist" syncable="YES"/>
+        <relationship name="mainArtists" toMany="YES" deletionRule="Nullify" destinationEntity="CYPArtist" inverseName="events" inverseEntity="CYPArtist" syncable="YES"/>
+        <relationship name="venue" maxCount="1" deletionRule="Nullify" destinationEntity="CYPVenue" inverseName="events" inverseEntity="CYPVenue" syncable="YES"/>
+    </entity>
+    <entity name="CYPGenre" representedClassName="CYPGenre" syncable="YES">
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="genres" inverseEntity="CYPEvent" syncable="YES"/>
+    </entity>
+    <entity name="CYPVenue" representedClassName="CYPVenue" syncable="YES">
+        <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="city" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="country" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="zip" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="venue" inverseEntity="CYPEvent" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CYPArtist" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="CYPDates" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="CYPEvent" positionX="0" positionY="0" width="128" height="133"/>
+        <element name="CYPVenue" positionX="36" positionY="63" width="128" height="133"/>
+        <element name="CYPGenre" positionX="54" positionY="117" width="128" height="73"/>
+    </elements>
+</model>

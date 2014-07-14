@@ -14,14 +14,29 @@
 		3F4863F21972CC0A0072668B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F4863F01972CC0A0072668B /* InfoPlist.strings */; };
 		3F4863F41972CC0A0072668B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F31972CC0A0072668B /* main.m */; };
 		3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F71972CC0A0072668B /* CYPAppDelegate.m */; };
-		3F4863FB1972CC0A0072668B /* CitypPosters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */; };
 		3F4863FD1972CC0A0072668B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F4863FC1972CC0A0072668B /* Images.xcassets */; };
 		3F4864041972CC0A0072668B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4864031972CC0A0072668B /* XCTest.framework */; };
 		3F4864051972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
 		3F4864061972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
 		3F4864071972CC0A0072668B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863EB1972CC0A0072668B /* CoreData.framework */; };
 		3F48640F1972CC0A0072668B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F48640D1972CC0A0072668B /* InfoPlist.strings */; };
-		3F4864111972CC0A0072668B /* CitypPostersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864101972CC0A0072668B /* CitypPostersTests.m */; };
+		3F48641C1972CC340072668B /* Posters_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F48641B1972CC340072668B /* Posters_iPhone.storyboard */; };
+		3F4864201972CD5D0072668B /* CYPPostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48641F1972CD5D0072668B /* CYPPostersViewController.m */; };
+		3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48642C1972E4580072668B /* CYPPosterCell.m */; };
+		3F48642F1972FFAD0072668B /* CYPPosterCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48642E1972FFAD0072668B /* CYPPosterCellTests.m */; };
+		3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F486435197314AB0072668B /* CYPPosterCollectionDatasource.m */; };
+		3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F486438197315630072668B /* CYPMainScreenViewController.m */; };
+		3F48643D197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48643C197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m */; };
+		3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864411973C8230072668B /* CYPModel.xcdatamodeld */; };
+		3F4864461973C88A0072668B /* CYPEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864451973C88A0072668B /* CYPEventTests.m */; };
+		3F4864471973C95A0072668B /* CYPModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864411973C8230072668B /* CYPModel.xcdatamodeld */; };
+		3F4864531973D0E20072668B /* CYPDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864521973D0E20072668B /* CYPDates.m */; };
+		3F4864621973DCB70072668B /* CYPArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864611973DCB70072668B /* CYPArtist.m */; };
+		3F4864671973DF640072668B /* CYPVenueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864661973DF640072668B /* CYPVenueTests.m */; };
+		3F4864791973E4F40072668B /* CYPVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864781973E4F40072668B /* CYPVenue.m */; };
+		3F48647C1973E65D0072668B /* CYPGenre.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48647B1973E65D0072668B /* CYPGenre.m */; };
+		3F48647F1973E65D0072668B /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48647E1973E65D0072668B /* CYPEvent.m */; };
+		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +61,38 @@
 		3F4863F51972CC0A0072668B /* CitypPosters-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CitypPosters-Prefix.pch"; sourceTree = "<group>"; };
 		3F4863F61972CC0A0072668B /* CYPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYPAppDelegate.h; sourceTree = "<group>"; };
 		3F4863F71972CC0A0072668B /* CYPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYPAppDelegate.m; sourceTree = "<group>"; };
-		3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CitypPosters.xcdatamodel; sourceTree = "<group>"; };
 		3F4863FC1972CC0A0072668B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3F4864021972CC0A0072668B /* CitypPostersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CitypPostersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4864031972CC0A0072668B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3F48640C1972CC0A0072668B /* CitypPostersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CitypPostersTests-Info.plist"; sourceTree = "<group>"; };
 		3F48640E1972CC0A0072668B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3F4864101972CC0A0072668B /* CitypPostersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitypPostersTests.m; sourceTree = "<group>"; };
+		3F48641B1972CC340072668B /* Posters_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Posters_iPhone.storyboard; sourceTree = "<group>"; };
+		3F48641E1972CD5D0072668B /* CYPPostersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPPostersViewController.h; sourceTree = "<group>"; };
+		3F48641F1972CD5D0072668B /* CYPPostersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPostersViewController.m; sourceTree = "<group>"; };
+		3F48642B1972E4580072668B /* CYPPosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPPosterCell.h; sourceTree = "<group>"; };
+		3F48642C1972E4580072668B /* CYPPosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPosterCell.m; sourceTree = "<group>"; };
+		3F48642E1972FFAD0072668B /* CYPPosterCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPosterCellTests.m; sourceTree = "<group>"; };
+		3F486434197314AB0072668B /* CYPPosterCollectionDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPPosterCollectionDatasource.h; sourceTree = "<group>"; };
+		3F486435197314AB0072668B /* CYPPosterCollectionDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPosterCollectionDatasource.m; sourceTree = "<group>"; };
+		3F486437197315630072668B /* CYPMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPMainScreenViewController.h; sourceTree = "<group>"; };
+		3F486438197315630072668B /* CYPMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPMainScreenViewController.m; sourceTree = "<group>"; };
+		3F48643B197316E00072668B /* CYPCollectionViewDelegateFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPCollectionViewDelegateFlowLayout.h; sourceTree = "<group>"; };
+		3F48643C197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPCollectionViewDelegateFlowLayout.m; sourceTree = "<group>"; };
+		3F4864421973C8230072668B /* CYPModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CYPModel.xcdatamodel; sourceTree = "<group>"; };
+		3F4864451973C88A0072668B /* CYPEventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventTests.m; sourceTree = "<group>"; };
+		3F4864511973D0E20072668B /* CYPDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPDates.h; sourceTree = "<group>"; };
+		3F4864521973D0E20072668B /* CYPDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPDates.m; sourceTree = "<group>"; };
+		3F4864601973DCB70072668B /* CYPArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPArtist.h; sourceTree = "<group>"; };
+		3F4864611973DCB70072668B /* CYPArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPArtist.m; sourceTree = "<group>"; };
+		3F4864661973DF640072668B /* CYPVenueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPVenueTests.m; sourceTree = "<group>"; };
+		3F4864771973E4F40072668B /* CYPVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPVenue.h; sourceTree = "<group>"; };
+		3F4864781973E4F40072668B /* CYPVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPVenue.m; sourceTree = "<group>"; };
+		3F48647A1973E65D0072668B /* CYPGenre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPGenre.h; sourceTree = "<group>"; };
+		3F48647B1973E65D0072668B /* CYPGenre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPGenre.m; sourceTree = "<group>"; };
+		3F48647D1973E65D0072668B /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
+		3F48647E1973E65D0072668B /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
+		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
+		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +115,7 @@
 				3F4864071972CC0A0072668B /* CoreData.framework in Frameworks */,
 				3F4864061972CC0A0072668B /* UIKit.framework in Frameworks */,
 				3F4864051972CC0A0072668B /* Foundation.framework in Frameworks */,
+				4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +129,7 @@
 				3F48640A1972CC0A0072668B /* CitypPostersTests */,
 				3F4863E41972CC0A0072668B /* Frameworks */,
 				3F4863E31972CC0A0072668B /* Products */,
+				4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +150,7 @@
 				3F4863E91972CC0A0072668B /* UIKit.framework */,
 				3F4863EB1972CC0A0072668B /* CoreData.framework */,
 				3F4864031972CC0A0072668B /* XCTest.framework */,
+				8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,10 +158,11 @@
 		3F4863ED1972CC0A0072668B /* CitypPosters */ = {
 			isa = PBXGroup;
 			children = (
+				3F48643F1973BF7F0072668B /* Main */,
+				3F48643E1973BF730072668B /* Delivery */,
 				3F4863F61972CC0A0072668B /* CYPAppDelegate.h */,
 				3F4863F71972CC0A0072668B /* CYPAppDelegate.m */,
 				3F4863FC1972CC0A0072668B /* Images.xcassets */,
-				3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */,
 				3F4863EE1972CC0A0072668B /* Supporting Files */,
 			);
 			path = CitypPosters;
@@ -138,8 +182,9 @@
 		3F48640A1972CC0A0072668B /* CitypPostersTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F4864101972CC0A0072668B /* CitypPostersTests.m */,
+				3F4864441973C84A0072668B /* Main */,
 				3F48640B1972CC0A0072668B /* Supporting Files */,
+				3F48642E1972FFAD0072668B /* CYPPosterCellTests.m */,
 			);
 			path = CitypPostersTests;
 			sourceTree = "<group>";
@@ -151,6 +196,107 @@
 				3F48640D1972CC0A0072668B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F48641A1972CC110072668B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F48642A1972E4410072668B /* Cells */,
+				3F48641B1972CC340072668B /* Posters_iPhone.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3F48641D1972CD350072668B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F48643A197316B70072668B /* Delegates */,
+				3F486430197314620072668B /* Datasources */,
+				3F4864211972CF450072668B /* Layouts */,
+				3F48641E1972CD5D0072668B /* CYPPostersViewController.h */,
+				3F48641F1972CD5D0072668B /* CYPPostersViewController.m */,
+				3F486437197315630072668B /* CYPMainScreenViewController.h */,
+				3F486438197315630072668B /* CYPMainScreenViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F4864211972CF450072668B /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		3F48642A1972E4410072668B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3F48642B1972E4580072668B /* CYPPosterCell.h */,
+				3F48642C1972E4580072668B /* CYPPosterCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		3F486430197314620072668B /* Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				3F486434197314AB0072668B /* CYPPosterCollectionDatasource.h */,
+				3F486435197314AB0072668B /* CYPPosterCollectionDatasource.m */,
+			);
+			name = Datasources;
+			sourceTree = "<group>";
+		};
+		3F48643A197316B70072668B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3F48643B197316E00072668B /* CYPCollectionViewDelegateFlowLayout.h */,
+				3F48643C197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		3F48643E1973BF730072668B /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				3F48641D1972CD350072668B /* Controllers */,
+				3F48641A1972CC110072668B /* Views */,
+			);
+			name = Delivery;
+			sourceTree = "<group>";
+		};
+		3F48643F1973BF7F0072668B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F4864401973BF840072668B /* Entities */,
+				3F4864411973C8230072668B /* CYPModel.xcdatamodeld */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		3F4864401973BF840072668B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3F48647D1973E65D0072668B /* CYPEvent.h */,
+				3F48647E1973E65D0072668B /* CYPEvent.m */,
+				3F48647A1973E65D0072668B /* CYPGenre.h */,
+				3F48647B1973E65D0072668B /* CYPGenre.m */,
+				3F4864771973E4F40072668B /* CYPVenue.h */,
+				3F4864781973E4F40072668B /* CYPVenue.m */,
+				3F4864601973DCB70072668B /* CYPArtist.h */,
+				3F4864611973DCB70072668B /* CYPArtist.m */,
+				3F4864511973D0E20072668B /* CYPDates.h */,
+				3F4864521973D0E20072668B /* CYPDates.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		3F4864441973C84A0072668B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3F4864451973C88A0072668B /* CYPEventTests.m */,
+				3F4864661973DF640072668B /* CYPVenueTests.m */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +323,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F4864171972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPostersTests" */;
 			buildPhases = (
+				DAF221B494F240D4B67EF988 /* Check Pods Manifest.lock */,
 				3F4863FE1972CC0A0072668B /* Sources */,
 				3F4863FF1972CC0A0072668B /* Frameworks */,
 				3F4864001972CC0A0072668B /* Resources */,
+				14E332325B6B432CA9360854 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F48641C1972CC340072668B /* Posters_iPhone.storyboard in Resources */,
 				3F4863F21972CC0A0072668B /* InfoPlist.strings in Resources */,
 				3F4863FD1972CC0A0072668B /* Images.xcassets in Resources */,
 			);
@@ -244,14 +393,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		14E332325B6B432CA9360854 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-CitypPostersTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF221B494F240D4B67EF988 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3F4863DE1972CC0A0072668B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4864791973E4F40072668B /* CYPVenue.m in Sources */,
+				3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */,
+				3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */,
+				3F4864201972CD5D0072668B /* CYPPostersViewController.m in Sources */,
 				3F4863F41972CC0A0072668B /* main.m in Sources */,
-				3F4863FB1972CC0A0072668B /* CitypPosters.xcdatamodeld in Sources */,
+				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
+				3F48647F1973E65D0072668B /* CYPEvent.m in Sources */,
+				3F48643D197316E00072668B /* CYPCollectionViewDelegateFlowLayout.m in Sources */,
 				3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */,
+				3F4864621973DCB70072668B /* CYPArtist.m in Sources */,
+				3F48647C1973E65D0072668B /* CYPGenre.m in Sources */,
+				3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */,
+				3F4864531973D0E20072668B /* CYPDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +451,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F4864111972CC0A0072668B /* CitypPostersTests.m in Sources */,
+				3F4864671973DF640072668B /* CYPVenueTests.m in Sources */,
+				3F48642F1972FFAD0072668B /* CYPPosterCellTests.m in Sources */,
+				3F4864471973C95A0072668B /* CYPModel.xcdatamodeld in Sources */,
+				3F4864461973C88A0072668B /* CYPEventTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +586,7 @@
 		};
 		3F4864181972CC0A0072668B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CitypPosters.app/CitypPosters";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -413,6 +609,7 @@
 		};
 		3F4864191972CC0A0072668B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CitypPosters.app/CitypPosters";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -448,6 +645,7 @@
 				3F4864161972CC0A0072668B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F4864171972CC0A0072668B /* Build configuration list for PBXNativeTarget "CitypPostersTests" */ = {
 			isa = XCConfigurationList;
@@ -456,17 +654,18 @@
 				3F4864191972CC0A0072668B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3F4863F91972CC0A0072668B /* CitypPosters.xcdatamodeld */ = {
+		3F4864411973C8230072668B /* CYPModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */,
+				3F4864421973C8230072668B /* CYPModel.xcdatamodel */,
 			);
-			currentVersion = 3F4863FA1972CC0A0072668B /* CitypPosters.xcdatamodel */;
-			path = CitypPosters.xcdatamodeld;
+			currentVersion = 3F4864421973C8230072668B /* CYPModel.xcdatamodel */;
+			path = CYPModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
