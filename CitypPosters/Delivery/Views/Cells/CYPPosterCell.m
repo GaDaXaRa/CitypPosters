@@ -10,8 +10,6 @@
 
 @interface CYPPosterCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
-
 @end
 
 @implementation CYPPosterCell
@@ -20,18 +18,30 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        [self setUp];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setUp];
+    }
+    
+    return self;
 }
-*/
+
+- (void)setUp {
+    self.posterImageWiew = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+    self.posterImageWiew.image = [UIImage imageNamed:@"misfits_poster_b-n_web1.jpg"];
+    self.posterImageWiew.contentMode = UIViewContentModeScaleAspectFill;
+    [self.contentView addSubview:self.posterImageWiew];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.posterImageWiew.frame = self.bounds;
+}
 
 @end

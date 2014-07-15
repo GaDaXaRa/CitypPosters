@@ -10,6 +10,6 @@
 
 @interface CYPPosterCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *posterImage;
+@property (strong, nonatomic) UIImageView *posterImageWiew;
 
 @end

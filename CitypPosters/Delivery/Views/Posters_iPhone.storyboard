@@ -34,25 +34,10 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="303" height="492"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Led-Zeppllin-Posters.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="K0j-HX-VlF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303" height="492"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </imageView>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstItem="K0j-HX-VlF" firstAttribute="leading" secondItem="WOn-FB-hfm" secondAttribute="leading" id="m7Q-jN-S7B"/>
-                                            <constraint firstAttribute="bottom" secondItem="K0j-HX-VlF" secondAttribute="bottom" id="mDb-hc-b6A"/>
-                                            <constraint firstItem="K0j-HX-VlF" firstAttribute="top" secondItem="WOn-FB-hfm" secondAttribute="top" id="sgT-UP-0nI"/>
-                                            <constraint firstAttribute="trailing" secondItem="K0j-HX-VlF" secondAttribute="trailing" id="t3Y-jT-sNU"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="posterImageView" destination="K0j-HX-VlF" id="whR-9J-0sa"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -82,9 +67,6 @@
             <point key="canvasLocation" x="111" y="19"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Led-Zeppllin-Posters.jpg" width="263" height="400"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

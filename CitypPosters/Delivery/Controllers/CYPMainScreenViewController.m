@@ -9,12 +9,20 @@
 #import "CYPMainScreenViewController.h"
 #import "CYPPosterCollectionDatasource.h"
 
+enum {
+    inPoster,
+    zoomInScreen,
+    zoomInPoster
+}; typedef NSUInteger ScreenState;
+
 @interface CYPMainScreenViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
 @property (strong, nonatomic) UICollectionViewFlowLayout *zoomOutLayout;
+
+@property (nonatomic) ScreenState screenState;
 
 @end
 
@@ -50,14 +58,6 @@
     return _collectionDatasource;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 - (IBAction)pich:(UIPinchGestureRecognizer *)sender {
     if (sender.scale < 1) {
         [self performPinchIn];
@@ -67,35 +67,25 @@
 }
 
 - (void)performPinchOut {
-    [self.posterCollectionView setCollectionViewLayout:self.fullScreenLayout animated:YES];
+    if (self.screenState == zoomInScreen) {
+        [self.posterCollectionView setCollectionViewLayout:self.fullScreenLayout animated:YES];
+        self.screenState = inPoster;
+    }
 }
 
 - (void)performPinchIn {
-    [self.posterCollectionView setCollectionViewLayout:self.zoomOutLayout animated:YES];
+    if (self.screenState == inPoster) {
+        [self.posterCollectionView setCollectionViewLayout:self.zoomOutLayout animated:YES];
+        self.screenState = zoomInScreen;
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenState = inPoster;
     self.posterCollectionView.dataSource = self.collectionDatasource;
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
