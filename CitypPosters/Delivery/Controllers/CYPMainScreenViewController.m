@@ -24,6 +24,7 @@
     if (!_fullScreenLayout) {
         _fullScreenLayout = [[UICollectionViewFlowLayout alloc] init];
         _fullScreenLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width - 10, self.posterCollectionView.frame.size.height - 10);
+        _fullScreenLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _fullScreenLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     
@@ -34,6 +35,7 @@
     if (!_zoomOutLayout) {
         _zoomOutLayout = [[UICollectionViewFlowLayout alloc] init];
         _zoomOutLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width / 2 -10, self.posterCollectionView.frame.size.height / 2 - 10);
+        _zoomOutLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _zoomOutLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     

@@ -20,7 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.posterImage.bounds = self.bounds;
+        
     }
     return self;
 }
