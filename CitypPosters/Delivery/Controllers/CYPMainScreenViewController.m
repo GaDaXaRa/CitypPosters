@@ -8,6 +8,8 @@
 
 #import "CYPMainScreenViewController.h"
 #import "CYPPosterCollectionDatasource.h"
+#import "CYPDetailViewController.h"
+#import "CYPViewAnimationHelper.h"
 
 enum {
     inPoster,
@@ -15,13 +17,14 @@ enum {
     zoomInPoster
 }; typedef NSUInteger ScreenState;
 
-@interface CYPMainScreenViewController ()<UICollectionViewDelegate>
+@interface CYPMainScreenViewController ()<UICollectionViewDelegate, CYPDetailViewControllerDelegate>
 
+@property (strong, nonatomic) IBOutlet CYPViewAnimationHelper *animationHelper;
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
 @property (strong, nonatomic) UICollectionViewFlowLayout *zoomOutLayout;
-@property (strong, nonatomic) UIView *detailView;
+@property (strong, nonatomic) CYPDetailViewController *detailViewController;
 
 @property (nonatomic) ScreenState screenState;
 
@@ -29,12 +32,13 @@ enum {
 
 @implementation CYPMainScreenViewController
 
-- (UIView *)detailView {
-    if (!_detailView) {
-        _detailView = [[[NSBundle mainBundle] loadNibNamed:@"CYPDetailView" owner:self options:nil] firstObject];
+- (CYPDetailViewController *)detailViewController {
+    if(!_detailViewController) {
+        _detailViewController = [[UIStoryboard storyboardWithName:@"Posters_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"detailViewController"];
+        _detailViewController.delegate = self;
     }
     
-    return _detailView;
+    return _detailViewController;
 }
 
 - (UICollectionViewFlowLayout *)fullScreenLayout {
@@ -112,31 +116,30 @@ enum {
             self.screenState = inPoster;
         }];
     } else if (self.screenState == inPoster) {
-        [self openDetailWithAnimation];
+        [self openDetailForItemAtIndexPath:indexPath];
     }
 }
 
-- (void)closeDetailWithAnimation {
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
-    } completion:^(BOOL finished) {
-        [self.detailView removeFromSuperview];
+- (void)openDetailForItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self addChildViewController:self.detailViewController];
+    [self.detailViewController willMoveToParentViewController:self];
+    [self.view addSubview:self.detailViewController.view];
+    [self.animationHelper animateViewFromLeft:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+        [self.detailViewController didMoveToParentViewController:self];
     }];
 }
 
-- (void)openDetailWithAnimation {
-    [self.view addSubview:self.detailView];
-    self.detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.detailView.frame = CGRectMake(0, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
-    } completion:nil];
+- (void)closeDetailView {
+    [self.detailViewController willMoveToParentViewController:nil];
+    UIView *detailView = self.detailViewController.view;
+    [self.animationHelper animateViewToRight:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+        [detailView removeFromSuperview];
+        [self.detailViewController removeFromParentViewController];
+    }];
 }
 
-- (IBAction)detailClosePressed:(UIButton *)sender {
-    [self closeDetailWithAnimation];
+- (void)detailViewControllerFished:(CYPDetailViewController *)controller {
+    [self closeDetailView];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self closeDetailWithAnimation];
-}
 @end

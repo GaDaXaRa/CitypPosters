@@ -59,10 +59,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationHelper" destination="fWA-wv-Icx" id="TKf-CB-7EO"/>
                         <outlet property="posterCollectionView" destination="yjk-0S-ATd" id="yp5-KH-zVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qu2-OS-slX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="fWA-wv-Icx" customClass="CYPViewAnimationHelper"/>
                 <pinchGestureRecognizer id="oF8-ai-VTf">
                     <connections>
                         <action selector="pich:" destination="ozD-3c-fAQ" id="rxK-45-Zfz"/>
@@ -70,6 +72,36 @@
                 </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="126" y="17"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ngZ-8B-sYk">
+            <objects>
+                <viewController storyboardIdentifier="detailViewController" id="32T-0c-kQq" customClass="CYPDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xe3-Bw-QBm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZrV-bY-zrr"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.79999999999999982" contentMode="scaleToFill" id="thg-Oc-OA9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ph-sd-KcE">
+                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closePressed:" destination="32T-0c-kQq" eventType="touchUpInside" id="P5D-La-usW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgh-eU-kDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="17"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
