@@ -24,7 +24,6 @@
 		3F4864071972CC0A0072668B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863EB1972CC0A0072668B /* CoreData.framework */; };
 		3F48640F1972CC0A0072668B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F48640D1972CC0A0072668B /* InfoPlist.strings */; };
 		3F48641C1972CC340072668B /* Posters_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F48641B1972CC340072668B /* Posters_iPhone.storyboard */; };
-		3F4864201972CD5D0072668B /* CYPPostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48641F1972CD5D0072668B /* CYPPostersViewController.m */; };
 		3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48642C1972E4580072668B /* CYPPosterCell.m */; };
 		3F48642F1972FFAD0072668B /* CYPPosterCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48642E1972FFAD0072668B /* CYPPosterCellTests.m */; };
 		3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F486435197314AB0072668B /* CYPPosterCollectionDatasource.m */; };
@@ -83,8 +82,6 @@
 		3F48640C1972CC0A0072668B /* CitypPostersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CitypPostersTests-Info.plist"; sourceTree = "<group>"; };
 		3F48640E1972CC0A0072668B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F48641B1972CC340072668B /* Posters_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Posters_iPhone.storyboard; sourceTree = "<group>"; };
-		3F48641E1972CD5D0072668B /* CYPPostersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPPostersViewController.h; sourceTree = "<group>"; };
-		3F48641F1972CD5D0072668B /* CYPPostersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPostersViewController.m; sourceTree = "<group>"; };
 		3F48642B1972E4580072668B /* CYPPosterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPPosterCell.h; sourceTree = "<group>"; };
 		3F48642C1972E4580072668B /* CYPPosterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPosterCell.m; sourceTree = "<group>"; };
 		3F48642E1972FFAD0072668B /* CYPPosterCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPPosterCellTests.m; sourceTree = "<group>"; };
@@ -257,8 +254,6 @@
 			children = (
 				3F486430197314620072668B /* Datasources */,
 				3F4864211972CF450072668B /* Layouts */,
-				3F48641E1972CD5D0072668B /* CYPPostersViewController.h */,
-				3F48641F1972CD5D0072668B /* CYPPostersViewController.m */,
 				3F486437197315630072668B /* CYPMainScreenViewController.h */,
 				3F486438197315630072668B /* CYPMainScreenViewController.m */,
 			);
@@ -518,7 +513,6 @@
 				3F48649E19740E140072668B /* CYPCity.m in Sources */,
 				3F4864AA197422F40072668B /* CYPVenue+Model.m in Sources */,
 				3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */,
-				3F4864201972CD5D0072668B /* CYPPostersViewController.m in Sources */,
 				3F4863F41972CC0A0072668B /* main.m in Sources */,
 				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,

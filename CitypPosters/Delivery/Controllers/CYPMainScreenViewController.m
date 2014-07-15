@@ -21,12 +21,21 @@ enum {
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
 @property (strong, nonatomic) UICollectionViewFlowLayout *zoomOutLayout;
+@property (strong, nonatomic) UIView *detailView;
 
 @property (nonatomic) ScreenState screenState;
 
 @end
 
 @implementation CYPMainScreenViewController
+
+- (UIView *)detailView {
+    if (!_detailView) {
+        _detailView = [[[NSBundle mainBundle] loadNibNamed:@"CYPDetailView" owner:self options:nil] firstObject];
+    }
+    
+    return _detailView;
+}
 
 - (UICollectionViewFlowLayout *)fullScreenLayout {
     if (!_fullScreenLayout) {
@@ -103,14 +112,31 @@ enum {
             self.screenState = inPoster;
         }];
     } else if (self.screenState == inPoster) {
-        UIView *detailView = [[[NSBundle mainBundle] loadNibNamed:@"CYPDetailView" owner:self options:nil] firstObject];
-        
-        [self.view addSubview:detailView];
-        detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            detailView.frame = CGRectMake(0, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
-        } completion:nil];
+        [self openDetailWithAnimation];
     }
 }
 
+- (void)closeDetailWithAnimation {
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
+    } completion:^(BOOL finished) {
+        [self.detailView removeFromSuperview];
+    }];
+}
+
+- (void)openDetailWithAnimation {
+    [self.view addSubview:self.detailView];
+    self.detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.detailView.frame = CGRectMake(0, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
+    } completion:nil];
+}
+
+- (IBAction)detailClosePressed:(UIButton *)sender {
+    [self closeDetailWithAnimation];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self closeDetailWithAnimation];
+}
 @end
