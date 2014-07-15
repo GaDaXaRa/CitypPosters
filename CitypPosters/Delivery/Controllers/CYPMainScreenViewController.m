@@ -15,7 +15,7 @@ enum {
     zoomInPoster
 }; typedef NSUInteger ScreenState;
 
-@interface CYPMainScreenViewController ()
+@interface CYPMainScreenViewController ()<UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
@@ -83,9 +83,34 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.posterCollectionView.delegate = self;
     self.screenState = inPoster;
     self.posterCollectionView.dataSource = self.collectionDatasource;
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.screenState == zoomInScreen) {
+        [self performPinchOut];
+        [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.screenState == zoomInScreen) {
+        [self.posterCollectionView setCollectionViewLayout:self.fullScreenLayout animated:YES completion:^(BOOL finished) {
+            [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+            self.screenState = inPoster;
+        }];
+    } else if (self.screenState == inPoster) {
+        UIView *detailView = [[[NSBundle mainBundle] loadNibNamed:@"CYPDetailView" owner:self options:nil] firstObject];
+        
+        [self.view addSubview:detailView];
+        detailView.frame = CGRectMake(0 - self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            detailView.frame = CGRectMake(0, self.posterCollectionView.frame.origin.y, self.view.frame.size.width, self.posterCollectionView.frame.size.height);
+        } completion:nil];
+    }
 }
 
 @end

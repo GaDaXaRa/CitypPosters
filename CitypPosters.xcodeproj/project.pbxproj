@@ -48,6 +48,7 @@
 		3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4897971974630B00A507E1 /* CYPGenre+Model.m */; };
 		3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979A1974659A00A507E1 /* CYPDates+Model.m */; };
 		3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979D19746A9F00A507E1 /* CYPEvent.m */; };
+		3F87A34419756618009D83ED /* CYPDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F87A34319756618009D83ED /* CYPDetailView.xib */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		3F48979A1974659A00A507E1 /* CYPDates+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPDates+Model.m"; sourceTree = "<group>"; };
 		3F48979C19746A9F00A507E1 /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
 		3F48979D19746A9F00A507E1 /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
+		3F87A34319756618009D83ED /* CYPDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYPDetailView.xib; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -245,6 +247,7 @@
 			children = (
 				3F48642A1972E4410072668B /* Cells */,
 				3F48641B1972CC340072668B /* Posters_iPhone.storyboard */,
+				3F87A34319756618009D83ED /* CYPDetailView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F2DF88E1975137A00777F0D /* Led-Zeppllin-Posters.jpg in Resources */,
+				3F87A34419756618009D83ED /* CYPDetailView.xib in Resources */,
 				3F2DF8921975138200777F0D /* misfits_poster_b-n_web1.jpg in Resources */,
 				3F2DF8911975138200777F0D /* 130p_arg.jpg in Resources */,
 				3F48641C1972CC340072668B /* Posters_iPhone.storyboard in Resources */,
