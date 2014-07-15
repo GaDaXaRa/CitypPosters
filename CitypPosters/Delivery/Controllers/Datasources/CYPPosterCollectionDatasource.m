@@ -7,6 +7,7 @@
 //
 
 #import "CYPPosterCollectionDatasource.h"
+#import "CYPPosterCell.h"
 
 static NSString *const cellID = @"posterCell";
 
@@ -18,7 +19,7 @@ static NSString *const cellID = @"posterCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    CYPPosterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     return cell;
 }
 

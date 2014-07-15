@@ -10,6 +10,8 @@
 
 @interface CYPPosterCell ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
+
 @end
 
 @implementation CYPPosterCell
@@ -18,7 +20,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, (2 * self.bounds.size.height) / 3, self.bounds.size.height);
+        self.posterImage.bounds = self.bounds;
     }
     return self;
 }
