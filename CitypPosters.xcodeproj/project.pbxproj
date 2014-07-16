@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0D3CA61976FEAB002B3B77 /* CYPFetchResultControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CA51976FEAB002B3B77 /* CYPFetchResultControllerManager.m */; };
+		3F0D3CA91977056C002B3B77 /* CYPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CA81977056C002B3B77 /* CYPNetworkManager.m */; };
+		3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */; };
+		3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */; };
 		3F2DF88E1975137A00777F0D /* Led-Zeppllin-Posters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF88D1975137A00777F0D /* Led-Zeppllin-Posters.jpg */; };
 		3F2DF8911975138200777F0D /* 130p_arg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF88F1975138200777F0D /* 130p_arg.jpg */; };
 		3F2DF8921975138200777F0D /* misfits_poster_b-n_web1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF8901975138200777F0D /* misfits_poster_b-n_web1.jpg */; };
@@ -49,6 +53,7 @@
 		3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979D19746A9F00A507E1 /* CYPEvent.m */; };
 		3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */; };
 		3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */; };
+		3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +68,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0D3CA41976FEAB002B3B77 /* CYPFetchResultControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPFetchResultControllerManager.h; sourceTree = "<group>"; };
+		3F0D3CA51976FEAB002B3B77 /* CYPFetchResultControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPFetchResultControllerManager.m; sourceTree = "<group>"; };
+		3F0D3CA71977056C002B3B77 /* CYPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPNetworkManager.h; sourceTree = "<group>"; };
+		3F0D3CA81977056C002B3B77 /* CYPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPNetworkManager.m; sourceTree = "<group>"; };
+		3F0D3CAA197709E5002B3B77 /* CYPImagePersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPImagePersistence.h; sourceTree = "<group>"; };
+		3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPImagePersistence.m; sourceTree = "<group>"; };
+		3F0D3CAD19770D76002B3B77 /* CYPEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEventManager.h; sourceTree = "<group>"; };
+		3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventManager.m; sourceTree = "<group>"; };
 		3F2DF88D1975137A00777F0D /* Led-Zeppllin-Posters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Led-Zeppllin-Posters.jpg"; sourceTree = "<group>"; };
 		3F2DF88F1975138200777F0D /* 130p_arg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 130p_arg.jpg; sourceTree = "<group>"; };
 		3F2DF8901975138200777F0D /* misfits_poster_b-n_web1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "misfits_poster_b-n_web1.jpg"; sourceTree = "<group>"; };
@@ -125,6 +138,8 @@
 		3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPDetailViewController.m; sourceTree = "<group>"; };
 		3F87A3911975D845009D83ED /* CYPViewAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPViewAnimationHelper.h; sourceTree = "<group>"; };
 		3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPViewAnimationHelper.m; sourceTree = "<group>"; };
+		3F87A3A11976C8E7009D83ED /* CYPFetchedResultsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPFetchedResultsDelegate.h; sourceTree = "<group>"; };
+		3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPFetchedResultsDelegate.m; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -255,6 +270,7 @@
 		3F48641D1972CD350072668B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F87A3A01976C8B6009D83ED /* Delegates */,
 				3F87A3901975D801009D83ED /* Helpers */,
 				3F486430197314620072668B /* Datasources */,
 				3F4864211972CF450072668B /* Layouts */,
@@ -382,8 +398,25 @@
 			children = (
 				3F87A3911975D845009D83ED /* CYPViewAnimationHelper.h */,
 				3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */,
+				3F0D3CA41976FEAB002B3B77 /* CYPFetchResultControllerManager.h */,
+				3F0D3CA51976FEAB002B3B77 /* CYPFetchResultControllerManager.m */,
+				3F0D3CA71977056C002B3B77 /* CYPNetworkManager.h */,
+				3F0D3CA81977056C002B3B77 /* CYPNetworkManager.m */,
+				3F0D3CAA197709E5002B3B77 /* CYPImagePersistence.h */,
+				3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */,
+				3F0D3CAD19770D76002B3B77 /* CYPEventManager.h */,
+				3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		3F87A3A01976C8B6009D83ED /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3F87A3A11976C8E7009D83ED /* CYPFetchedResultsDelegate.h */,
+				3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,10 +556,12 @@
 			files = (
 				3F4864881973F4DC0072668B /* CYPModelDocument.m in Sources */,
 				3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */,
+				3F0D3CA61976FEAB002B3B77 /* CYPFetchResultControllerManager.m in Sources */,
 				3F48649519740D620072668B /* CYPArtist.m in Sources */,
 				3F48649E19740E140072668B /* CYPCity.m in Sources */,
 				3F4864AA197422F40072668B /* CYPVenue+Model.m in Sources */,
 				3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */,
+				3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */,
 				3F4863F41972CC0A0072668B /* main.m in Sources */,
 				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
@@ -535,10 +570,13 @@
 				3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */,
 				3F4864AD1974276E0072668B /* CYPVenue.m in Sources */,
 				3F48649819740D7E0072668B /* CYPArtist+Model.m in Sources */,
+				3F0D3CA91977056C002B3B77 /* CYPNetworkManager.m in Sources */,
 				3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */,
+				3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */,
 				3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */,
 				3F48647C1973E65D0072668B /* CYPGenre.m in Sources */,
 				3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */,
+				3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */,
 				3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */,
 				3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */,
 				3F4864531973D0E20072668B /* CYPDates.m in Sources */,

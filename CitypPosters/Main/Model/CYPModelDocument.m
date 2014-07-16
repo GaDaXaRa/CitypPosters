@@ -7,19 +7,36 @@
 //
 
 #import "CYPModelDocument.h"
-#import "CYPEvent+Model.h"
+#import "CYPNetworkManager.h"
 
 @implementation CYPModelDocument
 
 - (void)importDataWithEvents:(NSArray *)events error:(NSError *__autoreleasing *)error {
     [self importEvents:events];
-    [self.managedObjectContext save:error];
 }
 
 - (void)importEvents:(NSArray *)events {
     for (NSDictionary *eventDictionary in events) {
-        [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
+        if (![self fetchEventById:eventDictionary[eventNameKey]]) {
+            [self.managedObjectContext.undoManager beginUndoGrouping];
+            [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
+            [self.managedObjectContext.undoManager endUndoGrouping];
+        }
     }
+}
+
+- (CYPEvent *)fetchEventById:(NSString *)eventId {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"eventId = %@", eventId];
+    NSFetchRequest *request = [CYPEvent requestEventsWithPredicate:predicate];
+    
+    return [[self.managedObjectContext executeFetchRequest:request error:nil] firstObject];
+}
+
+- (CYPEvent *)fetchEventByName:(NSString *)name {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name = %@", name];
+    NSFetchRequest *request = [CYPEvent requestEventsWithPredicate:predicate];
+    
+    return [[self.managedObjectContext executeFetchRequest:request error:nil] firstObject];
 }
 
 @end

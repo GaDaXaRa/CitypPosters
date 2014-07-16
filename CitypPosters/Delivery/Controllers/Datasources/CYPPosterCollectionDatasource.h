@@ -10,4 +10,6 @@
 
 @interface CYPPosterCollectionDatasource : NSObject<UICollectionViewDataSource>
 
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
+
 @end

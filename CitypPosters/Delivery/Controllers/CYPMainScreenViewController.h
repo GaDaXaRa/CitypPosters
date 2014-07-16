@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CYPModelDocument.h"
 
 @interface CYPMainScreenViewController : UIViewController
+
+@property (strong, nonatomic) CYPModelDocument *model;
 
 @end

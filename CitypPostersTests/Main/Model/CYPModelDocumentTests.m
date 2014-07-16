@@ -78,6 +78,16 @@ static NSString *const rock = @"Rock";
     XCTAssertTrue(results.count == 2, @"Results should have two events");
 }
 
+- (void) testLoadDataFromUrl {
+    NSURL *url = [NSURL URLWithString:@"http://citypposters.apiary.io/events"];
+    [sut importDataWithUrl:url completion:^(BOOL error) {
+        XCTAssertFalse(error, @"Should not end with error");
+        NSArray *results = [context executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([CYPEvent class])]
+                                                  error:NULL];
+        XCTAssertNotNil(results, @"Must return results");
+    }];
+}
+
 #pragma mark - Set up and tear down
 
 - (void) setUp {

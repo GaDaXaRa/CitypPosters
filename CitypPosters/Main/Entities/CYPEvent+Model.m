@@ -19,6 +19,7 @@ NSString *const genresKey = @"genres";
 NSString *const mainArtistsKey = @"mainArtists";
 NSString *const invitedArtistsKey = @"invitedArtists";
 NSString *const venueKey = @"venue";
+NSString *const eventIdKey = @"eventId";
 
 @implementation CYPEvent (Model)
 
@@ -31,12 +32,47 @@ NSString *const venueKey = @"venue";
     event.genres = [event importGenres:dictionary[genresKey] inContext:context];
     event.dates = [event importDates:dictionary[eventDatesKey] inContext:context];
     event.name = dictionary[eventNameKey];
+    event.eventId = dictionary[eventIdKey];
     
     return event;
 }
 
-- (void)awakeFromInsert {
-    self.eventId = [[NSUUID UUID] UUIDString];
++ (NSFetchRequest *)requestAllEventsWithOrder:(NSString *)orderKey ascending:(BOOL)ascending {
+    NSFetchRequest *fetchRequest = [CYPEvent entityRequestWithBatchSize:20];
+    
+    [fetchRequest setSortDescriptors:[CYPEvent sortDescriptorsWithOrder:orderKey ascending:ascending]];
+    
+    return fetchRequest;
+}
+
++ (NSFetchRequest *)requestEventsWithPredicate:(NSPredicate *)predicate {
+    NSFetchRequest *fetchRequest = [CYPEvent entityRequestWithBatchSize:20];
+    fetchRequest.predicate = predicate;
+    
+    [fetchRequest setSortDescriptors:[CYPEvent sortDescriptorsWithOrder:@"name" ascending:YES]];
+    
+    return fetchRequest;
+}
+
++ (NSFetchRequest *)requestEventsWithSortDescriptors:(NSArray *)sortDescriptors {
+    NSFetchRequest *fetchRequest = [CYPEvent entityRequestWithBatchSize:20];
+    fetchRequest.sortDescriptors = sortDescriptors;
+    
+    return fetchRequest;
+}
+
++ (NSFetchRequest *)entityRequestWithBatchSize:(NSUInteger)batchSize {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([CYPEvent class])];
+    [fetchRequest setFetchBatchSize:batchSize];
+    
+    return fetchRequest;
+}
+
++ (NSArray *)sortDescriptorsWithOrder:(NSString *)orderKey ascending:(BOOL)ascending {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:orderKey ascending:ascending];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    return sortDescriptors;
 }
 
 - (NSSet *)importArtists:(NSArray *)artists inContext:(NSManagedObjectContext *)context {
@@ -62,8 +98,8 @@ NSString *const venueKey = @"venue";
 - (NSSet *)importDates:(NSArray *)dates inContext:(NSManagedObjectContext *)context {
     NSMutableSet *auxSet = [[NSMutableSet alloc] initWithCapacity:dates.count];
     
-    for (NSDate *date in dates) {
-        [auxSet addObject:[CYPDates dateInContext:context withDate:date]];
+    for (NSString *date in dates) {
+        [auxSet addObject:[CYPDates dateInContext:context withString:date]];
     }
     
     return auxSet.copy;

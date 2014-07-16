@@ -14,4 +14,6 @@ extern NSString *const dateDateKey;
 
 + (instancetype)dateInContext:(NSManagedObjectContext *)context withDate:(NSDate *)date;
 
++ (instancetype)dateInContext:(NSManagedObjectContext *)context withString:(NSString *)date;
+
 @end

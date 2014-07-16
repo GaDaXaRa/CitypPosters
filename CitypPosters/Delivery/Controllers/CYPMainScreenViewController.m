@@ -10,6 +10,10 @@
 #import "CYPPosterCollectionDatasource.h"
 #import "CYPDetailViewController.h"
 #import "CYPViewAnimationHelper.h"
+#import "CYPEvent+Model.h"
+#import "CYPFetchResultControllerManager.h"
+#import "CYPEventManager.h"
+#import "CYPPosterCell.h"
 
 enum {
     inPoster,
@@ -20,7 +24,10 @@ enum {
 @interface CYPMainScreenViewController ()<UICollectionViewDelegate, CYPDetailViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet CYPViewAnimationHelper *animationHelper;
+@property (strong, nonatomic) IBOutlet CYPFetchResultControllerManager *fetchResultControllerManager;
+@property (strong, nonatomic) IBOutlet CYPEventManager *eventManager;
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
+
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
 @property (strong, nonatomic) UICollectionViewFlowLayout *zoomOutLayout;
@@ -70,6 +77,7 @@ enum {
 - (CYPPosterCollectionDatasource *)collectionDatasource {
     if(!_collectionDatasource) {
         _collectionDatasource = [[CYPPosterCollectionDatasource alloc] init];
+        _collectionDatasource.fetchedResultController = self.fetchResultControllerManager.fetchedResultsController;
     }
     
     return _collectionDatasource;
@@ -100,10 +108,29 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Citypposters";
+    self.fetchResultControllerManager.model = self.model;
+    self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
+    __weak typeof(self) bself = self;
+    [self.eventManager setImageDidPersistBlock:^(NSString *eventId, UIImage *image) {
+        [bself updateImage:image forEventId:eventId];
+    }];
+    [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
+        [self.model importEvents:events];
+    }];
+    
     self.posterCollectionView.delegate = self;
     self.screenState = inPoster;
     self.posterCollectionView.dataSource = self.collectionDatasource;
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
+}
+
+- (void)updateImage:(UIImage *)image forEventId:(NSString *)eventId {
+    CYPEvent *event = [self.model fetchEventById:eventId];
+    NSIndexPath *indexPath = [self.fetchResultControllerManager.fetchedResultsController indexPathForObject:event];
+    CYPPosterCell *cell = (CYPPosterCell *)[self.posterCollectionView cellForItemAtIndexPath:indexPath];
+    cell.posterImageWiew.image = image;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -125,6 +152,7 @@ enum {
 }
 
 - (void)openDetailForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CYPEvent *event = [self.fetchResultControllerManager.fetchedResultsController objectAtIndexPath:indexPath];
     [self addChildViewController:self.detailViewController];
     [self.detailViewController willMoveToParentViewController:self];
     [self.view addSubview:self.detailViewController.view];
@@ -149,5 +177,18 @@ enum {
 - (void)detailViewControllerFished:(CYPDetailViewController *)controller {
     [self closeDetailView];
 }
+
+- (void) observeManagedObjectContext {
+    [self addObserver:self forKeyPath:@"model.managedObjectContext" options:0 context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"model.managedObjectContext"]) {
+        self.fetchResultControllerManager.fetchedResultsController = nil;
+        [self.posterCollectionView reloadData];
+    }
+}
+
+
 
 @end

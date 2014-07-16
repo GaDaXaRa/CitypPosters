@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
+#import "CYPEvent+Model.h"
 
 @interface CYPModelDocument : UIManagedDocument
 
-- (void)importDataWithEvents:(NSArray *)events error:(NSError *__autoreleasing *)error;
+- (void)importEvents:(NSArray *)events;
+- (CYPEvent *)fetchEventById:(NSString *)eventId;
 
 @end
