@@ -10,6 +10,13 @@
 
 @interface CYPDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventVenueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *venueAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *genresLabel;
+@property (weak, nonatomic) IBOutlet UILabel *invitedArtistsLabel;
+
 @end
 
 @implementation CYPDetailViewController

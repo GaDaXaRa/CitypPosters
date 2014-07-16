@@ -44,8 +44,10 @@ enum {
 - (UICollectionViewFlowLayout *)fullScreenLayout {
     if (!_fullScreenLayout) {
         _fullScreenLayout = [[UICollectionViewFlowLayout alloc] init];
-        _fullScreenLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width - 10, self.posterCollectionView.frame.size.height - 10);
+        _fullScreenLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width, self.posterCollectionView.frame.size.height );
         _fullScreenLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _fullScreenLayout.minimumInteritemSpacing = 0;
+        _fullScreenLayout.minimumLineSpacing = 0;
         _fullScreenLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     
@@ -55,8 +57,10 @@ enum {
 - (UICollectionViewFlowLayout *)zoomOutLayout {
     if (!_zoomOutLayout) {
         _zoomOutLayout = [[UICollectionViewFlowLayout alloc] init];
-        _zoomOutLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width / 2 -10, self.posterCollectionView.frame.size.height / 2 - 10);
+        _zoomOutLayout.itemSize = CGSizeMake(self.posterCollectionView.frame.size.width / 2, self.posterCollectionView.frame.size.height / 2);
         _zoomOutLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _zoomOutLayout.minimumInteritemSpacing = 0;
+        _zoomOutLayout.minimumLineSpacing = 0;
         _zoomOutLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
     
@@ -124,17 +128,21 @@ enum {
     [self addChildViewController:self.detailViewController];
     [self.detailViewController willMoveToParentViewController:self];
     [self.view addSubview:self.detailViewController.view];
+    self.posterCollectionView.userInteractionEnabled = NO;
     [self.animationHelper animateViewFromLeft:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [self.detailViewController didMoveToParentViewController:self];
+        self.posterCollectionView.userInteractionEnabled = YES;
     }];
 }
 
 - (void)closeDetailView {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
+    self.posterCollectionView.userInteractionEnabled = NO;
     [self.animationHelper animateViewToRight:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [detailView removeFromSuperview];
         [self.detailViewController removeFromParentViewController];
+        self.posterCollectionView.userInteractionEnabled = YES;
     }];
 }
 

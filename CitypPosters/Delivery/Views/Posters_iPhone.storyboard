@@ -194,6 +194,14 @@
                             <constraint firstAttribute="trailing" secondItem="taC-Ii-sMY" secondAttribute="trailing" constant="20" id="tQv-qF-8lJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eventDateLabel" destination="GO5-uq-uY3" id="yvq-hu-etw"/>
+                        <outlet property="eventNameLabel" destination="9y0-Iu-sEM" id="wW2-I2-Qkp"/>
+                        <outlet property="eventVenueLabel" destination="taC-Ii-sMY" id="5Kf-Cb-DSI"/>
+                        <outlet property="genresLabel" destination="e9D-ax-Lib" id="DWr-ld-mrp"/>
+                        <outlet property="invitedArtistsLabel" destination="PXr-yX-OJh" id="zSp-6q-kh0"/>
+                        <outlet property="venueAddressLabel" destination="HLM-67-JHL" id="MHP-hC-2GH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgh-eU-kDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

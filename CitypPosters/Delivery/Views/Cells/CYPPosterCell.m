@@ -34,6 +34,7 @@
 
 - (void)setUp {
     self.posterImageWiew = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+    self.posterImageWiew.clipsToBounds = YES;
     self.posterImageWiew.image = [UIImage imageNamed:@"misfits_poster_b-n_web1.jpg"];
     self.posterImageWiew.contentMode = UIViewContentModeScaleAspectFill;
     [self.contentView addSubview:self.posterImageWiew];
@@ -41,7 +42,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.posterImageWiew.frame = self.bounds;
+    self.posterImageWiew.frame = CGRectInset(self.bounds, 30, 30);
 }
 
 @end
