@@ -69,6 +69,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initialFontSettingsForCell:(UITableViewCell *)cell {
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+}
+
 /*
  #pragma mark - Navigation
  
@@ -83,9 +89,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = indexPath.section;
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"detailCell"];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+    [self initialFontSettingsForCell:cell];
     switch (section) {
         case 0: {
             cell.textLabel.font = [UIFont boldSystemFontOfSize:22];

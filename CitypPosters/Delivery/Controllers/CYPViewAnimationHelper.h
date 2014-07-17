@@ -12,5 +12,7 @@
 
 - (void)animateViewToRight:(UIView *)view inRect:(CGRect)rect completion:(void (^)())completion;
 - (void)animateViewFromLeft:(UIView *)view inRect:(CGRect)rect completion:(void (^)())completion;
+- (void)animateViewFadeIn:(UIView *)view inRect:(CGRect)rect completion:(void(^)())completion;
+- (void)animateViewFadeOut:(UIView *)view inRect:(CGRect)rect completion:(void(^)())completion;
 
 @end

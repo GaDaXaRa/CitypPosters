@@ -104,7 +104,7 @@
                         <viewControllerLayoutGuide type="top" id="xe3-Bw-QBm"/>
                         <viewControllerLayoutGuide type="bottom" id="ZrV-bY-zrr"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.79999999999999982" contentMode="scaleToFill" id="thg-Oc-OA9">
+                    <view key="view" opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" id="thg-Oc-OA9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>

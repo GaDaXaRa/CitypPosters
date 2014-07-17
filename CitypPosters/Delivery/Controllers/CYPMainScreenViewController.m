@@ -147,7 +147,7 @@ enum {
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.screenState == zoomInScreen) {
         [self.posterCollectionView setCollectionViewLayout:self.fullScreenLayout animated:YES completion:^(BOOL finished) {
-            [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+            [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
             self.screenState = inPoster;
         }];
     } else if (self.screenState == inPoster) {
@@ -162,7 +162,7 @@ enum {
     self.detailViewController.event = event;
     [self.view addSubview:self.detailViewController.view];
     self.posterCollectionView.userInteractionEnabled = NO;
-    [self.animationHelper animateViewFromLeft:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+    [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [self.detailViewController didMoveToParentViewController:self];
     }];
 }
@@ -171,7 +171,7 @@ enum {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
     self.posterCollectionView.userInteractionEnabled = NO;
-    [self.animationHelper animateViewToRight:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+    [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [detailView removeFromSuperview];
         [self.detailViewController removeFromParentViewController];
         [self.detailViewController didMoveToParentViewController:nil];

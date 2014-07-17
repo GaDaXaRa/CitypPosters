@@ -28,4 +28,23 @@
     }];
 }
 
+- (void)animateViewFadeIn:(UIView *)view inRect:(CGRect)rect completion:(void(^)())completion {
+    view.frame = rect;
+    view.alpha = 0;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        view.alpha = 0.8;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
+}
+
+- (void)animateViewFadeOut:(UIView *)view inRect:(CGRect)rect completion:(void(^)())completion {
+    view.frame = rect;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        view.alpha = 0;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
+}
+
 @end
