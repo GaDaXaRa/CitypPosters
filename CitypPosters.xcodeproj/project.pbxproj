@@ -53,6 +53,7 @@
 		3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */; };
 		3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */; };
 		3FE37C10197827DB00119A67 /* CYPAsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */; };
+		3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C1219785AF600119A67 /* CYPImageTiler.m */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPCoordinatorViewController.m; sourceTree = "<group>"; };
 		3FE37C0E197827DB00119A67 /* CYPAsideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPAsideTableViewController.h; sourceTree = "<group>"; };
 		3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPAsideTableViewController.m; sourceTree = "<group>"; };
+		3FE37C1119785AF600119A67 /* CYPImageTiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPImageTiler.h; sourceTree = "<group>"; };
+		3FE37C1219785AF600119A67 /* CYPImageTiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPImageTiler.m; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -399,6 +402,8 @@
 				3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */,
 				3F0D3CAD19770D76002B3B77 /* CYPEventManager.h */,
 				3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */,
+				3FE37C1119785AF600119A67 /* CYPImageTiler.h */,
+				3FE37C1219785AF600119A67 /* CYPImageTiler.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
 				3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
+				3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */,
 				3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */,
 				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
 				3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */,

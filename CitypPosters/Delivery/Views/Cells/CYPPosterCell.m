@@ -34,7 +34,6 @@
 
 - (void)setUp {
     self.posterImageWiew = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
-//    self.posterImageWiew.clipsToBounds = YES;
     self.posterImageWiew.contentMode = UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:self.posterImageWiew];
 }
@@ -44,7 +43,7 @@
     
     self.posterImageWiew.frame = CGRectInset(self.bounds, 10, 10);
     self.posterImageWiew.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.posterImageWiew.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    self.posterImageWiew.layer.shadowOffset = CGSizeMake(1.5, 1.5);
     self.posterImageWiew.layer.shadowRadius = 3.0f;
     self.posterImageWiew.layer.shadowOpacity = 1.0f;
 }

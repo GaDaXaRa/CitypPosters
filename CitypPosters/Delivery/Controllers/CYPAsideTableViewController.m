@@ -8,6 +8,7 @@
 
 #import "CYPAsideTableViewController.h"
 #import "CYPCoordinatorViewController.h"
+#import "CYPImageTiler.h"
 
 @interface CYPAsideTableViewController ()
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
@@ -31,10 +32,7 @@
     [super viewDidLoad];
     CYPCoordinatorViewController *parentViewController = (CYPCoordinatorViewController *)[[self parentViewController] parentViewController];
     [self.swipeRight addTarget:parentViewController action:@selector(hideSettings)];
-    UIImage *image = [UIImage imageNamed:@"fondo1"];
-    UIImage *imageTiled = [image resizableImageWithCapInsets:UIEdgeInsetsZero
-                                                resizingMode:UIImageResizingModeTile];
-    self.imageView.image = imageTiled;
+    self.imageView.image = [CYPImageTiler imgeTiledWithName:@"fondo1"];
     self.tableView.backgroundView = self.imageView;
 }
 

@@ -40,11 +40,6 @@
     return self;
 }
 
-- (IBAction)closePressed:(id)sender {
-    [self.delegate detailViewControllerFished:self];
-    NSLog(@"Close");
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -113,14 +108,14 @@
                 cell.textLabel.text = self.event.venue.address;
             };
             break;
-        case 4:
+        case 5:
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"Géneros:";
             } else {
                 cell.textLabel.text = [[self.event.genres allObjects][indexPath.row - 1] name];
             };
             break;
-        case 5:
+        case 4:
             if ([self.event.invitedArtists count]) {
                 if (indexPath.row == 0) {
                     cell.textLabel.text = @"Artistas invitados:";
@@ -151,13 +146,17 @@
         case 3:
             return 2;
         case 4:
-            return 1 + [self.event.genres count];
-        case 5:
             return 1 + [self.event.invitedArtists count];
+        case 5:
+            return 1 + [self.event.genres count];
         default:
             return 0;
             break;
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = [UIColor blackColor];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -166,6 +165,11 @@
     }
     return 26;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.0;
+}
+
 - (IBAction)tapOnTableView:(UITapGestureRecognizer *)sender {
     [self.delegate detailViewControllerFished:self];
 }

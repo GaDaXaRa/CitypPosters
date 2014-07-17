@@ -15,6 +15,7 @@
 #import "CYPEventManager.h"
 #import "CYPPosterCell.h"
 #import "CYPCoordinatorViewController.h"
+#import "CYPImageTiler.h"
 
 enum {
     inPoster,
@@ -113,10 +114,8 @@ enum {
     [super viewDidLoad];
     
     self.title = @"Citypposters";
-    UIImage *image = [UIImage imageNamed:@"fondo1"];
-    UIImage *imageTiled = [image resizableImageWithCapInsets:UIEdgeInsetsZero
-                                                resizingMode:UIImageResizingModeTile];
-    self.imageView.image = imageTiled;
+    
+    self.imageView.image = [CYPImageTiler imgeTiledWithName:@"fondo1"];
     CYPCoordinatorViewController *coordinatorVC = (CYPCoordinatorViewController *)self.parentViewController.parentViewController;
     [self.settingsButton addTarget:coordinatorVC action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
@@ -169,11 +168,11 @@ enum {
     }];
 }
 
-- (void)closeDetailView {
+- (void)closeDetailView:(UIView *)view {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
     self.posterCollectionView.userInteractionEnabled = NO;
-    [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+    [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:view.frame completion:^{
         [detailView removeFromSuperview];
         [self.detailViewController removeFromParentViewController];
         [self.detailViewController didMoveToParentViewController:nil];
@@ -182,7 +181,7 @@ enum {
 }
 
 - (void)detailViewControllerFished:(CYPDetailViewController *)controller {
-    [self closeDetailView];
+    [self closeDetailView:controller.view];
 }
 
 - (void) observeManagedObjectContext {
