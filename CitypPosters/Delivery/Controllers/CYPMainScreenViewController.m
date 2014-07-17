@@ -27,6 +27,8 @@ enum {
 @property (strong, nonatomic) IBOutlet CYPFetchResultControllerManager *fetchResultControllerManager;
 @property (strong, nonatomic) IBOutlet CYPEventManager *eventManager;
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
@@ -110,7 +112,11 @@ enum {
     [super viewDidLoad];
     
     self.title = @"Citypposters";
-    
+    UIImage *image = [UIImage imageNamed:@"fondo1"];
+    UIImage *imageTiled = [image resizableImageWithCapInsets:UIEdgeInsetsZero
+                                                resizingMode:UIImageResizingModeTile];
+    self.imageView.image = imageTiled;
+    [self.settingsButton addTarget:nil action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
     self.fetchResultControllerManager.model = self.model;
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
@@ -151,9 +157,9 @@ enum {
 
 - (void)openDetailForItemAtIndexPath:(NSIndexPath *)indexPath {
     CYPEvent *event = [self.fetchResultControllerManager.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.detailViewController willMoveToParentViewController:self];
     [self addChildViewController:self.detailViewController];
     self.detailViewController.event = event;
-    [self.detailViewController willMoveToParentViewController:self];
     [self.view addSubview:self.detailViewController.view];
     self.posterCollectionView.userInteractionEnabled = NO;
     [self.animationHelper animateViewFromLeft:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
@@ -168,6 +174,7 @@ enum {
     [self.animationHelper animateViewToRight:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [detailView removeFromSuperview];
         [self.detailViewController removeFromParentViewController];
+        [self.detailViewController didMoveToParentViewController:nil];
         self.posterCollectionView.userInteractionEnabled = YES;
     }];
 }
@@ -186,7 +193,6 @@ enum {
         [self.posterCollectionView reloadData];
     }
 }
-
 
 
 @end

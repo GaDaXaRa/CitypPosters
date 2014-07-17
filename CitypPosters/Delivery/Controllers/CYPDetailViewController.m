@@ -56,9 +56,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-    if (self.tableView.contentSize.height <= self.tableView.bounds.size.height) {
-        self.tableView.scrollEnabled = NO;
-    }
+    self.tableView.alwaysBounceVertical = NO;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -87,15 +85,16 @@
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"detailCell"];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
     switch (section) {
         case 0: {
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:24];
-            cell.textLabel.text = [[self.event.mainArtists allObjects][indexPath.row] name];;
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
+            cell.textLabel.text = self.event.name;
             break;
         }
         case 1: {
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
-            cell.textLabel.text = self.event.name;
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:24];
+            cell.textLabel.text = [[self.event.mainArtists allObjects][indexPath.row] name];;
             break;
         }
         case 2: {
@@ -140,9 +139,9 @@
     switch (section) {
         case 0:
             return 1;
-            break;
         case 1:
-            return 1;
+            return [self.event.mainArtists count];
+            break;
         case 2:
             return [self.event.dates count];
         case 3:
@@ -158,6 +157,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section > 1){
+        return 16;
+    }
     return 26;
 }
 - (IBAction)tapOnTableView:(UITapGestureRecognizer *)sender {

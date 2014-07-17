@@ -8,7 +8,7 @@
 
 #import "CYPAppDelegate.h"
 #import "CYPModelDocument.h"
-#import "CYPMainScreenViewController.h"
+#import "CYPCoordinatorViewController.h"
 
 @interface CYPAppDelegate ()
 
@@ -50,26 +50,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
-}
-
-- (void)saveContext
-{
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
 }
 
 - (void)prepareRootController {
-    UINavigationController *rootController = (UINavigationController *)self.window.rootViewController;
-    CYPMainScreenViewController *mainController = (CYPMainScreenViewController *)rootController.topViewController;
+    CYPCoordinatorViewController *mainController = (CYPCoordinatorViewController *)self.window.rootViewController;
     mainController.model = self.model;
 }
 

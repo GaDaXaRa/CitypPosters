@@ -11,9 +11,6 @@
 		3F0D3CA91977056C002B3B77 /* CYPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CA81977056C002B3B77 /* CYPNetworkManager.m */; };
 		3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */; };
 		3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */; };
-		3F2DF88E1975137A00777F0D /* Led-Zeppllin-Posters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF88D1975137A00777F0D /* Led-Zeppllin-Posters.jpg */; };
-		3F2DF8911975138200777F0D /* 130p_arg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF88F1975138200777F0D /* 130p_arg.jpg */; };
-		3F2DF8921975138200777F0D /* misfits_poster_b-n_web1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3F2DF8901975138200777F0D /* misfits_poster_b-n_web1.jpg */; };
 		3F4863E61972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
 		3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E71972CC0A0072668B /* CoreGraphics.framework */; };
 		3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
@@ -54,6 +51,8 @@
 		3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */; };
 		3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */; };
 		3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */; };
+		3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */; };
+		3FE37C10197827DB00119A67 /* CYPAsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -76,9 +75,6 @@
 		3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPImagePersistence.m; sourceTree = "<group>"; };
 		3F0D3CAD19770D76002B3B77 /* CYPEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEventManager.h; sourceTree = "<group>"; };
 		3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventManager.m; sourceTree = "<group>"; };
-		3F2DF88D1975137A00777F0D /* Led-Zeppllin-Posters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Led-Zeppllin-Posters.jpg"; sourceTree = "<group>"; };
-		3F2DF88F1975138200777F0D /* 130p_arg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 130p_arg.jpg; sourceTree = "<group>"; };
-		3F2DF8901975138200777F0D /* misfits_poster_b-n_web1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "misfits_poster_b-n_web1.jpg"; sourceTree = "<group>"; };
 		3F4863E21972CC0A0072668B /* CitypPosters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitypPosters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4863E51972CC0A0072668B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F4863E71972CC0A0072668B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +136,10 @@
 		3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPViewAnimationHelper.m; sourceTree = "<group>"; };
 		3F87A3A11976C8E7009D83ED /* CYPFetchedResultsDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPFetchedResultsDelegate.h; sourceTree = "<group>"; };
 		3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPFetchedResultsDelegate.m; sourceTree = "<group>"; };
+		3FE37C0B197810FE00119A67 /* CYPCoordinatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPCoordinatorViewController.h; sourceTree = "<group>"; };
+		3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPCoordinatorViewController.m; sourceTree = "<group>"; };
+		3FE37C0E197827DB00119A67 /* CYPAsideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPAsideTableViewController.h; sourceTree = "<group>"; };
+		3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPAsideTableViewController.m; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -171,16 +171,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F2DF88C1975136A00777F0D /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				3F2DF88F1975138200777F0D /* 130p_arg.jpg */,
-				3F2DF8901975138200777F0D /* misfits_poster_b-n_web1.jpg */,
-				3F2DF88D1975137A00777F0D /* Led-Zeppllin-Posters.jpg */,
-			);
-			name = Media;
-			sourceTree = "<group>";
-		};
 		3F4863D91972CC0A0072668B = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +207,6 @@
 		3F4863ED1972CC0A0072668B /* CitypPosters */ = {
 			isa = PBXGroup;
 			children = (
-				3F2DF88C1975136A00777F0D /* Media */,
 				3F48643F1973BF7F0072668B /* Main */,
 				3F48643E1973BF730072668B /* Delivery */,
 				3F4863F61972CC0A0072668B /* CYPAppDelegate.h */,
@@ -278,6 +267,10 @@
 				3F486438197315630072668B /* CYPMainScreenViewController.m */,
 				3F87A38D1975BE6F009D83ED /* CYPDetailViewController.h */,
 				3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */,
+				3FE37C0B197810FE00119A67 /* CYPCoordinatorViewController.h */,
+				3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */,
+				3FE37C0E197827DB00119A67 /* CYPAsideTableViewController.h */,
+				3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -497,9 +490,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2DF88E1975137A00777F0D /* Led-Zeppllin-Posters.jpg in Resources */,
-				3F2DF8921975138200777F0D /* misfits_poster_b-n_web1.jpg in Resources */,
-				3F2DF8911975138200777F0D /* 130p_arg.jpg in Resources */,
 				3F48641C1972CC340072668B /* Posters_iPhone.storyboard in Resources */,
 				3F4863F21972CC0A0072668B /* InfoPlist.strings in Resources */,
 				3F4863FD1972CC0A0072668B /* Images.xcassets in Resources */,
@@ -555,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4864881973F4DC0072668B /* CYPModelDocument.m in Sources */,
+				3FE37C10197827DB00119A67 /* CYPAsideTableViewController.m in Sources */,
 				3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */,
 				3F0D3CA61976FEAB002B3B77 /* CYPFetchResultControllerManager.m in Sources */,
 				3F48649519740D620072668B /* CYPArtist.m in Sources */,
@@ -564,6 +555,7 @@
 				3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */,
 				3F4863F41972CC0A0072668B /* main.m in Sources */,
 				3F4864431973C8230072668B /* CYPModel.xcdatamodeld in Sources */,
+				3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
 				3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */,
 				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
