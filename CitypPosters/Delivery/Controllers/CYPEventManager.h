@@ -10,7 +10,7 @@
 
 @interface CYPEventManager : NSObject
 
-@property (nonatomic, copy) void (^imageDidPersistBlock)(NSString *eventId, UIImage *image);
+@property (nonatomic, copy) void (^imageDidPersistBlock)(NSString *eventId);
 
 - (void) getAllEventsWithCompletion:(void(^)(NSArray *events))completion;
 

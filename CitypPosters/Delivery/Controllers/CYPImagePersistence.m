@@ -23,4 +23,13 @@
     [fileManager createFileAtPath:fullPath contents:imageData attributes:nil];
 }
 
++ (UIImage *)imageWithFileName:(NSString *)filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", filename]];
+    
+    return [UIImage imageWithContentsOfFile:fullPath];
+}
+
 @end

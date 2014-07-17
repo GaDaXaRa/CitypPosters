@@ -110,34 +110,32 @@ enum {
     [super viewDidLoad];
     
     self.title = @"Citypposters";
-    self.fetchResultControllerManager.model = self.model;
+    
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
-    __weak typeof(self) bself = self;
-    [self.eventManager setImageDidPersistBlock:^(NSString *eventId, UIImage *image) {
-        [bself updateImage:image forEventId:eventId];
-    }];
+    self.fetchResultControllerManager.model = self.model;
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
-        [self.model importEvents:events];
+        dispatch_async(MAIN_QUEUE, ^{
+            [self.model importEvents:events];
+        });
+    }];
+    self.posterCollectionView.delegate = self;
+    self.posterCollectionView.dataSource = self.collectionDatasource;
+    
+    __weak typeof(self) bself = self;
+    [self.eventManager setImageDidPersistBlock:^(NSString *eventId) {
+        dispatch_async(MAIN_QUEUE, ^{
+            [bself updateImageForEventId:eventId];
+        });
     }];
     
-    self.posterCollectionView.delegate = self;
     self.screenState = inPoster;
-    self.posterCollectionView.dataSource = self.collectionDatasource;
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
 }
 
-- (void)updateImage:(UIImage *)image forEventId:(NSString *)eventId {
+- (void)updateImageForEventId:(NSString *)eventId {
     CYPEvent *event = [self.model fetchEventById:eventId];
     NSIndexPath *indexPath = [self.fetchResultControllerManager.fetchedResultsController indexPathForObject:event];
-    CYPPosterCell *cell = (CYPPosterCell *)[self.posterCollectionView cellForItemAtIndexPath:indexPath];
-    cell.posterImageWiew.image = image;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.screenState == zoomInScreen) {
-        [self performPinchOut];
-        [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
-    }
+    [self.posterCollectionView reloadItemsAtIndexPaths:@[indexPath]];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

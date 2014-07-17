@@ -12,4 +12,6 @@
 
 + (void)persistImage:(UIImage *)image withFilename:(NSString *)filename;
 
++ (UIImage *)imageWithFileName:(NSString *)filename;
+
 @end

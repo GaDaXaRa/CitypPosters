@@ -20,7 +20,9 @@
             NSString *posterUrl = eventDictionary[@"eventPoster"];
             [CYPNetworkManager downloadImageWithUrl:posterUrl completion:^(UIImage *image) {
                 [CYPImagePersistence persistImage:image withFilename:eventId];
-                self.imageDidPersistBlock(eventId, image);
+                if (self.imageDidPersistBlock) {
+                    self.imageDidPersistBlock(eventId);
+                }
             }];
         }
         completion(events);
