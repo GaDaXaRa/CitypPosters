@@ -17,7 +17,7 @@
 
 - (void)importEvents:(NSArray *)events {
     for (NSDictionary *eventDictionary in events) {
-        if (![self fetchEventById:eventDictionary[eventNameKey]]) {
+        if (![self fetchEventById:eventDictionary[eventIdKey]]) {
             [self.managedObjectContext.undoManager beginUndoGrouping];
             [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
             [self.managedObjectContext.undoManager endUndoGrouping];
