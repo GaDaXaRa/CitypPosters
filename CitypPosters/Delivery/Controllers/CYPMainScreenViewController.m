@@ -16,6 +16,7 @@
 #import "CYPPosterCell.h"
 #import "CYPCoordinatorViewController.h"
 #import "CYPImageTiler.h"
+#import "CYPUserDefaultsManager.h"
 
 enum {
     inPoster,
@@ -31,6 +32,7 @@ enum {
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
@@ -115,7 +117,7 @@ enum {
     
     self.title = @"Citypposters";
     
-    self.imageView.image = [CYPImageTiler imgeTiledWithName:@"fondo1"];
+    self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     CYPCoordinatorViewController *coordinatorVC = (CYPCoordinatorViewController *)self.parentViewController.parentViewController;
     [self.settingsButton addTarget:coordinatorVC action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;

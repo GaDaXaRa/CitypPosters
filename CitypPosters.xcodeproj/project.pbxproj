@@ -54,6 +54,7 @@
 		3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0C197810FE00119A67 /* CYPCoordinatorViewController.m */; };
 		3FE37C10197827DB00119A67 /* CYPAsideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */; };
 		3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C1219785AF600119A67 /* CYPImageTiler.m */; };
+		3FE37C17197870F500119A67 /* CYPUserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE37C16197870F500119A67 /* CYPUserDefaultsManager.m */; };
 		4A4A2AA3ECF849B4831134C6 /* libPods-CitypPostersTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +144,8 @@
 		3FE37C0F197827DB00119A67 /* CYPAsideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPAsideTableViewController.m; sourceTree = "<group>"; };
 		3FE37C1119785AF600119A67 /* CYPImageTiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPImageTiler.h; sourceTree = "<group>"; };
 		3FE37C1219785AF600119A67 /* CYPImageTiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPImageTiler.m; sourceTree = "<group>"; };
+		3FE37C15197870F500119A67 /* CYPUserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPUserDefaultsManager.h; sourceTree = "<group>"; };
+		3FE37C16197870F500119A67 /* CYPUserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPUserDefaultsManager.m; sourceTree = "<group>"; };
 		4588BBA9BD0740D58B6B75BD /* Pods-CitypPostersTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CitypPostersTests.xcconfig"; path = "Pods/Pods-CitypPostersTests.xcconfig"; sourceTree = "<group>"; };
 		8C1A7BB2AEB740739DB7797B /* libPods-CitypPostersTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CitypPostersTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -262,6 +265,7 @@
 		3F48641D1972CD350072668B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3FE37C14197870D400119A67 /* Managers */,
 				3F87A3A01976C8B6009D83ED /* Delegates */,
 				3F87A3901975D801009D83ED /* Helpers */,
 				3F486430197314620072668B /* Datasources */,
@@ -417,6 +421,15 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
+		3FE37C14197870D400119A67 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3FE37C15197870F500119A67 /* CYPUserDefaultsManager.h */,
+				3FE37C16197870F500119A67 /* CYPUserDefaultsManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -554,6 +567,7 @@
 				3F486439197315630072668B /* CYPMainScreenViewController.m in Sources */,
 				3F0D3CA61976FEAB002B3B77 /* CYPFetchResultControllerManager.m in Sources */,
 				3F48649519740D620072668B /* CYPArtist.m in Sources */,
+				3FE37C17197870F500119A67 /* CYPUserDefaultsManager.m in Sources */,
 				3F48649E19740E140072668B /* CYPCity.m in Sources */,
 				3F4864AA197422F40072668B /* CYPVenue+Model.m in Sources */,
 				3F48642D1972E4580072668B /* CYPPosterCell.m in Sources */,

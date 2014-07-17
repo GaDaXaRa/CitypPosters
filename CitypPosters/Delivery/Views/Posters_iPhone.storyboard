@@ -75,9 +75,11 @@
                         <outlet property="imageView" destination="ao1-zs-VBM" id="Grm-WA-ffK"/>
                         <outlet property="posterCollectionView" destination="yjk-0S-ATd" id="yp5-KH-zVd"/>
                         <outlet property="settingsButton" destination="XHf-7E-Pa0" id="vZu-tA-lWN"/>
+                        <outlet property="userDefaults" destination="Tbw-pZ-DmY" id="Owe-gl-XIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qu2-OS-slX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Tbw-pZ-DmY" customClass="CYPUserDefaultsManager"/>
                 <customObject id="afF-Zh-fy3" customClass="CYPPosterCollectionDatasource"/>
                 <customObject id="Mmb-yz-XeA" customClass="CYPEventManager"/>
                 <customObject id="yJG-fV-TbI" customClass="CYPFetchResultControllerManager">
@@ -144,7 +146,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a8y-aX-8wd">
-                                <rect key="frame" x="5" y="40" width="310" height="471"/>
+                                <rect key="frame" x="5" y="20" width="310" height="491"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -174,7 +176,7 @@
                             <constraint firstAttribute="trailing" secondItem="a8y-aX-8wd" secondAttribute="trailing" constant="5" id="81X-9F-EjM"/>
                             <constraint firstItem="a8y-aX-8wd" firstAttribute="leading" secondItem="thg-Oc-OA9" secondAttribute="leading" constant="5" id="Fae-yB-f2w"/>
                             <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="uvd-6O-7Cz" secondAttribute="bottom" constant="20" id="MYd-Gc-Ll4"/>
-                            <constraint firstItem="a8y-aX-8wd" firstAttribute="top" secondItem="xe3-Bw-QBm" secondAttribute="bottom" constant="20" id="Ope-hs-dHW"/>
+                            <constraint firstItem="a8y-aX-8wd" firstAttribute="top" secondItem="xe3-Bw-QBm" secondAttribute="bottom" id="Ope-hs-dHW"/>
                             <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="SvE-Yq-vvX" secondAttribute="bottom" constant="20" id="WJE-cR-Fdq"/>
                             <constraint firstItem="0gR-oh-vAA" firstAttribute="leading" secondItem="thg-Oc-OA9" secondAttribute="leading" constant="10" id="YyZ-v0-a9d"/>
                             <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="vvT-3o-1ya" secondAttribute="bottom" constant="20" id="aI9-Ro-Znf"/>
