@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CYPEvent+Model.h"
 
 @class CYPDetailViewController;
 @protocol CYPDetailViewControllerDelegate <NSObject>
@@ -18,5 +19,6 @@
 @interface CYPDetailViewController : UIViewController
 
 @property (weak, nonatomic) id<CYPDetailViewControllerDelegate> delegate;
+@property (strong, nonatomic) CYPEvent *event;
 
 @end

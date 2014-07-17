@@ -152,12 +152,12 @@ enum {
 - (void)openDetailForItemAtIndexPath:(NSIndexPath *)indexPath {
     CYPEvent *event = [self.fetchResultControllerManager.fetchedResultsController objectAtIndexPath:indexPath];
     [self addChildViewController:self.detailViewController];
+    self.detailViewController.event = event;
     [self.detailViewController willMoveToParentViewController:self];
     [self.view addSubview:self.detailViewController.view];
     self.posterCollectionView.userInteractionEnabled = NO;
     [self.animationHelper animateViewFromLeft:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [self.detailViewController didMoveToParentViewController:self];
-        self.posterCollectionView.userInteractionEnabled = YES;
     }];
 }
 
