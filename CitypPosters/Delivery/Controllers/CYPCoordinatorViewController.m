@@ -66,7 +66,7 @@
     }];
 }
 
-- (IBAction)showSettings {
+- (void)showSettings {
     if (!self.aside) {
         CGRect newRect = CGRectMake(-self.asideView.frame.size.width, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
         [UIView animateWithDuration:0.5 animations:^{

@@ -14,6 +14,7 @@
 #import "CYPFetchResultControllerManager.h"
 #import "CYPEventManager.h"
 #import "CYPPosterCell.h"
+#import "CYPCoordinatorViewController.h"
 
 enum {
     inPoster,
@@ -116,7 +117,8 @@ enum {
     UIImage *imageTiled = [image resizableImageWithCapInsets:UIEdgeInsetsZero
                                                 resizingMode:UIImageResizingModeTile];
     self.imageView.image = imageTiled;
-    [self.settingsButton addTarget:nil action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
+    CYPCoordinatorViewController *coordinatorVC = (CYPCoordinatorViewController *)self.parentViewController.parentViewController;
+    [self.settingsButton addTarget:coordinatorVC action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
     self.fetchResultControllerManager.model = self.model;
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {

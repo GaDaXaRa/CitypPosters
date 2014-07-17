@@ -14,5 +14,6 @@
 @property (strong, nonatomic) CYPModelDocument *model;
 
 - (void)hideSettings;
+- (void)showSettings;
 
 @end

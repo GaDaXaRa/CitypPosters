@@ -27,6 +27,7 @@
     NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     
     NSFetchRequest *fetchRequest = [CYPEvent requestAllEventsWithOrder:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[nameSortDescriptor];
     [NSFetchedResultsController deleteCacheWithName:@"Master"];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     self.fetchedResultsController.delegate = self.fetchedResultsDelegate;
