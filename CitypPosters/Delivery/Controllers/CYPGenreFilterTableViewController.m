@@ -17,10 +17,19 @@
 @property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSArray *selectedGenres;
 
 @end
 
 @implementation CYPGenreFilterTableViewController
+
+- (NSArray *)selectedGenres {
+    if (!_selectedGenres) {
+        _selectedGenres = self.userDefaults.selectedGenres;
+    }
+    
+    return _selectedGenres;
+}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (_fetchedResultsController != nil) {
@@ -60,20 +69,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.alwaysBounceVertical = NO;
     self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
         self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     }];
-    
+    [self.userDefaults notifySelectedGenresWithBlock:^(NSArray *selectedGenres) {
+        self.selectedGenres = nil;
+    }];
     self.tableView.backgroundView = self.backgroundImageView;
     self.tableView.backgroundView.alpha = 0.6;
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -88,13 +94,31 @@
     return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CYPGenre *genre = [self.fetchedResultsController objectAtIndexPath:indexPath];
     CYPGenresFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"genreCell" forIndexPath:indexPath];
     cell.label.text = genre.name;
+    cell.genreSwitch.on = [self checkGenreIsSelected:genre];
+    [cell setSwitchChangedBlock:^(CYPGenresFilterTableViewCell *cell) {
+        [self switchChanged:cell];
+    }];
     return cell;
+}
+
+- (BOOL)checkGenreIsSelected:(CYPGenre *)genre {
+    for (NSString *genreName in self.selectedGenres) {
+        if ([genre.name isEqualToString:genreName]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)switchChanged:(CYPGenresFilterTableViewCell *)cell {
+    NSMutableArray *aux = [[NSMutableArray alloc] initWithArray:self.selectedGenres];
+    [aux addObject:cell.label.text];
+    self.userDefaults.selectedGenres = aux.copy;
 }
 
 @end

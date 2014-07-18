@@ -11,7 +11,9 @@
 @interface CYPUserDefaultsManager : NSObject
 
 @property (strong, nonatomic) NSString *backgroundImage;
+@property (strong, nonatomic) NSArray *selectedGenres;
 
 - (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block;
+- (void)notifySelectedGenresWithBlock:(void(^)(NSArray *selectedGenres))block;
 
 @end

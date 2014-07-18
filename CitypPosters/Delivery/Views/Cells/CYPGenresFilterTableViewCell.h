@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UISwitch *genreSwitch;
 
+@property (nonatomic, copy) void (^switchChangedBlock)(CYPGenresFilterTableViewCell *cell);
+
 @end
