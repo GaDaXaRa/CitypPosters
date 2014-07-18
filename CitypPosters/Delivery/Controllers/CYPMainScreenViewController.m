@@ -118,6 +118,9 @@ enum {
     self.title = @"Citypposters";
     
     self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
+        self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    }];
     CYPCoordinatorViewController *coordinatorVC = (CYPCoordinatorViewController *)self.parentViewController.parentViewController;
     [self.settingsButton addTarget:coordinatorVC action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;

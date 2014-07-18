@@ -8,21 +8,50 @@
 
 #import "CYPUserDefaultsManager.h"
 
+static NSString *const backgroundImageKey = @"CYPBackgroundImage";
+
+@interface CYPUserDefaultsManager ()
+
+@property (nonatomic, copy) void (^backgroundChangedBlock)(NSString *newImageName);
+
+@end
+
 @implementation CYPUserDefaultsManager
 
 @synthesize backgroundImage = _backgroundImage;
 
 - (NSString *)backgroundImage {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _backgroundImage = [defaults objectForKey:@"CYPBackgroundImage"];
+    _backgroundImage = [defaults objectForKey:backgroundImageKey];
     
     return _backgroundImage;
 }
 
 - (void)setBackgroundImage:(NSString *)backgroundImage {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:backgroundImage forKey:@"CYPBackgroundImage"];
+    [defaults setObject:backgroundImage forKey:backgroundImageKey];
+    
     [defaults synchronize];
+}
+
+- (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block {
+    self.backgroundChangedBlock = block;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self
+               forKeyPath:backgroundImageKey
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+}
+
+- (void)dealloc {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObserver:self forKeyPath:backgroundImageKey];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:backgroundImageKey]) {
+        self.backgroundChangedBlock(change[@"new"]);
+    }
 }
 
 @end

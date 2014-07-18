@@ -9,10 +9,13 @@
 #import "CYPAsideTableViewController.h"
 #import "CYPCoordinatorViewController.h"
 #import "CYPImageTiler.h"
+#import "CYPUserDefaultsManager.h"
 
 @interface CYPAsideTableViewController ()
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 
 @end
 
@@ -32,8 +35,13 @@
     [super viewDidLoad];
     CYPCoordinatorViewController *parentViewController = (CYPCoordinatorViewController *)[[self parentViewController] parentViewController];
     [self.swipeRight addTarget:parentViewController action:@selector(hideSettings)];
-    self.imageView.image = [CYPImageTiler imgeTiledWithName:@"fondo1"];
+    self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
+        self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    }];
+    
     self.tableView.backgroundView = self.imageView;
+    self.tableView.backgroundView.alpha = 0.6;
 }
 
 @end

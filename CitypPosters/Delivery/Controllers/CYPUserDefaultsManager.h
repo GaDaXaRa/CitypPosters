@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSString *backgroundImage;
 
+- (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block;
+
 @end
