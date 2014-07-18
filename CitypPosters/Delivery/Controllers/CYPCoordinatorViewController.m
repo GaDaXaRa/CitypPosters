@@ -8,6 +8,7 @@
 
 #import "CYPCoordinatorViewController.h"
 #import "CYPMainScreenViewController.h"
+#import "CYPAsideTableViewController.h"
 
 @interface CYPCoordinatorViewController ()
 
@@ -54,6 +55,9 @@
 {
     if ([segue.identifier isEqualToString:@"mainEmbedSegue"]) {
         CYPMainScreenViewController *nextVC = (CYPMainScreenViewController *)[segue.destinationViewController topViewController];
+        nextVC.model = self.model;
+    } else if ([segue.identifier isEqualToString:@"settingsSegue"]) {
+        CYPAsideTableViewController *nextVC = (CYPAsideTableViewController *)[segue.destinationViewController topViewController];
         nextVC.model = self.model;
     }
 }

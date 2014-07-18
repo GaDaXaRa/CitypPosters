@@ -13,5 +13,8 @@ extern NSString *const genreNameKey;
 @interface CYPGenre (Model)
 
 + (instancetype)genreInContext:(NSManagedObjectContext *)context withName:(NSString *)name;
++ (NSFetchRequest *)requestAllGenresWithOrder:(NSString *)orderKey ascending:(BOOL)ascending;
++ (CYPGenre *)fetchGenreByName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++ (NSFetchRequest *)requestGenresWithPredicate:(NSPredicate *)predicate;
 
 @end

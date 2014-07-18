@@ -88,8 +88,12 @@ NSString *const eventIdKey = @"eventId";
 - (NSSet *)importGenres:(NSArray *)genres inContext:(NSManagedObjectContext *)context {
     NSMutableSet *auxSet = [[NSMutableSet alloc] initWithCapacity:genres.count];
     
-    for (NSString *genre in genres) {
-        [auxSet addObject:[CYPGenre genreInContext:context withName:genre]];
+    for (NSString *genreName in genres) {
+        CYPGenre *genre = [CYPGenre fetchGenreByName:genreName inContext:context];
+        if (!genre) {
+            genre = [CYPGenre genreInContext:context withName:genreName];
+        }
+        [auxSet addObject:genre];
     }
     
     return auxSet.copy;

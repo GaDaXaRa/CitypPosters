@@ -10,6 +10,7 @@
 #import "CYPCoordinatorViewController.h"
 #import "CYPImageTiler.h"
 #import "CYPUserDefaultsManager.h"
+#import "CYPGenreFilterTableViewController.h"
 
 @interface CYPAsideTableViewController ()
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
@@ -42,6 +43,13 @@
     
     self.tableView.backgroundView = self.imageView;
     self.tableView.backgroundView.alpha = 0.6;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"genresSegue"]) {
+        CYPGenreFilterTableViewController *nextVC = segue.destinationViewController;
+        nextVC.model = self.model;
+    }
 }
 
 @end
