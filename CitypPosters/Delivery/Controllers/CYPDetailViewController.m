@@ -24,8 +24,8 @@
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateStyle:NSDateFormatterShortStyle];
-        [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        NSString *format = [NSDateFormatter dateFormatFromTemplate:@"dd MMMM / HH,mm" options:0 locale:[NSLocale currentLocale]];
+        [_dateFormatter setDateFormat:format];
     }
     
     return _dateFormatter;

@@ -29,7 +29,7 @@
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="genres" inverseEntity="CYPEvent" syncable="YES"/>
     </entity>
     <entity name="CYPVenue" representedClassName="CYPVenue" syncable="YES">
-        <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>

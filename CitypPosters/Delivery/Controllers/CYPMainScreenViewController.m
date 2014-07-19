@@ -30,9 +30,9 @@ enum {
 @property (strong, nonatomic) IBOutlet CYPFetchResultControllerManager *fetchResultControllerManager;
 @property (strong, nonatomic) IBOutlet CYPEventManager *eventManager;
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
-@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsBarButton;
 
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
@@ -121,8 +121,10 @@ enum {
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
         self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     }];
-    CYPCoordinatorViewController *coordinatorVC = (CYPCoordinatorViewController *)self.parentViewController.parentViewController;
-    [self.settingsButton addTarget:coordinatorVC action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.settingsBarButton.target = nil;
+    self.settingsBarButton.action = NSSelectorFromString(@"showSettings");
+    
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
     self.fetchResultControllerManager.model = self.model;
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
@@ -141,6 +143,11 @@ enum {
     }];
     
     self.screenState = inPoster;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
 }
 

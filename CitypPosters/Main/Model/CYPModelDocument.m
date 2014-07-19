@@ -12,7 +12,7 @@
 @implementation CYPModelDocument
 
 - (void)importDataWithEvents:(NSArray *)events error:(NSError *__autoreleasing *)error {
-    [self importEvents:events];
+    [self importEvents:events];    
 }
 
 - (void)importEvents:(NSArray *)events {
@@ -22,6 +22,20 @@
             [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
             [self.managedObjectContext.undoManager endUndoGrouping];
         }
+    }
+}
+
+
+- (void)handleError:(NSError *)error userInteractionPermitted:(BOOL)userInteractionPermitted
+{
+    NSLog(@"💀UIManagedDocument error: %@", error.localizedDescription);
+    NSArray* errors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+    if(errors != nil && errors.count > 0) {
+        for (NSError *error in errors) {
+            NSLog(@"  Error: %@", error.userInfo);
+        }
+    } else {
+        NSLog(@"  %@", error.userInfo);
     }
 }
 

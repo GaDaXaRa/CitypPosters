@@ -100,9 +100,6 @@
     CYPGenresFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"genreCell" forIndexPath:indexPath];
     cell.label.text = genre.name;
     cell.genreSwitch.on = [self checkGenreIsSelected:genre];
-    [cell setSwitchChangedBlock:^(CYPGenresFilterTableViewCell *cell) {
-        [self switchChanged:cell];
-    }];
     return cell;
 }
 
@@ -115,8 +112,15 @@
     return NO;
 }
 
-- (void)switchChanged:(CYPGenresFilterTableViewCell *)cell {
+- (void)switchChanged:(UISwitch *)genreSwitch {
+    
+    CYPGenresFilterTableViewCell *cell = (CYPGenresFilterTableViewCell *)genreSwitch.superview;
+    
+    while (![cell isKindOfClass:[CYPGenresFilterTableViewCell class]]) {
+        cell = (CYPGenresFilterTableViewCell *)cell.superview;
+    }
     NSMutableArray *aux = [[NSMutableArray alloc] initWithArray:self.selectedGenres];
+    
     [aux addObject:cell.label.text];
     self.userDefaults.selectedGenres = aux.copy;
 }
