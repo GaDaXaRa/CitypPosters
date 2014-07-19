@@ -11,6 +11,5 @@
 @interface CYPGenresFilterTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UISwitch *genreSwitch;
 
 @end

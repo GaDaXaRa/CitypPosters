@@ -11,51 +11,17 @@
 #import "CYPUserDefaultsManager.h"
 #import "CYPImageTiler.h"
 #import "CYPGenre+Model.h"
+#import "CYPGenresFilterDatasource.h"
 
-@interface CYPGenreFilterTableViewController ()<NSFetchedResultsControllerDelegate>
+@interface CYPGenreFilterTableViewController ()
 
 @property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSArray *selectedGenres;
+@property (strong, nonatomic) IBOutlet CYPGenresFilterDatasource *datasource;
 
 @end
 
 @implementation CYPGenreFilterTableViewController
-
-- (NSArray *)selectedGenres {
-    if (!_selectedGenres) {
-        _selectedGenres = self.userDefaults.selectedGenres;
-    }
-    
-    return _selectedGenres;
-}
-
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
-    
-    if (!self.model.managedObjectContext) {
-        return nil;
-    }
-    
-    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    
-    NSFetchRequest *fetchRequest = [CYPGenre requestAllGenresWithOrder:@"name" ascending:YES];
-    fetchRequest.sortDescriptors = @[nameSortDescriptor];
-    [NSFetchedResultsController deleteCacheWithName:@"Genres"];
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Genres"];
-    self.fetchedResultsController.delegate = self;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return _fetchedResultsController;
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -69,60 +35,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.datasource.model = self.model;
     self.tableView.alwaysBounceVertical = NO;
     self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
         self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     }];
-    [self.userDefaults notifySelectedGenresWithBlock:^(NSArray *selectedGenres) {
-        self.selectedGenres = nil;
-    }];
     self.tableView.backgroundView = self.backgroundImageView;
     self.tableView.backgroundView.alpha = 0.6;
     
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [[self.fetchedResultsController sections][section] numberOfObjects];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CYPGenre *genre = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    CYPGenresFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"genreCell" forIndexPath:indexPath];
-    cell.label.text = genre.name;
-    cell.genreSwitch.on = [self checkGenreIsSelected:genre];
-    return cell;
-}
-
-- (BOOL)checkGenreIsSelected:(CYPGenre *)genre {
-    for (NSString *genreName in self.selectedGenres) {
-        if ([genre.name isEqualToString:genreName]) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
-- (void)switchChanged:(UISwitch *)genreSwitch {
-    
-    CYPGenresFilterTableViewCell *cell = (CYPGenresFilterTableViewCell *)genreSwitch.superview;
-    
-    while (![cell isKindOfClass:[CYPGenresFilterTableViewCell class]]) {
-        cell = (CYPGenresFilterTableViewCell *)cell.superview;
-    }
-    NSMutableArray *aux = [[NSMutableArray alloc] initWithArray:self.selectedGenres];
-    
-    [aux addObject:cell.label.text];
-    self.userDefaults.selectedGenres = aux.copy;
 }
 
 @end

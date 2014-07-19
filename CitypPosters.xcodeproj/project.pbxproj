@@ -11,6 +11,7 @@
 		3F0D3CA91977056C002B3B77 /* CYPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CA81977056C002B3B77 /* CYPNetworkManager.m */; };
 		3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */; };
 		3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */; };
+		3F1801CE197ACC6000A66AC5 /* CYPGenresFilterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1801CD197ACC6000A66AC5 /* CYPGenresFilterDatasource.m */; };
 		3F4863E61972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
 		3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E71972CC0A0072668B /* CoreGraphics.framework */; };
 		3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
@@ -80,6 +81,8 @@
 		3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPImagePersistence.m; sourceTree = "<group>"; };
 		3F0D3CAD19770D76002B3B77 /* CYPEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEventManager.h; sourceTree = "<group>"; };
 		3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventManager.m; sourceTree = "<group>"; };
+		3F1801CC197ACC6000A66AC5 /* CYPGenresFilterDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPGenresFilterDatasource.h; sourceTree = "<group>"; };
+		3F1801CD197ACC6000A66AC5 /* CYPGenresFilterDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPGenresFilterDatasource.m; sourceTree = "<group>"; };
 		3F4863E21972CC0A0072668B /* CitypPosters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitypPosters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4863E51972CC0A0072668B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F4863E71972CC0A0072668B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -318,6 +321,8 @@
 			children = (
 				3F486434197314AB0072668B /* CYPPosterCollectionDatasource.h */,
 				3F486435197314AB0072668B /* CYPPosterCollectionDatasource.m */,
+				3F1801CC197ACC6000A66AC5 /* CYPGenresFilterDatasource.h */,
+				3F1801CD197ACC6000A66AC5 /* CYPGenresFilterDatasource.m */,
 			);
 			path = Datasources;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */,
 				3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */,
 				3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */,
+				3F1801CE197ACC6000A66AC5 /* CYPGenresFilterDatasource.m in Sources */,
 				3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */,
 				3F4864531973D0E20072668B /* CYPDates.m in Sources */,
 			);

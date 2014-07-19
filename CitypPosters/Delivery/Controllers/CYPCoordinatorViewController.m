@@ -33,7 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,16 +61,25 @@
     }
 }
 
-- (void)hideSettings {
-    CGRect newRect = CGRectMake(0, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
+- (void)hideSettings {    
     [UIView animateWithDuration:0.5 animations:^{
+        CGRect newRect = CGRectMake(0, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
         self.mainView.frame = newRect;
         self.aside = NO;
+    } completion:^(BOOL finished) {
+        self.mainView.layer.shadowColor = nil;
+        self.mainView.layer.shadowOffset = CGSizeZero;
+        self.mainView.layer.shadowRadius = 0;
+        self.mainView.layer.shadowOpacity = 0;
     }];
 }
 
 - (void)showSettings {
     if (!self.aside) {
+        self.mainView.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.mainView.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+        self.mainView.layer.shadowRadius = 10.0f;
+        self.mainView.layer.shadowOpacity = 1.0f;
         CGRect newRect = CGRectMake(-self.asideView.frame.size.width, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
         [UIView animateWithDuration:0.5 animations:^{
             self.mainView.frame = newRect;

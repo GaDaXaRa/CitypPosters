@@ -14,11 +14,6 @@
 
 @implementation CYPGenresFilterTableViewCell
 
-- (void)awakeFromNib
-{
-   [self.genreSwitch addTarget:nil action:NSSelectorFromString(@"switchChanged:") forControlEvents:UIControlEventValueChanged];
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
