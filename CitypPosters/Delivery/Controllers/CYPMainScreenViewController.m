@@ -141,7 +141,7 @@ enum {
             [bself updateImageForEventId:eventId];
         });
     }];
-    
+        
     self.screenState = inPoster;
 }
 
@@ -154,7 +154,9 @@ enum {
 - (void)updateImageForEventId:(NSString *)eventId {
     CYPEvent *event = [self.model fetchEventById:eventId];
     NSIndexPath *indexPath = [self.fetchResultControllerManager.fetchedResultsController indexPathForObject:event];
+    if (indexPath) {
     [self.posterCollectionView reloadItemsAtIndexPaths:@[indexPath]];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {

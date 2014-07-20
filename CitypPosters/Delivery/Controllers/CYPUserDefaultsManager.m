@@ -72,8 +72,7 @@ static NSString *const selectedGenresKey = @"CYPSelectedGenres";
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:backgroundImageKey]) {
         self.backgroundChangedBlock(change[@"new"]);
-    } else if ([keyPath isEqualToString:backgroundImageKey]) {
-        NSLog(@"%@", change[@"new"]);
+    } else if ([keyPath isEqualToString:selectedGenresKey]) {
         self.selectedGenresChangedBlock(change[@"new"]);
     }
 }

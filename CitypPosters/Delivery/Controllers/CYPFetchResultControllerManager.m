@@ -8,8 +8,28 @@
 
 #import "CYPFetchResultControllerManager.h"
 #import "CYPEvent+Model.h"
+#import "CYPUserDefaultsManager.h"
+
+@interface CYPFetchResultControllerManager ()
+
+@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
+
+@end
 
 @implementation CYPFetchResultControllerManager
+
+- (void)awakeFromNib {
+    [self.userDefaults notifySelectedGenresWithBlock:^(NSArray *selectedGenres) {
+        [self changePredicateAndFetch];
+    }];
+}
+
+- (void)changePredicateAndFetch {
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
+    self.fetchedResultsController.fetchRequest.predicate = [self buildPredicate];
+    [self.fetchedResultsController performFetch:NULL];
+    [self.fetchedResultsDelegate.collectionView reloadData];
+}
 
 - (NSFetchedResultsController *)fetchedResultsController {
     if (!self.model) {
@@ -26,7 +46,9 @@
     
     NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     
-    NSFetchRequest *fetchRequest = [CYPEvent requestAllEventsWithOrder:@"name" ascending:YES];
+    NSPredicate *predicate = [self buildPredicate];
+    
+    NSFetchRequest *fetchRequest = [CYPEvent requestEventsWithPredicate:predicate];
     fetchRequest.sortDescriptors = @[nameSortDescriptor];
     [NSFetchedResultsController deleteCacheWithName:@"Master"];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
@@ -39,6 +61,11 @@
 	}
     
     return _fetchedResultsController;
+}
+
+- (NSPredicate *)buildPredicate {
+    NSArray *genresArray = self.userDefaults.selectedGenres;
+    return [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
 }
 
 @end

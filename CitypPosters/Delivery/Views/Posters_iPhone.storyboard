@@ -78,6 +78,7 @@
                 <customObject id="yJG-fV-TbI" customClass="CYPFetchResultControllerManager">
                     <connections>
                         <outlet property="fetchedResultsDelegate" destination="Lh7-GM-BB7" id="4aJ-g5-2So"/>
+                        <outlet property="userDefaults" destination="Tbw-pZ-DmY" id="JDp-7B-M9G"/>
                     </connections>
                 </customObject>
                 <customObject id="Lh7-GM-BB7" customClass="CYPFetchedResultsDelegate"/>

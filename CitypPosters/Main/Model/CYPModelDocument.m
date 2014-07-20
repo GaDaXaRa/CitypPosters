@@ -25,6 +25,10 @@
     }
 }
 
+- (NSArray *)filterEventsWithPredicate:(NSPredicate *)predicate {
+    NSFetchRequest *request = [CYPEvent requestEventsWithPredicate:predicate];
+    return [self.managedObjectContext executeFetchRequest:request error:NULL];
+}
 
 - (void)handleError:(NSError *)error userInteractionPermitted:(BOOL)userInteractionPermitted
 {

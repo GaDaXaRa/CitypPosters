@@ -13,5 +13,6 @@
 
 - (void)importEvents:(NSArray *)events;
 - (CYPEvent *)fetchEventById:(NSString *)eventId;
+- (NSArray *)filterEventsWithPredicate:(NSPredicate *)predicate;
 
 @end
