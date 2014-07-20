@@ -77,7 +77,7 @@ NSString *const eventIdKey = @"eventId";
 
 - (NSSet *)importArtists:(NSArray *)artists inContext:(NSManagedObjectContext *)context {
     NSMutableSet *artistsArray = [[NSMutableSet alloc] initWithCapacity:artists.count
-                                    ];
+                                  ];
     for (NSDictionary *artistDictionary in artists) {
         [artistsArray addObject:[CYPArtist artistInContext:context withDictionary:artistDictionary]];
     }
@@ -87,23 +87,29 @@ NSString *const eventIdKey = @"eventId";
 
 - (NSSet *)importGenres:(NSArray *)genres inContext:(NSManagedObjectContext *)context {
     NSMutableSet *auxSet = [[NSMutableSet alloc] initWithCapacity:genres.count];
-    
+    [context.undoManager beginUndoGrouping];
     for (NSString *genreName in genres) {
         CYPGenre *genre = [CYPGenre fetchGenreByName:genreName inContext:context];
         if (!genre) {
             genre = [CYPGenre genreInContext:context withName:genreName];
         }
-        [auxSet addObject:genre];
+        
+        if (genre) {
+            [auxSet addObject:genre];
+        }
     }
-    
+    [context.undoManager endUndoGrouping];
     return auxSet.copy;
 }
 
 - (NSSet *)importDates:(NSArray *)dates inContext:(NSManagedObjectContext *)context {
     NSMutableSet *auxSet = [[NSMutableSet alloc] initWithCapacity:dates.count];
     
-    for (NSString *date in dates) {
-        [auxSet addObject:[CYPDates dateInContext:context withString:date]];
+    for (NSString *dateString in dates) {
+        CYPDates *date = [CYPDates dateInContext:context withString:dateString];
+        if (date) {
+            [auxSet addObject: date];
+        }
     }
     
     return auxSet.copy;

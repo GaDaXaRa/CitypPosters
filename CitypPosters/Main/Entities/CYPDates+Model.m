@@ -21,12 +21,18 @@ NSString *const dateDateKey = @"date";
 }
 
 + (instancetype)dateInContext:(NSManagedObjectContext *)context withString:(NSString *)newDate {
-    CYPDates *date = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPDates class]) inManagedObjectContext:context];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"MM/dd/yyyy HH:mm"];
-    date.date = [df dateFromString: newDate];
+    NSDate *date = [df dateFromString: newDate];
     
-    return date;
+    if (!date) {
+        return nil;
+    }
+    
+    CYPDates *entityDate = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPDates class]) inManagedObjectContext:context];
+    entityDate.date = date;
+    
+    return entityDate;
 }
 
 @end

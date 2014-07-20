@@ -19,20 +19,25 @@ NSString *const venueCityKey = @"city";
 @implementation CYPVenue (Model)
 
 + (instancetype)venueInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary {
-    CYPVenue *venue = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPVenue class]) inManagedObjectContext:context];
+    [context.undoManager beginUndoGrouping];    
     
     CYPCity *city = [CYPCity fetchCityByName:dictionary[venueCityKey][cityNameKey] inContext:context];
     if (!city) {
         city = [CYPCity cityInContext:context withDictionary:dictionary[venueCityKey]];
     }
     
+    if (!city) {
+        return nil;
+    }
+    
+    CYPVenue *venue = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPVenue class]) inManagedObjectContext:context];
     venue.city = city;
     venue.name = dictionary[venueNameKey];
     venue.latitude = dictionary[venueLatitudeKey];
     venue.longitude = dictionary[venueLongitudeKey];
     venue.address = dictionary[venueAddressKey];
     venue.zip = dictionary[venueZipKey];
-    
+    [context.undoManager endUndoGrouping];
     
     return venue;
 }

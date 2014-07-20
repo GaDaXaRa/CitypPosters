@@ -32,7 +32,11 @@
 - (void)changePredicateAndFetch {
     [NSFetchedResultsController deleteCacheWithName:@"Master"];
     self.fetchedResultsController.fetchRequest.predicate = [self buildPredicate];
-    [self.fetchedResultsController performFetch:NULL];
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
     [self.fetchedResultsDelegate.collectionView reloadData];
 }
 
@@ -78,7 +82,7 @@
         self.userDefaults.selectedCities = citiesArray;
     }
     NSPredicate *genresPredicate = [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
-    NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"ANY venue.city.name IN %@", citiesArray];
+    NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"venue.city.name IN %@", citiesArray];
     
     NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[genresPredicate, citiesPredicate]];
     return predicate;

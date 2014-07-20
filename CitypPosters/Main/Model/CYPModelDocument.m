@@ -16,13 +16,13 @@
 }
 
 - (void)importEvents:(NSArray *)events {
+    [self.managedObjectContext.undoManager beginUndoGrouping];
     for (NSDictionary *eventDictionary in events) {
         if (![self fetchEventById:eventDictionary[eventIdKey]]) {
-            [self.managedObjectContext.undoManager beginUndoGrouping];
             [CYPEvent eventInContext:self.managedObjectContext withDictionary:eventDictionary];
-            [self.managedObjectContext.undoManager endUndoGrouping];
         }
     }
+    [self.managedObjectContext.undoManager endUndoGrouping];
 }
 
 - (NSArray *)filterEventsWithPredicate:(NSPredicate *)predicate {

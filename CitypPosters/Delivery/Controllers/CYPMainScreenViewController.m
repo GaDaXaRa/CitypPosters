@@ -147,7 +147,6 @@ enum {
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     self.posterCollectionView.collectionViewLayout = self.fullScreenLayout;
 }
 
