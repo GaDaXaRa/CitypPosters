@@ -19,8 +19,6 @@ NSString *const venueCityKey = @"city";
 @implementation CYPVenue (Model)
 
 + (instancetype)venueInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary {
-    [context.undoManager beginUndoGrouping];    
-    
     CYPCity *city = [CYPCity fetchCityByName:dictionary[venueCityKey][cityNameKey] inContext:context];
     if (!city) {
         city = [CYPCity cityInContext:context withDictionary:dictionary[venueCityKey]];
@@ -37,7 +35,6 @@ NSString *const venueCityKey = @"city";
     venue.longitude = dictionary[venueLongitudeKey];
     venue.address = dictionary[venueAddressKey];
     venue.zip = dictionary[venueZipKey];
-    [context.undoManager endUndoGrouping];
     
     return venue;
 }
