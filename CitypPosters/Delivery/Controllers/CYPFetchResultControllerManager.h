@@ -16,4 +16,6 @@
 @property (strong, nonatomic) CYPModelDocument *model;
 @property (strong, nonatomic) IBOutlet CYPFetchedResultsDelegate *fetchedResultsDelegate;
 
+- (void)changePredicateAndFetch;
+
 @end

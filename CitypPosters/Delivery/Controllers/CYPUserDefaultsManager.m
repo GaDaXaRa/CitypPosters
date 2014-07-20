@@ -18,6 +18,8 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
 @property (nonatomic, copy) void (^selectedGenresChangedBlock)(NSArray *selectedGenres);
 @property (nonatomic, copy) void (^selectedCititesChangedBlock)(NSArray *selectedCities);
 
+@property (nonatomic, copy) NSMutableArray *observingKeys;
+
 @end
 
 @implementation CYPUserDefaultsManager
@@ -98,18 +100,29 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:backgroundImageKey]) {
         self.backgroundChangedBlock(change[@"new"]);
+        [self.observingKeys addObject:backgroundImageKey];
     } else if ([keyPath isEqualToString:selectedGenresKey]) {
         self.selectedGenresChangedBlock(change[@"new"]);
+        [self.observingKeys addObject:selectedGenresKey];
     } else if ([keyPath isEqualToString:selectedCitiesKey]) {
         self.selectedCititesChangedBlock(change[@"new"]);
+        [self.observingKeys addObject:selectedCitiesKey];
     }
 }
 
 - (void)dealloc {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObserver:self forKeyPath:backgroundImageKey];
-    [defaults removeObserver:self forKeyPath:selectedGenresKey];
-    [defaults removeObserver:self forKeyPath:selectedCitiesKey];
+    for (NSString *key in self.observingKeys) {
+        [defaults removeObserver:self forKeyPath:key];
+    }
+}
+
+- (NSMutableArray *)observingKeys {
+    if (!_observingKeys) {
+        _observingKeys = [NSMutableArray array];
+    }
+    
+    return _observingKeys;
 }
 
 @end

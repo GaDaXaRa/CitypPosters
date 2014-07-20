@@ -74,12 +74,16 @@
     NSArray *genresArray = self.userDefaults.selectedGenres;
     if (!genresArray) {
         genresArray = [CYPGenre fetchAllGenresNamesInContext:self.model.managedObjectContext];
-        self.userDefaults.selectedGenres = genresArray;
+        if ([genresArray count]) {
+            self.userDefaults.selectedGenres = genresArray;
+        }
     }
     NSArray *citiesArray = self.userDefaults.selectedCities;
     if (!citiesArray) {
         citiesArray = [CYPCity fetchAllCityNamesInContext:self.model.managedObjectContext];
-        self.userDefaults.selectedCities = citiesArray;
+        if ([citiesArray count]) {
+            self.userDefaults.selectedCities = citiesArray;
+        }
     }
     NSPredicate *genresPredicate = [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
     NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"venue.city.name IN %@", citiesArray];

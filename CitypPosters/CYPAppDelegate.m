@@ -9,6 +9,7 @@
 #import "CYPAppDelegate.h"
 #import "CYPModelDocument.h"
 #import "CYPCoordinatorViewController.h"
+#import "CYPUserDefaultsManager.h"
 
 @interface CYPAppDelegate ()
 
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    [self prepareUserDefaults];
     [self prepareRootController];
     return YES;
 }
@@ -55,6 +57,13 @@
 - (void)prepareRootController {
     CYPCoordinatorViewController *mainController = (CYPCoordinatorViewController *)self.window.rootViewController;
     mainController.model = self.model;
+}
+
+- (void)prepareUserDefaults {
+    CYPUserDefaultsManager *userDefaults = [[CYPUserDefaultsManager alloc] init];
+    if (!userDefaults.backgroundImage) {
+        userDefaults.backgroundImage = @"fondo1";
+    }
 }
 
 #pragma mark - Core Data stack
