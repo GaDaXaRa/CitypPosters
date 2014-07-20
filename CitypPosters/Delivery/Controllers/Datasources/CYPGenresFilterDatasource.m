@@ -8,22 +8,25 @@
 
 #import "CYPGenresFilterDatasource.h"
 #import "CYPGenre+Model.h"
+#import "CYPCity+Model.h"
 #import "CYPGenresFilterTableViewCell.h"
 #import "CYPUserDefaultsManager.h"
 
 @interface CYPGenresFilterDatasource ()
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *genresFetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *citiesFetchedResultsController;
 @property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
-@property (copy, nonatomic) NSMutableArray *selectedArray;
+@property (copy, nonatomic) NSMutableArray *selectedGenresArray;
+@property (copy, nonatomic) NSMutableArray *selectedCitiesArray;
 
 @end
 
 @implementation CYPGenresFilterDatasource
 
-- (NSFetchedResultsController *)fetchedResultsController {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
+- (NSFetchedResultsController *)genresFetchedResultsController {
+    if (_genresFetchedResultsController != nil) {
+        return _genresFetchedResultsController;
     }
     
     if (!self.model.managedObjectContext) {
@@ -35,59 +38,134 @@
     NSFetchRequest *fetchRequest = [CYPGenre requestAllGenresWithOrder:@"name" ascending:YES];
     fetchRequest.sortDescriptors = @[nameSortDescriptor];
     [NSFetchedResultsController deleteCacheWithName:@"Genres"];
-    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Genres"];
+    _genresFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Genres"];
     
 	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
+	if (![self.genresFetchedResultsController performFetch:&error]) {
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
     
-    return _fetchedResultsController;
+    return _genresFetchedResultsController;
 }
 
-- (NSMutableArray *)selectedArray {
-    if(!_selectedArray) {
-        _selectedArray = [NSMutableArray arrayWithArray:self.userDefaults.selectedGenres];
+- (NSFetchedResultsController *)citiesFetchedResultsController {
+    if (_citiesFetchedResultsController != nil) {
+        return _citiesFetchedResultsController;
     }
     
-    return _selectedArray;
+    if (!self.model.managedObjectContext) {
+        return nil;
+    }
+    
+    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    
+    NSFetchRequest *fetchRequest = [CYPCity requestAllCitiesWithOrder:@"name" ascending:YES];
+    fetchRequest.sortDescriptors = @[nameSortDescriptor];
+    [NSFetchedResultsController deleteCacheWithName:@"Cities"];
+    _citiesFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Cities"];
+    
+	NSError *error = nil;
+	if (![self.citiesFetchedResultsController performFetch:&error]) {
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _citiesFetchedResultsController;
+}
+
+- (NSMutableArray *)selectedGenresArray {
+    if(!_selectedGenresArray) {
+        _selectedGenresArray = [NSMutableArray arrayWithArray:self.userDefaults.selectedGenres];
+    }
+    
+    return _selectedGenresArray;
+}
+
+- (NSMutableArray *)selectedCitiesArray {
+    if(!_selectedCitiesArray) {
+        _selectedCitiesArray = [NSMutableArray arrayWithArray:self.userDefaults.selectedCities];
+    }
+    
+    return _selectedCitiesArray;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.fetchedResultsController sections][section] numberOfObjects];
+    if (section == 0) {
+        return [[self.genresFetchedResultsController fetchedObjects] count];
+    } else if (section == 1) {
+        return [[self.citiesFetchedResultsController fetchedObjects] count];
+    }
+    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CYPGenre *genre = [self.fetchedResultsController objectAtIndexPath:indexPath];
     CYPGenresFilterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"genreCell" forIndexPath:indexPath];
-    cell.label.text = genre.name;
-    if ([self.selectedArray containsObject:genre.name]) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    if (indexPath.section == 0) {
+        CYPGenre *genre = [self.genresFetchedResultsController objectAtIndexPath:newIndexPath];
+        cell.label.text = genre.name;
+        if ([self.selectedGenresArray containsObject:genre.name]) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        } else {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+        }
+    } else if (indexPath.section == 1) {
+        CYPCity *city = [self.citiesFetchedResultsController objectAtIndexPath:newIndexPath];
+        cell.label.text = city.name;
+        if ([self.selectedCitiesArray containsObject:city.name]) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        } else {
+            [cell setAccessoryType:UITableViewCellAccessoryNone];
+        }
     }
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Estilos";
+            break;
+        case 1:
+            return @"Ciudades";
+            break;
+        default:
+            return @"";
+            break;
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CYPGenre *genre = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([self.selectedArray containsObject:genre.name]) {
-        [self.selectedArray removeObject:genre.name];
-    } else {
-        [self.selectedArray addObject:genre.name];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
+    if (indexPath.section == 0) {
+        CYPGenre *genre = [self.genresFetchedResultsController objectAtIndexPath:newIndexPath];
+        if ([self.selectedGenresArray containsObject:genre.name]) {
+            [self.selectedGenresArray removeObject:genre.name];
+        } else {
+            [self.selectedGenresArray addObject:genre.name];
+        }
+        self.userDefaults.selectedGenres = self.selectedGenresArray.copy;
+    } else if(indexPath.section == 1) {
+        CYPCity *city = [self.citiesFetchedResultsController objectAtIndexPath:newIndexPath];
+        if ([self.selectedCitiesArray containsObject:city.name]) {
+            [self.selectedCitiesArray removeObject:city.name];
+        } else {
+            [self.selectedCitiesArray addObject:city.name];
+        }
+        self.userDefaults.selectedCities = self.selectedCitiesArray.copy;
     }
     
-    self.userDefaults.selectedGenres = self.selectedArray.copy;
-    [tableView reloadData];
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
 }
 
 @end

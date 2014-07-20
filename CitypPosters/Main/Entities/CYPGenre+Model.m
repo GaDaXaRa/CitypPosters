@@ -28,6 +28,17 @@ NSString *const genreNameKey = @"name";
     return fetchRequest;
 }
 
++ (NSArray *)fetchAllGenresNamesInContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *request = [CYPGenre requestAllGenresWithOrder:@"name" ascending:YES];
+    NSArray *genresArray = [context executeFetchRequest:request error:NULL];
+    NSMutableArray *aux = [[NSMutableArray alloc] initWithCapacity:genresArray.count];
+    for (CYPGenre *genre in genresArray) {
+        [aux addObject:genre.name];
+    }
+    
+    return aux.copy;
+}
+
 
 + (NSFetchRequest *)entityRequestWithBatchSize:(NSUInteger)batchSize {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([CYPGenre class])];

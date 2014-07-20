@@ -21,7 +21,10 @@ NSString *const venueCityKey = @"city";
 + (instancetype)venueInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary {
     CYPVenue *venue = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([CYPVenue class]) inManagedObjectContext:context];
     
-    CYPCity *city = [CYPCity cityInContext:context withDictionary:dictionary[venueCityKey]];
+    CYPCity *city = [CYPCity fetchCityByName:dictionary[venueCityKey][cityNameKey] inContext:context];
+    if (!city) {
+        city = [CYPCity cityInContext:context withDictionary:dictionary[venueCityKey]];
+    }
     
     venue.city = city;
     venue.name = dictionary[venueNameKey];

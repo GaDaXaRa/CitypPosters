@@ -14,5 +14,9 @@ extern NSString *const cityCountryKey;
 @interface CYPCity (Model)
 
 + (instancetype)cityInContext:(NSManagedObjectContext *)context withDictionary:(NSDictionary *)dictionary;
++ (NSFetchRequest *)requestAllCitiesWithOrder:(NSString *)orderKey ascending:(BOOL)ascending;
++ (CYPCity *)fetchCityByName:(NSString *)name inContext:(NSManagedObjectContext *)context;
++ (NSFetchRequest *)requestCitiesWithPredicate:(NSPredicate *)predicate;
++ (NSArray *)fetchAllCityNamesInContext:(NSManagedObjectContext *)context;
 
 @end

@@ -16,5 +16,6 @@ extern NSString *const genreNameKey;
 + (NSFetchRequest *)requestAllGenresWithOrder:(NSString *)orderKey ascending:(BOOL)ascending;
 + (CYPGenre *)fetchGenreByName:(NSString *)name inContext:(NSManagedObjectContext *)context;
 + (NSFetchRequest *)requestGenresWithPredicate:(NSPredicate *)predicate;
++ (NSArray *)fetchAllGenresNamesInContext:(NSManagedObjectContext *)context;
 
 @end

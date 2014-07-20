@@ -10,11 +10,13 @@
 
 static NSString *const backgroundImageKey = @"CYPBackgroundImage";
 static NSString *const selectedGenresKey = @"CYPSelectedGenres";
+static NSString *const selectedCitiesKey = @"CYPSelectedCities";
 
 @interface CYPUserDefaultsManager ()
 
 @property (nonatomic, copy) void (^backgroundChangedBlock)(NSString *newImageName);
 @property (nonatomic, copy) void (^selectedGenresChangedBlock)(NSArray *selectedGenres);
+@property (nonatomic, copy) void (^selectedCititesChangedBlock)(NSArray *selectedCities);
 
 @end
 
@@ -22,6 +24,7 @@ static NSString *const selectedGenresKey = @"CYPSelectedGenres";
 
 @synthesize backgroundImage = _backgroundImage;
 @synthesize selectedGenres = _selectedGenres;
+@synthesize selectedCities = _selectedCities;
 
 - (NSString *)backgroundImage {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -51,6 +54,20 @@ static NSString *const selectedGenresKey = @"CYPSelectedGenres";
     [defaults synchronize];
 }
 
+- (NSArray *)selectedCities {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _selectedCities = [defaults arrayForKey:selectedCitiesKey];
+    
+    return _selectedCities;
+}
+
+- (void)setSelectedCities:(NSArray *)selectedCities {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:selectedCities forKey:selectedCitiesKey];
+    
+    [defaults synchronize];
+}
+
 - (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block {
     self.backgroundChangedBlock = block;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -69,11 +86,22 @@ static NSString *const selectedGenresKey = @"CYPSelectedGenres";
                   context:NULL];
 }
 
+- (void)notifySelectedCitiesWithBlock:(void (^)(NSArray *))block {
+    self.selectedCititesChangedBlock = block;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self
+               forKeyPath:selectedCitiesKey
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:backgroundImageKey]) {
         self.backgroundChangedBlock(change[@"new"]);
     } else if ([keyPath isEqualToString:selectedGenresKey]) {
         self.selectedGenresChangedBlock(change[@"new"]);
+    } else if ([keyPath isEqualToString:selectedCitiesKey]) {
+        self.selectedCititesChangedBlock(change[@"new"]);
     }
 }
 
@@ -81,6 +109,7 @@ static NSString *const selectedGenresKey = @"CYPSelectedGenres";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObserver:self forKeyPath:backgroundImageKey];
     [defaults removeObserver:self forKeyPath:selectedGenresKey];
+    [defaults removeObserver:self forKeyPath:selectedCitiesKey];
 }
 
 @end

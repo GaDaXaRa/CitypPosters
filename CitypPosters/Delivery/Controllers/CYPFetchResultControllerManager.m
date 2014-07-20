@@ -8,6 +8,8 @@
 
 #import "CYPFetchResultControllerManager.h"
 #import "CYPEvent+Model.h"
+#import "CYPCity+Model.h"
+#import "CYPGenre+Model.h"
 #import "CYPUserDefaultsManager.h"
 
 @interface CYPFetchResultControllerManager ()
@@ -20,6 +22,9 @@
 
 - (void)awakeFromNib {
     [self.userDefaults notifySelectedGenresWithBlock:^(NSArray *selectedGenres) {
+        [self changePredicateAndFetch];
+    }];
+    [self.userDefaults notifySelectedCitiesWithBlock:^(NSArray *selectedCities) {
         [self changePredicateAndFetch];
     }];
 }
@@ -46,9 +51,7 @@
     
     NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     
-    NSPredicate *predicate = [self buildPredicate];
-    
-    NSFetchRequest *fetchRequest = [CYPEvent requestEventsWithPredicate:predicate];
+    NSFetchRequest *fetchRequest = [CYPEvent requestEventsWithPredicate:[self buildPredicate]];
     fetchRequest.sortDescriptors = @[nameSortDescriptor];
     [NSFetchedResultsController deleteCacheWithName:@"Master"];
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.model.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
@@ -65,7 +68,20 @@
 
 - (NSPredicate *)buildPredicate {
     NSArray *genresArray = self.userDefaults.selectedGenres;
-    return [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
+    if (!genresArray) {
+        genresArray = [CYPGenre fetchAllGenresNamesInContext:self.model.managedObjectContext];
+        self.userDefaults.selectedGenres = genresArray;
+    }
+    NSArray *citiesArray = self.userDefaults.selectedCities;
+    if (!citiesArray) {
+        citiesArray = [CYPCity fetchAllCityNamesInContext:self.model.managedObjectContext];
+        self.userDefaults.selectedCities = citiesArray;
+    }
+    NSPredicate *genresPredicate = [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
+    NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"ANY venue.city.name IN %@", citiesArray];
+    
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[genresPredicate, citiesPredicate]];
+    return predicate;
 }
 
 @end
