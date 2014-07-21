@@ -47,12 +47,26 @@
                                     <outletCollection property="gestureRecognizers" destination="oF8-ai-VTf" appends="YES" id="sa2-t8-tA3"/>
                                 </connections>
                             </collectionView>
+                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Syv-kd-AYY">
+                                <rect key="frame" x="20" y="483" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Todos"/>
+                                    <segment title="Esta semana"/>
+                                    <segment title="Este mes"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yjk-0S-ATd" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="20" id="4FD-hU-LeJ"/>
+                            <constraint firstItem="LRV-es-yWp" firstAttribute="top" secondItem="Syv-kd-AYY" secondAttribute="bottom" constant="13" id="amo-AS-EBt"/>
                             <constraint firstItem="yjk-0S-ATd" firstAttribute="top" secondItem="jZr-d6-Zc6" secondAttribute="bottom" constant="20" id="j5N-mL-0RY"/>
                             <constraint firstAttribute="trailing" secondItem="yjk-0S-ATd" secondAttribute="trailing" constant="20" id="k4i-sC-kCH"/>
+                            <constraint firstAttribute="trailing" secondItem="Syv-kd-AYY" secondAttribute="trailing" constant="20" id="sMM-ca-saT"/>
+                            <constraint firstItem="Syv-kd-AYY" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="20" id="sT9-os-L3N"/>
                             <constraint firstItem="LRV-es-yWp" firstAttribute="top" secondItem="yjk-0S-ATd" secondAttribute="bottom" constant="40" id="tUq-Fc-4bs"/>
                         </constraints>
                     </view>
