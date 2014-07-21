@@ -12,6 +12,10 @@
 		3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */; };
 		3F0D3CAF19770D76002B3B77 /* CYPEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */; };
 		3F1801CE197ACC6000A66AC5 /* CYPGenresFilterDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1801CD197ACC6000A66AC5 /* CYPGenresFilterDatasource.m */; };
+		3F1A3323197D03B0001FC160 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1A3322197D03B0001FC160 /* EventKit.framework */; };
+		3F1A3326197D0467001FC160 /* CYPCalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A3325197D0467001FC160 /* CYPCalendarHelper.m */; };
+		3F1A3329197D0AF3001FC160 /* CYPAlertViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A3328197D0AF3001FC160 /* CYPAlertViewHelper.m */; };
+		3F1A332C197D241F001FC160 /* CYPEventActionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1A332B197D241F001FC160 /* CYPEventActionsManager.m */; };
 		3F4863E61972CC0A0072668B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E51972CC0A0072668B /* Foundation.framework */; };
 		3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E71972CC0A0072668B /* CoreGraphics.framework */; };
 		3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F4863E91972CC0A0072668B /* UIKit.framework */; };
@@ -83,6 +87,13 @@
 		3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventManager.m; sourceTree = "<group>"; };
 		3F1801CC197ACC6000A66AC5 /* CYPGenresFilterDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPGenresFilterDatasource.h; sourceTree = "<group>"; };
 		3F1801CD197ACC6000A66AC5 /* CYPGenresFilterDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPGenresFilterDatasource.m; sourceTree = "<group>"; };
+		3F1A3322197D03B0001FC160 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		3F1A3324197D0467001FC160 /* CYPCalendarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPCalendarHelper.h; sourceTree = "<group>"; };
+		3F1A3325197D0467001FC160 /* CYPCalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPCalendarHelper.m; sourceTree = "<group>"; };
+		3F1A3327197D0AF3001FC160 /* CYPAlertViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPAlertViewHelper.h; sourceTree = "<group>"; };
+		3F1A3328197D0AF3001FC160 /* CYPAlertViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPAlertViewHelper.m; sourceTree = "<group>"; };
+		3F1A332A197D241F001FC160 /* CYPEventActionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEventActionsManager.h; sourceTree = "<group>"; };
+		3F1A332B197D241F001FC160 /* CYPEventActionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEventActionsManager.m; sourceTree = "<group>"; };
 		3F4863E21972CC0A0072668B /* CitypPosters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitypPosters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4863E51972CC0A0072668B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F4863E71972CC0A0072668B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1A3323197D03B0001FC160 /* EventKit.framework in Frameworks */,
 				3F4863E81972CC0A0072668B /* CoreGraphics.framework in Frameworks */,
 				3F4863EC1972CC0A0072668B /* CoreData.framework in Frameworks */,
 				3F4863EA1972CC0A0072668B /* UIKit.framework in Frameworks */,
@@ -212,6 +224,7 @@
 		3F4863E41972CC0A0072668B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F1A3322197D03B0001FC160 /* EventKit.framework */,
 				3F4863E51972CC0A0072668B /* Foundation.framework */,
 				3F4863E71972CC0A0072668B /* CoreGraphics.framework */,
 				3F4863E91972CC0A0072668B /* UIKit.framework */,
@@ -422,6 +435,10 @@
 				3F0D3CAB197709E5002B3B77 /* CYPImagePersistence.m */,
 				3FE37C1119785AF600119A67 /* CYPImageTiler.h */,
 				3FE37C1219785AF600119A67 /* CYPImageTiler.m */,
+				3F1A3324197D0467001FC160 /* CYPCalendarHelper.h */,
+				3F1A3325197D0467001FC160 /* CYPCalendarHelper.m */,
+				3F1A3327197D0AF3001FC160 /* CYPAlertViewHelper.h */,
+				3F1A3328197D0AF3001FC160 /* CYPAlertViewHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -446,6 +463,8 @@
 				3F0D3CAE19770D76002B3B77 /* CYPEventManager.m */,
 				3FE37C15197870F500119A67 /* CYPUserDefaultsManager.h */,
 				3FE37C16197870F500119A67 /* CYPUserDefaultsManager.m */,
+				3F1A332A197D241F001FC160 /* CYPEventActionsManager.h */,
+				3F1A332B197D241F001FC160 /* CYPEventActionsManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -600,6 +619,8 @@
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
 				3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */,
 				3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */,
+				3F1A3326197D0467001FC160 /* CYPCalendarHelper.m in Sources */,
+				3F1A332C197D241F001FC160 /* CYPEventActionsManager.m in Sources */,
 				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
 				3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */,
 				3F4864AD1974276E0072668B /* CYPVenue.m in Sources */,
@@ -615,6 +636,7 @@
 				3F486436197314AB0072668B /* CYPPosterCollectionDatasource.m in Sources */,
 				3F1801CE197ACC6000A66AC5 /* CYPGenresFilterDatasource.m in Sources */,
 				3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */,
+				3F1A3329197D0AF3001FC160 /* CYPAlertViewHelper.m in Sources */,
 				3F4864531973D0E20072668B /* CYPDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

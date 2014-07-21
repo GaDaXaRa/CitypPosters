@@ -120,6 +120,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sharePressed:" destination="32T-0c-kQq" eventType="touchUpInside" id="gEL-ac-d93"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvd-6O-7Cz">
                                 <rect key="frame" x="187" y="521" width="57" height="27"/>
@@ -129,6 +132,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="downloadPressed:" destination="32T-0c-kQq" eventType="touchUpInside" id="CI3-b2-bUY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvE-Yq-vvX">
                                 <rect key="frame" x="66" y="521" width="47" height="27"/>
@@ -138,6 +144,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="calendarPressed:" destination="32T-0c-kQq" eventType="touchUpInside" id="Wsw-5C-34o"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a8y-aX-8wd">
                                 <rect key="frame" x="5" y="20" width="310" height="491"/>
@@ -180,10 +189,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionsManager" destination="dKJ-mQ-6wv" id="4HQ-5r-dZD"/>
                         <outlet property="tableView" destination="a8y-aX-8wd" id="BP3-UC-xfS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgh-eU-kDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="dKJ-mQ-6wv" customClass="CYPEventActionsManager">
+                    <connections>
+                        <outlet property="calendarHelper" destination="OVG-w4-Fe1" id="6bM-Cy-bLU"/>
+                    </connections>
+                </customObject>
+                <customObject id="OVG-w4-Fe1" customClass="CYPCalendarHelper"/>
                 <tapGestureRecognizer id="yct-JL-Cnz">
                     <connections>
                         <action selector="tapOnTableView:" destination="32T-0c-kQq" id="xPf-uB-POm"/>

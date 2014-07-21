@@ -37,7 +37,9 @@
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
-    [self.fetchedResultsDelegate.collectionView reloadData];
+    [self.fetchedResultsDelegate.collectionView performBatchUpdates:^{
+        [self.fetchedResultsDelegate.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    } completion:nil];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController {

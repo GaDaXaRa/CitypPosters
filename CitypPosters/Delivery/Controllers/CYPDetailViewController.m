@@ -11,11 +11,13 @@
 #import "CYPCity+Model.h"
 #import "CYPGenre.h"
 #import "CYPDates.h"
+#import "CYPEventActionsManager.h"
 
 @interface CYPDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
+@property (strong, nonatomic) IBOutlet CYPEventActionsManager *actionsManager;
 
 @end
 
@@ -29,15 +31,6 @@
     }
     
     return _dateFormatter;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -58,28 +51,11 @@
     [self.delegate detailViewControllerFished:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)initialFontSettingsForCell:(UITableViewCell *)cell {
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger section = indexPath.section;
@@ -153,6 +129,18 @@
             return 0;
             break;
     }
+}
+
+- (IBAction)calendarPressed:(id)sender {
+    [self.actionsManager saveEventToCalendar:self.event];
+}
+
+- (IBAction)downloadPressed:(id)sender {
+    [self.actionsManager saveEventImageToPhotoRoll:self.event];
+}
+
+- (IBAction)sharePressed:(id)sender {
+    [self.actionsManager shareEvent:self.event inController:self];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
