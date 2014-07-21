@@ -32,7 +32,7 @@
     view.frame = rect;
     view.alpha = 0;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        view.alpha = 0.8;
+        view.alpha = 0.9;
     } completion:^(BOOL finished) {
         completion();
     }];

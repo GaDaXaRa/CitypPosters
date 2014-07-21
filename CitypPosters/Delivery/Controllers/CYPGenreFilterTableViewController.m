@@ -42,7 +42,7 @@
         self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     }];
     self.tableView.backgroundView = self.backgroundImageView;
-    self.tableView.backgroundView.alpha = 0.6;
+    self.tableView.backgroundView.alpha = 0.3;
     
 }
 

@@ -54,7 +54,7 @@
 - (void)initialFontSettingsForCell:(UITableViewCell *)cell {
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+    cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:14];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,12 +63,12 @@
     [self initialFontSettingsForCell:cell];
     switch (section) {
         case 0: {
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:22];
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:22];
             cell.textLabel.text = self.event.name;
             break;
         }
         case 1: {
-            cell.textLabel.font = [UIFont boldSystemFontOfSize:24];
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:24];
             cell.textLabel.text = [[self.event.mainArtists allObjects][indexPath.row] name];;
             break;
         }
@@ -149,7 +149,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section > 1){
-        return 16;
+        return 18;
     }
     return 26;
 }

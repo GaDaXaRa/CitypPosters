@@ -11,7 +11,12 @@
 @implementation CYPImagePersistence
 
 + (void)persistImage:(UIImage *)image withFilename:(NSString *)filename {
-    NSData *imageData = UIImagePNGRepresentation(image);
+    CGSize newSize = CGSizeMake(image.size.width / 2, image.size.height / 2);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *imageData = UIImagePNGRepresentation(newImage);
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     

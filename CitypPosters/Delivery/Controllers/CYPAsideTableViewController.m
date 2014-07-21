@@ -42,7 +42,7 @@
     }];
     
     self.tableView.backgroundView = self.imageView;
-    self.tableView.backgroundView.alpha = 0.6;
+    self.tableView.backgroundView.alpha = 0.3;
     
     self.tableView.tableFooterView = [UIView new];
 }
