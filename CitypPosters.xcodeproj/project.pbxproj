@@ -52,7 +52,7 @@
 		3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4864AF1974280D0072668B /* CYPCity+Model.m */; };
 		3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4897971974630B00A507E1 /* CYPGenre+Model.m */; };
 		3F48979B1974659A00A507E1 /* CYPDates+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979A1974659A00A507E1 /* CYPDates+Model.m */; };
-		3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F48979D19746A9F00A507E1 /* CYPEvent.m */; };
+		3F587536197D6A3D00FDAD2D /* CYPEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F587535197D6A3D00FDAD2D /* CYPEvent.m */; };
 		3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */; };
 		3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */; };
 		3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */; };
@@ -147,8 +147,8 @@
 		3F4897971974630B00A507E1 /* CYPGenre+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPGenre+Model.m"; sourceTree = "<group>"; };
 		3F4897991974659A00A507E1 /* CYPDates+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CYPDates+Model.h"; sourceTree = "<group>"; };
 		3F48979A1974659A00A507E1 /* CYPDates+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPDates+Model.m"; sourceTree = "<group>"; };
-		3F48979C19746A9F00A507E1 /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
-		3F48979D19746A9F00A507E1 /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
+		3F587534197D6A3D00FDAD2D /* CYPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPEvent.h; sourceTree = "<group>"; };
+		3F587535197D6A3D00FDAD2D /* CYPEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPEvent.m; sourceTree = "<group>"; };
 		3F87A38D1975BE6F009D83ED /* CYPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPDetailViewController.h; sourceTree = "<group>"; };
 		3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPDetailViewController.m; sourceTree = "<group>"; };
 		3F87A3911975D845009D83ED /* CYPViewAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPViewAnimationHelper.h; sourceTree = "<group>"; };
@@ -362,8 +362,8 @@
 		3F4864401973BF840072668B /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				3F48979C19746A9F00A507E1 /* CYPEvent.h */,
-				3F48979D19746A9F00A507E1 /* CYPEvent.m */,
+				3F587534197D6A3D00FDAD2D /* CYPEvent.h */,
+				3F587535197D6A3D00FDAD2D /* CYPEvent.m */,
 				3F4864AB1974276E0072668B /* CYPVenue.h */,
 				3F4864AC1974276E0072668B /* CYPVenue.m */,
 				3F48649C19740E140072668B /* CYPCity.h */,
@@ -618,7 +618,6 @@
 				3FE37C0D197810FE00119A67 /* CYPCoordinatorViewController.m in Sources */,
 				3F486490197409BA0072668B /* CYPEvent+Model.m in Sources */,
 				3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */,
-				3F48979E19746A9F00A507E1 /* CYPEvent.m in Sources */,
 				3F1A3326197D0467001FC160 /* CYPCalendarHelper.m in Sources */,
 				3F1A332C197D241F001FC160 /* CYPEventActionsManager.m in Sources */,
 				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
@@ -628,6 +627,7 @@
 				3F0D3CA91977056C002B3B77 /* CYPNetworkManager.m in Sources */,
 				3FE37C1A1979132400119A67 /* CYPSettingsViewController.m in Sources */,
 				3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */,
+				3F587536197D6A3D00FDAD2D /* CYPEvent.m in Sources */,
 				3F0D3CAC197709E5002B3B77 /* CYPImagePersistence.m in Sources */,
 				3F4863F81972CC0A0072668B /* CYPAppDelegate.m in Sources */,
 				3F48647C1973E65D0072668B /* CYPGenre.m in Sources */,

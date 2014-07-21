@@ -13,10 +13,19 @@
 
 static NSString *const cellID = @"posterCell";
 
+@interface CYPPosterCollectionDatasource ()
+
+@end
+
 @implementation CYPPosterCollectionDatasource
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [[[self.fetchedResultController sections] firstObject] numberOfObjects];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [[self.fetchedResultController sections] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

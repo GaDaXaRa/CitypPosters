@@ -31,10 +31,18 @@ NSString *const eventIdKey = @"eventId";
     event.venue = [event importVenue:dictionary[venueKey] inContext:context];
     event.genres = [event importGenres:dictionary[genresKey] inContext:context];
     event.dates = [event importDates:dictionary[eventDatesKey] inContext:context];
+    event.firstDate = [self retrieveFirstDate:event.dates];
     event.name = dictionary[eventNameKey];
     event.eventId = dictionary[eventIdKey];
     
     return event;
+}
+
++ (NSDate *)retrieveFirstDate:(NSSet *)dates {
+    NSArray *array = [dates allObjects];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    array = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
+    return [[array firstObject] date];
 }
 
 + (NSFetchRequest *)requestAllEventsWithOrder:(NSString *)orderKey ascending:(BOOL)ascending {

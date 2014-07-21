@@ -55,7 +55,7 @@
         return nil;
     }
     
-    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstDate" ascending:YES];
     
     NSFetchRequest *fetchRequest = [CYPEvent requestEventsWithPredicate:[self buildPredicate]];
     fetchRequest.sortDescriptors = @[nameSortDescriptor];

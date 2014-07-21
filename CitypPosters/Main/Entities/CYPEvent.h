@@ -2,7 +2,7 @@
 //  CYPEvent.h
 //  CitypPosters
 //
-//  Created by Miguel Santiago Rodríguez on 14/07/14.
+//  Created by Miguel Santiago Rodríguez on 21/07/14.
 //  Copyright (c) 2014 gadaxara. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * eventId;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * firstDate;
 @property (nonatomic, retain) NSSet *dates;
 @property (nonatomic, retain) NSSet *genres;
 @property (nonatomic, retain) NSSet *invitedArtists;

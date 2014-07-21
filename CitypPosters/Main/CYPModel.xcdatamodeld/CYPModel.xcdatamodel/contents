@@ -13,10 +13,11 @@
     </entity>
     <entity name="CYPDates" representedClassName="CYPDates" syncable="YES">
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
-        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="dates" inverseEntity="CYPEvent" syncable="YES"/>
+        <relationship name="events" toMany="YES" deletionRule="Nullify" destinationEntity="CYPEvent" inverseName="dates" inverseEntity="CYPEvent" syncable="YES"/>
     </entity>
     <entity name="CYPEvent" representedClassName="CYPEvent" syncable="YES">
         <attribute name="eventId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="firstDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="dates" toMany="YES" deletionRule="Nullify" destinationEntity="CYPDates" inverseName="events" inverseEntity="CYPDates" syncable="YES"/>
         <relationship name="genres" toMany="YES" deletionRule="Nullify" destinationEntity="CYPGenre" inverseName="events" inverseEntity="CYPGenre" syncable="YES"/>
@@ -41,8 +42,8 @@
     <elements>
         <element name="CYPArtist" positionX="-290" positionY="-67" width="128" height="103"/>
         <element name="CYPCity" positionX="250" positionY="56" width="128" height="88"/>
-        <element name="CYPDates" positionX="-198" positionY="-264" width="128" height="75"/>
-        <element name="CYPEvent" positionX="-11" positionY="-225" width="128" height="150"/>
+        <element name="CYPDates" positionX="-198" positionY="-264" width="128" height="73"/>
+        <element name="CYPEvent" positionX="-11" positionY="-225" width="128" height="165"/>
         <element name="CYPGenre" positionX="241" positionY="-90" width="128" height="73"/>
         <element name="CYPVenue" positionX="-18" positionY="27" width="128" height="163"/>
     </elements>

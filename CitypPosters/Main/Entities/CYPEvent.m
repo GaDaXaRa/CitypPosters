@@ -2,7 +2,7 @@
 //  CYPEvent.m
 //  CitypPosters
 //
-//  Created by Miguel Santiago Rodríguez on 14/07/14.
+//  Created by Miguel Santiago Rodríguez on 21/07/14.
 //  Copyright (c) 2014 gadaxara. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 
 @dynamic eventId;
 @dynamic name;
+@dynamic firstDate;
 @dynamic dates;
 @dynamic genres;
 @dynamic invitedArtists;
