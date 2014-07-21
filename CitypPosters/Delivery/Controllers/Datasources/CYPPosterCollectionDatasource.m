@@ -13,9 +13,6 @@
 
 static NSString *const cellID = @"posterCell";
 
-@interface CYPPosterCollectionDatasource ()
-
-@end
 
 @implementation CYPPosterCollectionDatasource
 

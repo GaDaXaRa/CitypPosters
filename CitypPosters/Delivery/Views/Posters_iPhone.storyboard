@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ao1-zs-VBM">
-                                <rect key="frame" x="0.0" y="-22" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ao1-zs-VBM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yjk-0S-ATd">
-                                <rect key="frame" x="20" y="20" width="280" height="464"/>
+                                <rect key="frame" x="20" y="20" width="280" height="450"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -33,7 +33,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="posterCell" id="WOn-FB-hfm" customClass="CYPPosterCell">
-                                        <rect key="frame" x="0.0" y="232" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="225" width="0.0" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -52,22 +52,29 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
-                                    <segment title="Todos"/>
-                                    <segment title="Esta semana"/>
-                                    <segment title="Este mes"/>
+                                    <segment title="Proxim Año"/>
+                                    <segment title="Tres meses"/>
+                                    <segment title="Proximo Mes"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="calendarControlChanged:" destination="ozD-3c-fAQ" eventType="valueChanged" id="MXI-ZK-Lnh"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="yjk-0S-ATd" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="20" id="4FD-hU-LeJ"/>
+                            <constraint firstAttribute="bottom" secondItem="ao1-zs-VBM" secondAttribute="bottom" id="81m-gV-sZ2"/>
+                            <constraint firstItem="Syv-kd-AYY" firstAttribute="top" secondItem="yjk-0S-ATd" secondAttribute="bottom" constant="13" id="NuL-DS-NyV"/>
+                            <constraint firstItem="ao1-zs-VBM" firstAttribute="top" secondItem="Flk-Vo-ocT" secondAttribute="top" id="Opu-jD-flT"/>
+                            <constraint firstAttribute="trailing" secondItem="ao1-zs-VBM" secondAttribute="trailing" id="USU-Oj-ZDH"/>
                             <constraint firstItem="LRV-es-yWp" firstAttribute="top" secondItem="Syv-kd-AYY" secondAttribute="bottom" constant="13" id="amo-AS-EBt"/>
+                            <constraint firstItem="ao1-zs-VBM" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" id="eJp-Eo-vbZ"/>
                             <constraint firstItem="yjk-0S-ATd" firstAttribute="top" secondItem="jZr-d6-Zc6" secondAttribute="bottom" constant="20" id="j5N-mL-0RY"/>
                             <constraint firstAttribute="trailing" secondItem="yjk-0S-ATd" secondAttribute="trailing" constant="20" id="k4i-sC-kCH"/>
                             <constraint firstAttribute="trailing" secondItem="Syv-kd-AYY" secondAttribute="trailing" constant="20" id="sMM-ca-saT"/>
                             <constraint firstItem="Syv-kd-AYY" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="20" id="sT9-os-L3N"/>
-                            <constraint firstItem="LRV-es-yWp" firstAttribute="top" secondItem="yjk-0S-ATd" secondAttribute="bottom" constant="40" id="tUq-Fc-4bs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7pr-Mz-6RE">
@@ -77,6 +84,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="animationHelper" destination="fWA-wv-Icx" id="TKf-CB-7EO"/>
+                        <outlet property="calendarSegmentedControl" destination="Syv-kd-AYY" id="hWC-oN-DkU"/>
                         <outlet property="eventManager" destination="Mmb-yz-XeA" id="ngK-OH-pyi"/>
                         <outlet property="fetchResultControllerManager" destination="yJG-fV-TbI" id="491-79-j5D"/>
                         <outlet property="imageView" destination="ao1-zs-VBM" id="Grm-WA-ffK"/>
@@ -419,7 +427,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fondo de pared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R08-kh-MFu">
                                 <rect key="frame" x="20" y="20" width="200" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

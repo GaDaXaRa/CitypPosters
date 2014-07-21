@@ -27,6 +27,9 @@
     [self.userDefaults notifySelectedCitiesWithBlock:^(NSArray *selectedCities) {
         [self changePredicateAndFetch];
     }];
+    [self.userDefaults notifySelectedCalendarWithBlock:^(NSUInteger selectedCalendar) {
+        [self changePredicateAndFetch];
+    }];
 }
 
 - (void)changePredicateAndFetch {
@@ -87,11 +90,27 @@
             self.userDefaults.selectedCities = citiesArray;
         }
     }
+    NSPredicate *calendarPredicate = [NSPredicate predicateWithFormat:@"firstDate < %@", [self dateByIndex:self.userDefaults.selectedCalendar]];
     NSPredicate *genresPredicate = [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
     NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"venue.city.name IN %@", citiesArray];
     
-    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[genresPredicate, citiesPredicate]];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[calendarPredicate, genresPredicate, citiesPredicate]];
     return predicate;
+}
+
+- (NSDate *)dateByIndex:(NSUInteger)index {
+    switch (index) {
+        case 1:
+            return [NSDate dateWithTimeIntervalSinceNow:90*24*60*60];
+            break;
+        case 2:
+            return [NSDate dateWithTimeIntervalSinceNow:30*24*60*60];
+            break;
+            
+        default:
+            return [NSDate dateWithTimeIntervalSinceNow:360*24*60*60];
+            break;
+    }
 }
 
 @end

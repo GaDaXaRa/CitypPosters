@@ -28,11 +28,13 @@ enum {
 
 @property (strong, nonatomic) IBOutlet CYPViewAnimationHelper *animationHelper;
 @property (strong, nonatomic) IBOutlet CYPFetchResultControllerManager *fetchResultControllerManager;
+@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 @property (strong, nonatomic) IBOutlet CYPEventManager *eventManager;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *posterCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsBarButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *calendarSegmentedControl;
 
 @property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) UICollectionViewFlowLayout *fullScreenLayout;
@@ -97,6 +99,10 @@ enum {
     }
 }
 
+- (IBAction)calendarControlChanged:(UISegmentedControl *)sender {
+    self.userDefaults.selectedCalendar = sender.selectedSegmentIndex;
+}
+
 - (void)performPinchOut {
     if (self.screenState == zoomInScreen) {
         [self.posterCollectionView setCollectionViewLayout:self.fullScreenLayout animated:YES];
@@ -118,6 +124,7 @@ enum {
     self.title = @"Citypposters";
     
     self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    self.calendarSegmentedControl.selectedSegmentIndex = self.userDefaults.selectedCalendar;
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
         self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     }];

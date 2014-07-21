@@ -11,12 +11,14 @@
 static NSString *const backgroundImageKey = @"CYPBackgroundImage";
 static NSString *const selectedGenresKey = @"CYPSelectedGenres";
 static NSString *const selectedCitiesKey = @"CYPSelectedCities";
+static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 
 @interface CYPUserDefaultsManager ()
 
 @property (nonatomic, copy) void (^backgroundChangedBlock)(NSString *newImageName);
 @property (nonatomic, copy) void (^selectedGenresChangedBlock)(NSArray *selectedGenres);
 @property (nonatomic, copy) void (^selectedCititesChangedBlock)(NSArray *selectedCities);
+@property (nonatomic, copy) void (^selectedCalendarChangedBlock)(NSUInteger selectedCalendar);
 
 @property (nonatomic, copy) NSMutableArray *observingKeys;
 
@@ -27,6 +29,7 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
 @synthesize backgroundImage = _backgroundImage;
 @synthesize selectedGenres = _selectedGenres;
 @synthesize selectedCities = _selectedCities;
+@synthesize selectedCalendar = _selectedCalendar;
 
 - (NSString *)backgroundImage {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -70,6 +73,23 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
     [defaults synchronize];
 }
 
+- (NSUInteger)selectedCalendar {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _selectedCalendar = [defaults integerForKey:selectedCalendarKey];
+    if (!_selectedCalendar) {
+        return 0;
+    }
+    
+    return _selectedCalendar;
+}
+
+- (void)setSelectedCalendar:(NSUInteger)selectedCalendar {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:selectedCalendar forKey:selectedCalendarKey];
+    
+    [defaults synchronize];
+}
+
 - (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block {
     self.backgroundChangedBlock = block;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -97,6 +117,15 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
                   context:NULL];
 }
 
+- (void)notifySelectedCalendarWithBlock:(void(^)(NSUInteger selectedCalendar))block {
+    self.selectedCalendarChangedBlock = block;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self
+               forKeyPath:selectedCalendarKey
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:backgroundImageKey]) {
         self.backgroundChangedBlock(change[@"new"]);
@@ -107,6 +136,9 @@ static NSString *const selectedCitiesKey = @"CYPSelectedCities";
     } else if ([keyPath isEqualToString:selectedCitiesKey]) {
         self.selectedCititesChangedBlock(change[@"new"]);
         [self.observingKeys addObject:selectedCitiesKey];
+    } else if ([keyPath isEqualToString:selectedCalendarKey]) {
+        self.selectedCalendarChangedBlock([change[@"new"] integerValue]);
+        [self.observingKeys addObject:selectedCalendarKey];
     }
 }
 
