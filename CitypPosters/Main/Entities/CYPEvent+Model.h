@@ -16,6 +16,7 @@ extern NSString *const mainArtistsKey;
 extern NSString *const invitedArtistsKey;
 extern NSString *const venueKey;
 extern NSString *const eventIdKey;
+extern NSString *const kGenredAddedNotification;
 
 @interface CYPEvent (Model)
 

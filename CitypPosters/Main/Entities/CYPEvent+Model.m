@@ -20,6 +20,7 @@ NSString *const mainArtistsKey = @"mainArtists";
 NSString *const invitedArtistsKey = @"invitedArtists";
 NSString *const venueKey = @"venue";
 NSString *const eventIdKey = @"eventId";
+NSString *const kGenredAddedNotification = @"EventAddedToConextNtofication";
 
 @implementation CYPEvent (Model)
 
@@ -99,6 +100,7 @@ NSString *const eventIdKey = @"eventId";
         CYPGenre *genre = [CYPGenre fetchGenreByName:genreName inContext:context];
         if (!genre) {
             genre = [CYPGenre genreInContext:context withName:genreName];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGenredAddedNotification object:nil userInfo:@{@"name":genreName}];
         }
         
         if (genre) {

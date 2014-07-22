@@ -15,6 +15,7 @@ NSString *const venueLongitudeKey = @"lon";
 NSString *const venueAddressKey = @"address";
 NSString *const venueZipKey = @"ZIP";
 NSString *const venueCityKey = @"city";
+NSString *const kCityAddedNotification = @"kCityAddedToContextNotification";
 
 @implementation CYPVenue (Model)
 
@@ -22,6 +23,7 @@ NSString *const venueCityKey = @"city";
     CYPCity *city = [CYPCity fetchCityByName:dictionary[venueCityKey][cityNameKey] inContext:context];
     if (!city) {
         city = [CYPCity cityInContext:context withDictionary:dictionary[venueCityKey]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCityAddedNotification object:nil userInfo:@{@"name":city.name}];
     }
     
     if (!city) {

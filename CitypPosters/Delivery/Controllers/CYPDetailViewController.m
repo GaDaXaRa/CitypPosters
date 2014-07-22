@@ -12,6 +12,7 @@
 #import "CYPGenre.h"
 #import "CYPDates.h"
 #import "CYPEventActionsManager.h"
+#import "CYPMapViewController.h"
 
 @interface CYPDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -37,8 +38,7 @@
 {
     [super viewDidLoad];
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
+    self.tableView.delegate = self;    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -131,6 +131,17 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"venueMap"]) {
+        CYPMapViewController *mapController = segue.destinationViewController;
+        mapController.event = self.event;
+    }
+}
+
+- (IBAction)exitFromMap:(UIStoryboardSegue *)segue {
+    
+}
+
 - (IBAction)calendarPressed:(id)sender {
     [self.actionsManager saveEventToCalendar:self.event];
 }
@@ -148,7 +159,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section > 1){
+    if (indexPath.section > 1) {
         return 18;
     }
     return 26;

@@ -76,20 +76,9 @@
 }
 
 - (NSPredicate *)buildPredicate {
-    NSArray *genresArray = self.userDefaults.selectedGenres;
-    if (!genresArray) {
-        genresArray = [CYPGenre fetchAllGenresNamesInContext:self.model.managedObjectContext];
-        if ([genresArray count]) {
-            self.userDefaults.selectedGenres = genresArray;
-        }
-    }
+    NSArray *genresArray = self.userDefaults.selectedGenres;    
     NSArray *citiesArray = self.userDefaults.selectedCities;
-    if (!citiesArray) {
-        citiesArray = [CYPCity fetchAllCityNamesInContext:self.model.managedObjectContext];
-        if ([citiesArray count]) {
-            self.userDefaults.selectedCities = citiesArray;
-        }
-    }
+    
     NSPredicate *calendarPredicate = [NSPredicate predicateWithFormat:@"firstDate < %@", [self dateByIndex:self.userDefaults.selectedCalendar]];
     NSPredicate *genresPredicate = [NSPredicate predicateWithFormat:@"ANY genres.name IN %@", genresArray];
     NSPredicate *citiesPredicate = [NSPredicate predicateWithFormat:@"venue.city.name IN %@", citiesArray];

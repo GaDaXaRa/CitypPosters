@@ -20,4 +20,7 @@
 - (void)notifySelectedCitiesWithBlock:(void(^)(NSArray *selectedCities))block;
 - (void)notifySelectedCalendarWithBlock:(void(^)(NSUInteger selectedCalendar))block;
 
+- (void)addGenreToDefaults:(NSString *)genreName;
+- (void)addCityToDefaults:(NSString *)cityName;
+
 @end

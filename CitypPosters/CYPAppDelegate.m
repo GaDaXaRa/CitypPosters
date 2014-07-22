@@ -10,10 +10,12 @@
 #import "CYPModelDocument.h"
 #import "CYPCoordinatorViewController.h"
 #import "CYPUserDefaultsManager.h"
+#import "CYPNotificationCenterDefaultsManager.h"
 
 @interface CYPAppDelegate ()
 
 @property (strong, nonatomic) CYPModelDocument *model;
+@property (strong, nonatomic) CYPNotificationCenterDefaultsManager *notificationToUserDefaults;
 
 @end
 
@@ -35,8 +37,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -51,7 +52,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)prepareRootController {
@@ -60,6 +61,7 @@
 }
 
 - (void)prepareUserDefaults {
+    self.notificationToUserDefaults = [[CYPNotificationCenterDefaultsManager alloc] init];
     CYPUserDefaultsManager *userDefaults = [[CYPUserDefaultsManager alloc] init];
     if (!userDefaults.backgroundImage) {
         userDefaults.backgroundImage = @"fondo1";

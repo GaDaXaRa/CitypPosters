@@ -113,6 +113,44 @@
             </objects>
             <point key="canvasLocation" x="652" y="17"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AkD-GH-4KF">
+            <objects>
+                <viewController id="aVC-am-QB7" customClass="CYPMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N7D-El-97A"/>
+                        <viewControllerLayoutGuide type="bottom" id="0tJ-ea-vC3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cJd-T5-BIs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zPf-hu-7S7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tzh-F9-4YA">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Volver" id="y2Z-Lr-XLv">
+                                        <connections>
+                                            <segue destination="g9T-TN-Hed" kind="unwind" unwindAction="exitFromMap:" id="6O0-11-ale"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="zPf-hu-7S7" id="abo-Mq-2hr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v4J-PV-0dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1620" y="17"/>
+        </scene>
         <!--Detail View Controller-->
         <scene sceneID="ngZ-8B-sYk">
             <objects>
@@ -148,13 +186,17 @@
                                     <outletCollection property="gestureRecognizers" destination="yct-JL-Cnz" appends="YES" id="PKl-ln-zi6"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-CC-JgH">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-CC-JgH">
                                 <rect key="frame" x="0.0" y="514" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tzZ-P3-6ZA"/>
-                                    <barButtonItem image="map" id="Isp-cL-dMZ"/>
+                                    <barButtonItem image="map" id="Isp-cL-dMZ">
+                                        <connections>
+                                            <segue destination="aVC-am-QB7" kind="modal" identifier="venueMap" id="0Bv-Vp-rwq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="094-L5-c06"/>
                                     <barButtonItem image="agendar" id="8nx-cd-hCQ">
                                         <connections>
@@ -176,7 +218,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="t8G-Kd-dSa"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,6 +238,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgh-eU-kDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="g9T-TN-Hed" userLabel="Exit" sceneMemberID="exit"/>
                 <customObject id="dKJ-mQ-6wv" customClass="CYPEventActionsManager">
                     <connections>
                         <outlet property="calendarHelper" destination="OVG-w4-Fe1" id="6bM-Cy-bLU"/>

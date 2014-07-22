@@ -14,6 +14,7 @@ extern NSString *const venueLongitudeKey;
 extern NSString *const venueAddressKey;
 extern NSString *const venueZipKey;
 extern NSString *const venueCityKey;
+extern NSString *const kCityAddedNotification;
 
 @interface CYPVenue (Model)
 

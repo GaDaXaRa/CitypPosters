@@ -21,6 +21,7 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 @property (nonatomic, copy) void (^selectedCalendarChangedBlock)(NSUInteger selectedCalendar);
 
 @property (nonatomic, copy) NSMutableArray *observingKeys;
+@property (nonatomic, strong) NSUserDefaults *defaults;
 
 @end
 
@@ -31,51 +32,54 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 @synthesize selectedCities = _selectedCities;
 @synthesize selectedCalendar = _selectedCalendar;
 
+- (NSUserDefaults *)defaults {
+    if (!_defaults) {
+        _defaults = [NSUserDefaults standardUserDefaults];
+    }
+    
+    return _defaults;
+}
+
 - (NSString *)backgroundImage {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _backgroundImage = [defaults objectForKey:backgroundImageKey];
+    _backgroundImage = [self.defaults objectForKey:backgroundImageKey];
     
     return _backgroundImage;
 }
 
 - (void)setBackgroundImage:(NSString *)backgroundImage {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:backgroundImage forKey:backgroundImageKey];
-    
-    [defaults synchronize];
+    [self.defaults setObject:backgroundImage forKey:backgroundImageKey];
 }
 
 - (NSArray *)selectedGenres {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _selectedGenres = [defaults arrayForKey:selectedGenresKey];
+    _selectedGenres = [self.defaults arrayForKey:selectedGenresKey];
+    
+    if (!_selectedGenres) {
+        return @[];
+    }
     
     return _selectedGenres;
 }
 
 - (void)setSelectedGenres:(NSArray *)selectedGenres {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:selectedGenres forKey:selectedGenresKey];
-    
-    [defaults synchronize];
+    [self.defaults setObject:selectedGenres forKey:selectedGenresKey];
 }
 
 - (NSArray *)selectedCities {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _selectedCities = [defaults arrayForKey:selectedCitiesKey];
+    _selectedCities = [self.defaults arrayForKey:selectedCitiesKey];
+    
+    if (!_selectedCities) {
+        return @[];
+    }
     
     return _selectedCities;
 }
 
 - (void)setSelectedCities:(NSArray *)selectedCities {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:selectedCities forKey:selectedCitiesKey];
-    
-    [defaults synchronize];
+    [self.defaults setObject:selectedCities forKey:selectedCitiesKey];
 }
 
 - (NSUInteger)selectedCalendar {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _selectedCalendar = [defaults integerForKey:selectedCalendarKey];
+    _selectedCalendar = [self.defaults integerForKey:selectedCalendarKey];
     if (!_selectedCalendar) {
         return 0;
     }
@@ -84,16 +88,12 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 }
 
 - (void)setSelectedCalendar:(NSUInteger)selectedCalendar {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:selectedCalendar forKey:selectedCalendarKey];
-    
-    [defaults synchronize];
+    [self.defaults setInteger:selectedCalendar forKey:selectedCalendarKey];
 }
 
 - (void)notifyBackgroundChangesWithBlock:(void(^)(NSString *newImageName))block {
     self.backgroundChangedBlock = block;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self
+    [self.defaults addObserver:self
                forKeyPath:backgroundImageKey
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
@@ -101,8 +101,7 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 
 - (void)notifySelectedGenresWithBlock:(void(^)(NSArray *selectedGenres))block {
     self.selectedGenresChangedBlock = block;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self
+    [self.defaults addObserver:self
                forKeyPath:selectedGenresKey
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
@@ -110,8 +109,7 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 
 - (void)notifySelectedCitiesWithBlock:(void (^)(NSArray *))block {
     self.selectedCititesChangedBlock = block;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self
+    [self.defaults addObserver:self
                forKeyPath:selectedCitiesKey
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
@@ -119,11 +117,22 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 
 - (void)notifySelectedCalendarWithBlock:(void(^)(NSUInteger selectedCalendar))block {
     self.selectedCalendarChangedBlock = block;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults addObserver:self
+    [self.defaults addObserver:self
                forKeyPath:selectedCalendarKey
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
+}
+
+- (void)addGenreToDefaults:(NSString *)genreName {
+    NSMutableArray *aux = [NSMutableArray arrayWithArray:self.selectedGenres];
+    [aux addObject:genreName];
+    self.selectedGenres = aux.copy;
+}
+
+- (void)addCityToDefaults:(NSString *)cityName {
+    NSMutableArray *aux = [NSMutableArray arrayWithArray:self.selectedCities];
+    [aux addObject:cityName];
+    self.selectedCities = aux.copy;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -143,9 +152,8 @@ static NSString *const selectedCalendarKey = @"CYPSelectedCalendar";
 }
 
 - (void)dealloc {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     for (NSString *key in self.observingKeys) {
-        [defaults removeObserver:self forKeyPath:key];
+        [self.defaults removeObserver:self forKeyPath:key];
     }
 }
 
