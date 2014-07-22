@@ -27,6 +27,16 @@
     [self centerMapInInVenue:self.event.venue];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -42,5 +52,6 @@
     MKCoordinateRegion fitRegion = [self.map regionThatFits:viewRegion];
     [self.map setRegion:fitRegion animated:YES];
 }
+
 
 @end

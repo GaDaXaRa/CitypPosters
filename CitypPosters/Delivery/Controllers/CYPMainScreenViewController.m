@@ -187,6 +187,7 @@ enum {
     self.detailViewController.event = event;
     [self.view addSubview:self.detailViewController.view];
     self.posterCollectionView.userInteractionEnabled = NO;
+    self.calendarSegmentedControl.userInteractionEnabled = NO;
     [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [self.detailViewController didMoveToParentViewController:self];
     }];
@@ -195,12 +196,12 @@ enum {
 - (void)closeDetailView:(UIView *)view {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
-    self.posterCollectionView.userInteractionEnabled = NO;
     [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:view.frame completion:^{
         [detailView removeFromSuperview];
         [self.detailViewController removeFromParentViewController];
         [self.detailViewController didMoveToParentViewController:nil];
         self.posterCollectionView.userInteractionEnabled = YES;
+        self.calendarSegmentedControl.userInteractionEnabled = YES;
     }];
 }
 
