@@ -151,7 +151,7 @@
     view.backgroundColor = [UIColor darkGrayColor];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
     label.textColor = [UIColor whiteColor];
-    label.font = [UIFont fontWithName:@"Superclarendon-Regular" size:16];
+    label.font = [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:16];
     label.text = [self tableView:tableView titleForHeaderInSection:section];
     [view addSubview:label];
     return view;
