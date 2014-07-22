@@ -193,12 +193,11 @@
                                     <outletCollection property="gestureRecognizers" destination="yct-JL-Cnz" appends="YES" id="PKl-ln-zi6"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-CC-JgH">
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-CC-JgH">
                                 <rect key="frame" x="0.0" y="514" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tzZ-P3-6ZA"/>
                                     <barButtonItem image="iconmonstr-location-icon-32" id="Isp-cL-dMZ">
                                         <connections>
                                             <segue destination="aVC-am-QB7" kind="modal" identifier="venueMap" id="0Bv-Vp-rwq"/>
@@ -222,7 +221,6 @@
                                             <action selector="sharePressed:" destination="32T-0c-kQq" id="EMR-QJ-S9t"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="t8G-Kd-dSa"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,6 +240,7 @@
                     <connections>
                         <outlet property="actionsManager" destination="dKJ-mQ-6wv" id="4HQ-5r-dZD"/>
                         <outlet property="tableView" destination="a8y-aX-8wd" id="BP3-UC-xfS"/>
+                        <outlet property="toolBar" destination="4aM-CC-JgH" id="Hud-Fw-zMQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgh-eU-kDm" userLabel="First Responder" sceneMemberID="firstResponder"/>

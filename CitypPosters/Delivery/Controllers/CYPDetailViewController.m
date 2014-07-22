@@ -13,12 +13,14 @@
 #import "CYPDates.h"
 #import "CYPEventActionsManager.h"
 #import "CYPMapViewController.h"
+#import "UIView+LineSeparator.h"
 
 @interface CYPDetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) IBOutlet CYPEventActionsManager *actionsManager;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
@@ -186,6 +188,18 @@
             break;
     }
     return 15;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSArray *sectionsWithSeparator = @[@2,@3,@4];
+    if ([sectionsWithSeparator containsObject:[NSNumber numberWithInt:section]]) {
+        UIView *separator = [[UIView alloc] initWithFrame:[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]].frame];
+        NSUInteger height = [self tableView:tableView heightForHeaderInSection:section] / 2;
+        [separator addBotomSeparatorWithColor:[UIColor whiteColor] height:1 heightOffset:height edgeInset:UIEdgeInsetsZero];
+        return separator;
+    }
+    
+    return [UIView new];
 }
 
 - (IBAction)tapOnTableView:(UITapGestureRecognizer *)sender {
