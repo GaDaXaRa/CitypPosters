@@ -199,25 +199,25 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tzZ-P3-6ZA"/>
-                                    <barButtonItem image="map" id="Isp-cL-dMZ">
+                                    <barButtonItem image="iconmonstr-location-icon-32" id="Isp-cL-dMZ">
                                         <connections>
                                             <segue destination="aVC-am-QB7" kind="modal" identifier="venueMap" id="0Bv-Vp-rwq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="094-L5-c06"/>
-                                    <barButtonItem image="agendar" id="8nx-cd-hCQ">
+                                    <barButtonItem image="iconmonstr-calendar-4-icon-32" id="8nx-cd-hCQ">
                                         <connections>
                                             <action selector="calendarPressed:" destination="32T-0c-kQq" id="hqE-Fn-fKa"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o2k-6a-Mbb"/>
-                                    <barButtonItem image="descargar" id="WdD-MK-Vqn">
+                                    <barButtonItem image="iconmonstr-download-2-icon-32" id="WdD-MK-Vqn">
                                         <connections>
                                             <action selector="downloadPressed:" destination="32T-0c-kQq" id="evK-AL-bDQ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PUk-U7-fAD"/>
-                                    <barButtonItem image="share" id="jgp-Yq-VCN">
+                                    <barButtonItem image="iconmonstr-share-4-icon-32" id="jgp-Yq-VCN">
                                         <connections>
                                             <action selector="sharePressed:" destination="32T-0c-kQq" id="EMR-QJ-S9t"/>
                                         </connections>
@@ -526,7 +526,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="label" destination="pE8-IC-blF" id="XeG-gP-0cG"/>
                                 </connections>
@@ -583,11 +583,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="agendar" width="31" height="34"/>
-        <image name="descargar" width="32" height="32"/>
         <image name="hamburguer" width="24" height="15"/>
-        <image name="map" width="32" height="32"/>
-        <image name="share" width="29" height="33"/>
+        <image name="iconmonstr-calendar-4-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-download-2-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-location-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-share-4-icon-32" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

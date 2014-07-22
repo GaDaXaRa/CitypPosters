@@ -21,6 +21,10 @@
 
 @implementation CYPCoordinatorViewController
 
+- (void)viewDidLoad {
+    self.mainView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.mainView.frame].CGPath;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.asideView.frame = CGRectMake(self.view.frame.size.width, self.asideView.frame.size.height, self.asideView.frame.size.width, self.asideView.frame.size.height);
@@ -39,8 +43,8 @@
     }
 }
 
-- (void)hideSettings {    
-    [UIView animateWithDuration:0.5 animations:^{
+- (void)hideSettings {
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect newRect = CGRectMake(0, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
         self.mainView.frame = newRect;
         self.aside = NO;
@@ -59,10 +63,10 @@
         self.mainView.layer.shadowRadius = 10.0f;
         self.mainView.layer.shadowOpacity = 1.0f;
         CGRect newRect = CGRectMake(-self.asideView.frame.size.width, self.mainView.frame.origin.y, self.mainView.bounds.size.width, self.mainView.bounds.size.height);
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.mainView.frame = newRect;
             self.aside = YES;
-        }];
+        } completion:nil];
     } else {
         [self hideSettings];
     }

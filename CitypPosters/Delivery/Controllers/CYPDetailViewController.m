@@ -38,7 +38,7 @@
 {
     [super viewDidLoad];
     self.tableView.dataSource = self;
-    self.tableView.delegate = self;    
+    self.tableView.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -55,6 +55,7 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:14];
+    cell.textLabel.text = @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -63,47 +64,54 @@
     [self initialFontSettingsForCell:cell];
     switch (section) {
         case 0: {
-            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:22];
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Bold" size:21];
             cell.textLabel.text = self.event.name;
             break;
         }
         case 1: {
-            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:24];
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Bold" size:22];
             cell.textLabel.text = [[self.event.mainArtists allObjects][indexPath.row] name];;
             break;
         }
         case 2: {
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Light" size:14];
             NSDate *date = [[self.event.dates allObjects][indexPath.row] date];
             cell.textLabel.text = [self.dateFormatter stringFromDate:date];
             break;
         }
-        case 3:
+        case 3: {
+            cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Light" size:14];
             if (indexPath.row == 0) {
                 cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", self.event.venue.name, self.event.venue.city.name];
             } else if (indexPath.row == 1) {
                 cell.textLabel.text = self.event.venue.address;
             };
             break;
+        }
         case 5:
             if (indexPath.row == 0) {
+                cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Bold" size:14];
                 cell.textLabel.text = @"Géneros:";
             } else {
+                cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Light" size:14];
                 cell.textLabel.text = [[self.event.genres allObjects][indexPath.row - 1] name];
             };
             break;
+            
         case 4:
             if ([self.event.invitedArtists count]) {
                 if (indexPath.row == 0) {
+                    cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Bold" size:14];
                     cell.textLabel.text = @"Artistas invitados:";
                 } else {
+                    cell.textLabel.font = [UIFont fontWithName:@"Superclarendon-Light" size:14];
                     cell.textLabel.text = [[self.event.invitedArtists allObjects][indexPath.row - 1] name];
                 }
+                
+                break;
             }
-            break;
     }
-    
     return cell;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -120,7 +128,7 @@
         case 2:
             return [self.event.dates count];
         case 3:
-            return 2;
+            return self.event.venue.address ? 2 : 1;
         case 4:
             return 1 + [self.event.invitedArtists count];
         case 5:
@@ -166,7 +174,18 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20.0;
+    switch (section) {
+        case 2:
+            return 20;
+            break;
+        case 4:
+            return self.event.invitedArtists.count ? 15 : 0;
+        case 5:
+            return self.event.genres.count ? 15 : 0;
+        default:
+            break;
+    }
+    return 15;
 }
 
 - (IBAction)tapOnTableView:(UITapGestureRecognizer *)sender {

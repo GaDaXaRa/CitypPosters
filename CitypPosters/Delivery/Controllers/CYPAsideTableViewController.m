@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     CYPCoordinatorViewController *parentViewController = (CYPCoordinatorViewController *)[[self parentViewController] parentViewController];
     [self.swipeRight addTarget:parentViewController action:@selector(hideSettings)];
     self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
