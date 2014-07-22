@@ -49,6 +49,10 @@
     self.tableView.alwaysBounceVertical = NO;
 }
 
+- (void) viewDidLayoutSubviews {
+    [self.toolBar addTopSeparatorWithColor:[UIColor whiteColor] height:1 heightOffset:5 edgeInset:UIEdgeInsetsZero];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.delegate detailViewControllerFished:self];
 }

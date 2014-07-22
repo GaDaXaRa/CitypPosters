@@ -166,12 +166,12 @@
                         <viewControllerLayoutGuide type="top" id="xe3-Bw-QBm"/>
                         <viewControllerLayoutGuide type="bottom" id="ZrV-bY-zrr"/>
                     </layoutGuides>
-                    <view key="view" opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" id="thg-Oc-OA9">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="thg-Oc-OA9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a8y-aX-8wd">
-                                <rect key="frame" x="5" y="20" width="310" height="484"/>
+                                <rect key="frame" x="5" y="20" width="310" height="489"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -194,9 +194,9 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="4aM-CC-JgH">
-                                <rect key="frame" x="0.0" y="514" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="519" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
                                     <barButtonItem image="iconmonstr-location-icon-32" id="Isp-cL-dMZ">
                                         <connections>
@@ -216,20 +216,20 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PUk-U7-fAD"/>
-                                    <barButtonItem image="iconmonstr-share-4-icon-32" id="jgp-Yq-VCN">
+                                    <barButtonItem image="iconmonstr-share-icon-32" id="jgp-Yq-VCN">
                                         <connections>
                                             <action selector="sharePressed:" destination="32T-0c-kQq" id="EMR-QJ-S9t"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="a8y-aX-8wd" secondAttribute="trailing" constant="5" id="81X-9F-EjM"/>
-                            <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="4aM-CC-JgH" secondAttribute="bottom" constant="10" id="81b-rD-VIG"/>
+                            <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="4aM-CC-JgH" secondAttribute="bottom" constant="5" id="81b-rD-VIG"/>
                             <constraint firstItem="a8y-aX-8wd" firstAttribute="leading" secondItem="thg-Oc-OA9" secondAttribute="leading" constant="5" id="Fae-yB-f2w"/>
                             <constraint firstAttribute="trailing" secondItem="4aM-CC-JgH" secondAttribute="trailing" id="GRa-ZT-hKN"/>
                             <constraint firstItem="4aM-CC-JgH" firstAttribute="top" secondItem="a8y-aX-8wd" secondAttribute="bottom" constant="10" id="KYt-N1-LVm"/>
@@ -586,7 +586,7 @@
         <image name="iconmonstr-calendar-4-icon-32" width="32" height="32"/>
         <image name="iconmonstr-download-2-icon-32" width="32" height="32"/>
         <image name="iconmonstr-location-icon-32" width="32" height="32"/>
-        <image name="iconmonstr-share-4-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-share-icon-32" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
