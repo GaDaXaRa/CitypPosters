@@ -37,8 +37,8 @@ enum {
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsBarButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *calendarSegmentedControl;
+@property (strong, nonatomic) IBOutlet CYPPosterCollectionDatasource *collectionDatasource;
 
-@property (strong, nonatomic) CYPPosterCollectionDatasource *collectionDatasource;
 @property (strong, nonatomic) CYPDetailViewController *detailViewController;
 
 @property (nonatomic) ScreenState screenState;
@@ -54,15 +54,6 @@ enum {
     }
     
     return _detailViewController;
-}
-
-- (CYPPosterCollectionDatasource *)collectionDatasource {
-    if(!_collectionDatasource) {
-        _collectionDatasource = [[CYPPosterCollectionDatasource alloc] init];
-        _collectionDatasource.fetchedResultController = self.fetchResultControllerManager.fetchedResultsController;
-    }
-    
-    return _collectionDatasource;
 }
 
 - (IBAction)pich:(UIPinchGestureRecognizer *)sender {
@@ -116,6 +107,7 @@ enum {
     
     self.fetchResultControllerManager.fetchedResultsDelegate.collectionView = self.posterCollectionView;
     self.fetchResultControllerManager.model = self.model;
+    self.collectionDatasource.fetchedResultController = self.fetchResultControllerManager.fetchedResultsController;
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
         dispatch_async(MAIN_QUEUE, ^{
             [self.model importEvents:events];

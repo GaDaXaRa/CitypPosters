@@ -85,6 +85,7 @@
                     <connections>
                         <outlet property="animationHelper" destination="fWA-wv-Icx" id="TKf-CB-7EO"/>
                         <outlet property="calendarSegmentedControl" destination="Syv-kd-AYY" id="hWC-oN-DkU"/>
+                        <outlet property="collectionDatasource" destination="gSh-gd-c2v" id="ho0-aI-0lA"/>
                         <outlet property="eventManager" destination="Mmb-yz-XeA" id="ngK-OH-pyi"/>
                         <outlet property="fetchResultControllerManager" destination="yJG-fV-TbI" id="491-79-j5D"/>
                         <outlet property="imageView" destination="ao1-zs-VBM" id="Grm-WA-ffK"/>
@@ -95,6 +96,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qu2-OS-slX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="gSh-gd-c2v" customClass="CYPPosterCollectionDatasource"/>
                 <customObject id="wt2-nY-lVe" customClass="CYPFlowLayoutHelper"/>
                 <customObject id="Tbw-pZ-DmY" customClass="CYPUserDefaultsManager"/>
                 <customObject id="afF-Zh-fy3" customClass="CYPPosterCollectionDatasource"/>
