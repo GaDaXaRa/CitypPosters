@@ -88,12 +88,14 @@
                         <outlet property="eventManager" destination="Mmb-yz-XeA" id="ngK-OH-pyi"/>
                         <outlet property="fetchResultControllerManager" destination="yJG-fV-TbI" id="491-79-j5D"/>
                         <outlet property="imageView" destination="ao1-zs-VBM" id="Grm-WA-ffK"/>
+                        <outlet property="layoutHelper" destination="wt2-nY-lVe" id="jFc-ie-w2t"/>
                         <outlet property="posterCollectionView" destination="yjk-0S-ATd" id="yp5-KH-zVd"/>
                         <outlet property="settingsBarButton" destination="df7-uy-qHp" id="7aZ-x9-Vi9"/>
                         <outlet property="userDefaults" destination="Tbw-pZ-DmY" id="Owe-gl-XIq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qu2-OS-slX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="wt2-nY-lVe" customClass="CYPFlowLayoutHelper"/>
                 <customObject id="Tbw-pZ-DmY" customClass="CYPUserDefaultsManager"/>
                 <customObject id="afF-Zh-fy3" customClass="CYPPosterCollectionDatasource"/>
                 <customObject id="Mmb-yz-XeA" customClass="CYPEventManager"/>

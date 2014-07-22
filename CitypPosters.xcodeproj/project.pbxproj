@@ -57,6 +57,7 @@
 		3F587542197E635A00FDAD2D /* CYPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F587541197E635A00FDAD2D /* CYPMapViewController.m */; };
 		3F587545197E6C1900FDAD2D /* CYPVenue+Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F587544197E6C1900FDAD2D /* CYPVenue+Annotation.m */; };
 		3F58754B197E99A600FDAD2D /* CYPNotificationCenterDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F58754A197E99A600FDAD2D /* CYPNotificationCenterDefaultsManager.m */; };
+		3F58754E197EA9EF00FDAD2D /* CYPFlowLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F58754D197EA9EF00FDAD2D /* CYPFlowLayoutHelper.m */; };
 		3F87A38F1975BE6F009D83ED /* CYPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */; };
 		3F87A3931975D845009D83ED /* CYPViewAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3921975D845009D83ED /* CYPViewAnimationHelper.m */; };
 		3F87A3A31976C8E7009D83ED /* CYPFetchedResultsDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A3A21976C8E7009D83ED /* CYPFetchedResultsDelegate.m */; };
@@ -160,6 +161,8 @@
 		3F587544197E6C1900FDAD2D /* CYPVenue+Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CYPVenue+Annotation.m"; sourceTree = "<group>"; };
 		3F587549197E99A600FDAD2D /* CYPNotificationCenterDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPNotificationCenterDefaultsManager.h; sourceTree = "<group>"; };
 		3F58754A197E99A600FDAD2D /* CYPNotificationCenterDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPNotificationCenterDefaultsManager.m; sourceTree = "<group>"; };
+		3F58754C197EA9EF00FDAD2D /* CYPFlowLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPFlowLayoutHelper.h; sourceTree = "<group>"; };
+		3F58754D197EA9EF00FDAD2D /* CYPFlowLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPFlowLayoutHelper.m; sourceTree = "<group>"; };
 		3F87A38D1975BE6F009D83ED /* CYPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPDetailViewController.h; sourceTree = "<group>"; };
 		3F87A38E1975BE6F009D83ED /* CYPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPDetailViewController.m; sourceTree = "<group>"; };
 		3F87A3911975D845009D83ED /* CYPViewAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPViewAnimationHelper.h; sourceTree = "<group>"; };
@@ -456,6 +459,8 @@
 				3F1A3325197D0467001FC160 /* CYPCalendarHelper.m */,
 				3F1A3327197D0AF3001FC160 /* CYPAlertViewHelper.h */,
 				3F1A3328197D0AF3001FC160 /* CYPAlertViewHelper.m */,
+				3F58754C197EA9EF00FDAD2D /* CYPFlowLayoutHelper.h */,
+				3F58754D197EA9EF00FDAD2D /* CYPFlowLayoutHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -639,6 +644,7 @@
 				3F58754B197E99A600FDAD2D /* CYPNotificationCenterDefaultsManager.m in Sources */,
 				3FE37C1319785AF600119A67 /* CYPImageTiler.m in Sources */,
 				3F1A3326197D0467001FC160 /* CYPCalendarHelper.m in Sources */,
+				3F58754E197EA9EF00FDAD2D /* CYPFlowLayoutHelper.m in Sources */,
 				3F1A332C197D241F001FC160 /* CYPEventActionsManager.m in Sources */,
 				3F4897981974630B00A507E1 /* CYPGenre+Model.m in Sources */,
 				3F4864B01974280D0072668B /* CYPCity+Model.m in Sources */,
