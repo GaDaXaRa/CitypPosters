@@ -10,8 +10,10 @@
 
 @interface CYPImagePersistence : NSObject
 
-+ (void)persistImage:(UIImage *)image withFilename:(NSString *)filename;
++ (void)persistImage:(UIImage *)image withFilename:(NSString *)fileName;
 
-+ (UIImage *)imageWithFileName:(NSString *)filename;
++ (UIImage *)imageWithFileName:(NSString *)fileName;
+
++ (BOOL)existsImage:(NSString *)fileName;
 
 @end

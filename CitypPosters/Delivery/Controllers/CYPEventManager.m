@@ -18,15 +18,23 @@
         for (NSDictionary *eventDictionary in events) {
             NSString *eventId = eventDictionary[@"eventId"];
             NSString *posterUrl = eventDictionary[@"eventPoster"];
-            [CYPNetworkManager downloadImageWithUrl:posterUrl completion:^(UIImage *image) {
-                [CYPImagePersistence persistImage:image withFilename:eventId];
-                if (self.imageDidPersistBlock) {
-                    self.imageDidPersistBlock(eventId);
-                }
-            }];
+            if ([CYPImagePersistence existsImage:eventId]) {
+                [self callBackIfNeeded:eventId];
+            } else {
+                [CYPNetworkManager downloadImageWithUrl:posterUrl completion:^(UIImage *image) {
+                    [CYPImagePersistence persistImage:image withFilename:eventId];
+                    [self callBackIfNeeded:eventId];
+                }];
+            }
         }
         completion(events);
     }];
+}
+
+- (void)callBackIfNeeded:(NSString *)eventId {
+    if (self.imageDidPersistBlock) {
+        self.imageDidPersistBlock(eventId);
+    }
 }
 
 @end

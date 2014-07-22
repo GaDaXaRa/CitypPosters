@@ -11,5 +11,6 @@
 @interface CYPImageTiler : NSObject
 
 + (UIImage *)imgeTiledWithName:(NSString *)imageName;
++ (UIImage *)minimizeImage:(UIImage *)image;
 
 @end

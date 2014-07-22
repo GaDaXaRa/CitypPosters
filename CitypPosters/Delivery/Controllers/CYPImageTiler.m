@@ -16,4 +16,13 @@
                                                 resizingMode:UIImageResizingModeTile];
 }
 
++ (UIImage *)minimizeImage:(UIImage *)image {
+    CGSize newSize = CGSizeMake(image.size.width / 2, image.size.height / 2);
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 @end
