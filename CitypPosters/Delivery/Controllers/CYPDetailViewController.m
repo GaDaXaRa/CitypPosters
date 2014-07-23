@@ -194,6 +194,14 @@
     return 15;
 }
 
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self.delegate detailViewControllerNextDetail:self];
+    } else {
+        [self.delegate detailViewControllerPreviousDetail:self];
+    }
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSArray *sectionsWithSeparator = @[@2,@3,@4];
     if ([sectionsWithSeparator containsObject:[NSNumber numberWithInt:section]]) {

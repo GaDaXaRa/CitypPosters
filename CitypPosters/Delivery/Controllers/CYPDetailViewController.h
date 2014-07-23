@@ -13,6 +13,8 @@
 @protocol CYPDetailViewControllerDelegate <NSObject>
 
 - (void)detailViewControllerFished:(CYPDetailViewController *)controller;
+- (void)detailViewControllerNextDetail:(CYPDetailViewController *)controller;
+- (void)detailViewControllerPreviousDetail:(CYPDetailViewController *)controller;
 
 @end
 

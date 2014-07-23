@@ -122,7 +122,7 @@ enum {
             [bself updateImageForEventId:eventId];
         });
     }];
-        
+    
     self.screenState = inPoster;
 }
 
@@ -138,7 +138,7 @@ enum {
     CYPEvent *event = [self.model fetchEventById:eventId];
     NSIndexPath *indexPath = [self.fetchResultControllerManager.fetchedResultsController indexPathForObject:event];
     if (indexPath) {
-    [self.posterCollectionView reloadItemsAtIndexPaths:@[indexPath]];
+        [self.posterCollectionView reloadItemsAtIndexPaths:@[indexPath]];
     }
 }
 
@@ -166,6 +166,10 @@ enum {
 }
 
 - (void)closeDetailView:(UIView *)view {
+    [self closeDetailView:view withCompletion:nil];
+}
+
+- (void)closeDetailView:(UIView *)view withCompletion:(void(^)())completion {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
     [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:view.frame completion:^{
@@ -174,6 +178,9 @@ enum {
         [self.detailViewController didMoveToParentViewController:nil];
         self.posterCollectionView.userInteractionEnabled = YES;
         self.calendarSegmentedControl.userInteractionEnabled = YES;
+        if (completion) {
+            completion();
+        }
     }];
 }
 
@@ -181,16 +188,28 @@ enum {
     [self closeDetailView:controller.view];
 }
 
-- (void) observeManagedObjectContext {
-    [self addObserver:self forKeyPath:@"model.managedObjectContext" options:0 context:nil];
+- (void)detailViewControllerNextDetail:(CYPDetailViewController *)controller {
+    NSIndexPath *indexPath = [[self.posterCollectionView indexPathsForVisibleItems] firstObject];
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+    [self moveCollectionView:self.posterCollectionView detailView:controller.view ToIndexPath:newIndexPath];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"model.managedObjectContext"]) {
-        self.fetchResultControllerManager.fetchedResultsController = nil;
-        [self.posterCollectionView reloadData];
+- (void)detailViewControllerPreviousDetail:(CYPDetailViewController *)controller {
+    NSIndexPath *indexPath = [[self.posterCollectionView indexPathsForVisibleItems] firstObject];
+    if (indexPath.row > 0) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+        [self moveCollectionView:self.posterCollectionView detailView:controller.view ToIndexPath:newIndexPath];
     }
 }
 
+- (void)moveCollectionView:(UICollectionView *)collectionView detailView:(UIView *)view ToIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [self.collectionDatasource collectionView:self.posterCollectionView cellForItemAtIndexPath:indexPath];
+    if (cell) {
+        [self closeDetailView:view withCompletion:^{
+            [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+            [self openDetailForItemAtIndexPath:indexPath];
+        }];
+    }
+}
 
 @end

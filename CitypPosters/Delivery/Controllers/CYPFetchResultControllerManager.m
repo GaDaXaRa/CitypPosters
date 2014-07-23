@@ -102,4 +102,15 @@
     }
 }
 
+- (void) observeManagedObjectContext {
+    [self addObserver:self forKeyPath:@"model.managedObjectContext" options:0 context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"model.managedObjectContext"]) {
+        self.fetchedResultsController = nil;
+        [self.fetchedResultsDelegate.collectionView reloadData];
+    }
+}
+
 @end

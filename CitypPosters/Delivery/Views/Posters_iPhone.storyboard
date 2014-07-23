@@ -227,6 +227,7 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="a8y-aX-8wd" secondAttribute="trailing" constant="5" id="81X-9F-EjM"/>
                             <constraint firstItem="ZrV-bY-zrr" firstAttribute="top" secondItem="4aM-CC-JgH" secondAttribute="bottom" constant="5" id="81b-rD-VIG"/>
@@ -236,6 +237,10 @@
                             <constraint firstItem="4aM-CC-JgH" firstAttribute="leading" secondItem="thg-Oc-OA9" secondAttribute="leading" id="MSN-WZ-ImS"/>
                             <constraint firstItem="a8y-aX-8wd" firstAttribute="top" secondItem="xe3-Bw-QBm" secondAttribute="bottom" id="Ope-hs-dHW"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="G5a-dN-LaQ" appends="YES" id="GqF-se-gbx"/>
+                            <outletCollection property="gestureRecognizers" destination="R8H-Mw-Gq4" appends="YES" id="cMZ-qP-Bae"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="actionsManager" destination="dKJ-mQ-6wv" id="4HQ-5r-dZD"/>
@@ -256,6 +261,16 @@
                         <action selector="tapOnTableView:" destination="32T-0c-kQq" id="xPf-uB-POm"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="R8H-Mw-Gq4">
+                    <connections>
+                        <action selector="swipe:" destination="32T-0c-kQq" id="Ua1-dW-sDj"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="G5a-dN-LaQ">
+                    <connections>
+                        <action selector="swipe:" destination="32T-0c-kQq" id="tSL-GP-Dwf"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1142" y="17"/>
         </scene>
