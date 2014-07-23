@@ -48,7 +48,7 @@
 }
 
 - (void)prepareImage:(UIImageView *)imageView atIndex:(NSUInteger)index {
-    NSString *imageName = [NSString stringWithFormat: @"fondo%i", index + 1];
+    NSString *imageName = [NSString stringWithFormat: @"fondo%lu", index + 1];
     UIImage *image = [UIImage imageNamed:imageName];
     imageView.image = image;
     imageView.layer.cornerRadius = imageView.bounds.size.width / 2;
@@ -62,7 +62,7 @@
 
 - (void)changeImage:(UITapGestureRecognizer *)tapGesture {
     UIImageView *imageView = (UIImageView *)tapGesture.view;
-    NSString *imageName = [NSString stringWithFormat:@"fondo%i", [self.imagesArray indexOfObject:imageView] + 1];
+    NSString *imageName = [NSString stringWithFormat:@"fondo%lu", [self.imagesArray indexOfObject:imageView] + 1];
     self.userDefaults.backgroundImage = imageName;
 }
 

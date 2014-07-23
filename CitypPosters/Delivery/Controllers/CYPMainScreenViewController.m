@@ -111,7 +111,6 @@ enum {
     [self.eventManager getAllEventsWithCompletion:^(NSArray *events) {
         dispatch_async(MAIN_QUEUE, ^{
             [self.model importEvents:events];
-            [self.fetchResultControllerManager changePredicateAndFetch];
         });
     }];
     self.posterCollectionView.delegate = self;
