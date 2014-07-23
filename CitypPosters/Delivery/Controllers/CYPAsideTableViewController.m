@@ -16,20 +16,9 @@
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeRight;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
-@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
-
 @end
 
 @implementation CYPAsideTableViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -37,13 +26,6 @@
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     CYPCoordinatorViewController *parentViewController = (CYPCoordinatorViewController *)[[self parentViewController] parentViewController];
     [self.swipeRight addTarget:parentViewController action:@selector(hideSettings)];
-    self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
-    [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
-        self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
-    }];
-    
-    self.tableView.backgroundView = self.imageView;
-    self.tableView.backgroundView.alpha = 0.3;
     
     self.tableView.tableFooterView = [UIView new];
 }

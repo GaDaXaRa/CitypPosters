@@ -148,10 +148,10 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
-    view.backgroundColor = [UIColor darkGrayColor];
+    view.backgroundColor = [UIColor whiteColor];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
-    label.textColor = [UIColor whiteColor];
-    label.font = [UIFont fontWithName:@"AppleSDGothicNeo-SemiBold" size:16];
+    label.textColor = [UIColor darkGrayColor];
+    label.font = [UIFont fontWithName:@"AvenirNext-DemiBold" size:16];
     label.text = [self tableView:tableView titleForHeaderInSection:section];
     [view addSubview:label];
     return view;

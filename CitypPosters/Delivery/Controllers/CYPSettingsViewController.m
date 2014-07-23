@@ -14,8 +14,6 @@
 
 @property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *background1;
 @property (weak, nonatomic) IBOutlet UIImageView *background2;
 @property (weak, nonatomic) IBOutlet UIImageView *background3;
@@ -30,14 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
-        self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+        [self prepareImages];
     }];
     
     [self prepareImages];
-    
-    self.backgroundImageView.alpha = 0.6;
 }
 
 - (void)prepareImages {
@@ -53,11 +48,16 @@
     imageView.image = image;
     imageView.layer.cornerRadius = imageView.bounds.size.width / 2;
     imageView.clipsToBounds = YES;
-    imageView.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-    imageView.layer.borderWidth = 0.5;
+    imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     UITapGestureRecognizer *imageTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeImage:)];
     [imageView addGestureRecognizer:imageTapGesture];
+    
+    if ([imageName isEqualToString:self.userDefaults.backgroundImage]) {
+        imageView.layer.borderWidth = 5;
+    } else {
+        imageView.layer.borderWidth = 0;
+    }
 }
 
 - (void)changeImage:(UITapGestureRecognizer *)tapGesture {

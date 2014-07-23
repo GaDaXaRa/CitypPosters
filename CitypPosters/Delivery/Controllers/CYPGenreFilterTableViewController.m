@@ -15,7 +15,6 @@
 
 @interface CYPGenreFilterTableViewController ()
 
-@property (strong, nonatomic) IBOutlet CYPUserDefaultsManager *userDefaults;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) IBOutlet CYPGenresFilterDatasource *datasource;
 
@@ -37,13 +36,6 @@
     [super viewDidLoad];
     self.datasource.model = self.model;
     self.tableView.alwaysBounceVertical = NO;
-    self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
-    [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
-        self.backgroundImageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
-    }];
-    self.tableView.backgroundView = self.backgroundImageView;
-    self.tableView.backgroundView.alpha = 0.3;
-    
 }
 
 @end
