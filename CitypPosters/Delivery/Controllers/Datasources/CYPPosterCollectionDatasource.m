@@ -12,7 +12,7 @@
 #import "CYPEvent+Model.h"
 
 static NSString *const cellID = @"posterCell";
-
+static NSString *const defaultImageName = @"default_poster";
 
 @implementation CYPPosterCollectionDatasource
 
@@ -28,8 +28,17 @@ static NSString *const cellID = @"posterCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CYPEvent *event = [self.fetchedResultController objectAtIndexPath:indexPath];
     CYPPosterCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
-    cell.posterImageWiew.image = [CYPImagePersistence imageWithFileName:event.eventId];
+    cell.posterImageWiew.image = [self imageForEventId:event.eventId];
     return cell;
+}
+
+- (UIImage *)imageForEventId:(NSString *)eventId {
+    UIImage *image = [CYPImagePersistence imageWithFileName:eventId];
+    if (!image) {
+        image = [UIImage imageNamed:defaultImageName];
+    }
+    
+    return image;
 }
 
 @end

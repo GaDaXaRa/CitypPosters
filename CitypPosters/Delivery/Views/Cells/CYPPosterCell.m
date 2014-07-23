@@ -8,10 +8,6 @@
 
 #import "CYPPosterCell.h"
 
-@interface CYPPosterCell ()
-
-@end
-
 @implementation CYPPosterCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -44,9 +40,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     self.posterImageWiew.frame = CGRectInset(self.bounds, 10, 10);
-    
 }
 
 @end
