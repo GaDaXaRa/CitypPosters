@@ -39,7 +39,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.posterImageWiew.frame = CGRectInset(self.bounds, 10, 10);
+    self.posterImageWiew.frame = CGRectInset(self.bounds, 20, 10);
 }
 
 @end

@@ -174,13 +174,9 @@ enum {
 
 - (void)openDetailForItemAtIndexPath:(NSIndexPath *)indexPath {
     CYPEvent *event = [self.fetchResultControllerManager.fetchedResultsController objectAtIndexPath:indexPath];
-    [self.detailViewController willMoveToParentViewController:self];
-    [self addChildViewController:self.detailViewController];
     self.detailViewController.event = event;
-    [self.view addSubview:self.detailViewController.view];
-    self.posterCollectionView.userInteractionEnabled = NO;
-    self.calendarSegmentedControl.userInteractionEnabled = NO;
-    CGRect rect = CGRectInset(self.posterCollectionView.frame, 10, 0);
+    [self detailControllerWillOpen];
+    CGRect rect = CGRectInset(self.posterCollectionView.frame, 20, 0);
     [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:rect completion:^{
         [self.detailViewController didMoveToParentViewController:self];
         if (self.calendarEnabled) {
@@ -189,19 +185,19 @@ enum {
     }];
 }
 
-- (void)closeDetailView:(UIView *)view {
-    [self closeDetailView:view withCompletion:nil];
+- (void)detailControllerWillOpen {
+    [self.detailViewController willMoveToParentViewController:self];
+    [self addChildViewController:self.detailViewController];;
+    [self.view addSubview:self.detailViewController.view];
+    self.posterCollectionView.userInteractionEnabled = NO;
+    self.calendarSegmentedControl.userInteractionEnabled = NO;
 }
 
 - (void)closeDetailView:(UIView *)view withCompletion:(void(^)())completion {
     [self.detailViewController willMoveToParentViewController:nil];
     UIView *detailView = self.detailViewController.view;
     [self.animationHelper animateViewFadeOut:self.detailViewController.view inRect:view.frame completion:^{
-        [detailView removeFromSuperview];
-        [self.detailViewController removeFromParentViewController];
-        [self.detailViewController didMoveToParentViewController:nil];
-        self.posterCollectionView.userInteractionEnabled = YES;
-        self.calendarSegmentedControl.userInteractionEnabled = YES;
+        [self detailControlDidClose:detailView];
         if (self.calendarEnabled) {
             [self.animationHelper animateViewFadeIn:self.calendarSegmentedControl inRect:self.calendarSegmentedControl.frame completion:nil];
         }
@@ -211,9 +207,17 @@ enum {
     }];
 }
 
+- (void)detailControlDidClose:(UIView *)detailView {
+    [detailView removeFromSuperview];
+    [self.detailViewController removeFromParentViewController];
+    [self.detailViewController didMoveToParentViewController:nil];
+    self.posterCollectionView.userInteractionEnabled = YES;
+    self.calendarSegmentedControl.userInteractionEnabled = YES;
+}
+
 - (void)detailViewControllerFished:(CYPDetailViewController *)controller {
     self.calendarEnabled = YES;
-    [self closeDetailView:controller.view];
+    [self closeDetailView:controller.view withCompletion:nil];
 }
 
 - (void)detailViewControllerNextDetail:(CYPDetailViewController *)controller {
@@ -236,8 +240,8 @@ enum {
 
 - (void)moveCollectionView:(UICollectionView *)collectionView detailView:(UIView *)view ToIndexPath:(NSIndexPath *)indexPath {
     self.calendarEnabled = NO;
+    [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
     [self closeDetailView:view withCompletion:^{
-        [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
         [self openDetailForItemAtIndexPath:indexPath];
     }];
 }
