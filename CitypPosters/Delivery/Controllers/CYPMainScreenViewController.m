@@ -190,8 +190,12 @@ enum {
 
 - (void)detailViewControllerNextDetail:(CYPDetailViewController *)controller {
     NSIndexPath *indexPath = [[self.posterCollectionView indexPathsForVisibleItems] firstObject];
-    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
-    [self moveCollectionView:self.posterCollectionView detailView:controller.view ToIndexPath:newIndexPath];
+    
+    if(indexPath.row != [self.posterCollectionView numberOfItemsInSection:indexPath.section] -1) {
+        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+        [self moveCollectionView:self.posterCollectionView detailView:controller.view ToIndexPath:newIndexPath];
+    }
+    
 }
 
 - (void)detailViewControllerPreviousDetail:(CYPDetailViewController *)controller {
@@ -203,13 +207,10 @@ enum {
 }
 
 - (void)moveCollectionView:(UICollectionView *)collectionView detailView:(UIView *)view ToIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionDatasource collectionView:self.posterCollectionView cellForItemAtIndexPath:indexPath];
-    if (cell) {
-        [self closeDetailView:view withCompletion:^{
-            [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-            [self openDetailForItemAtIndexPath:indexPath];
-        }];
-    }
+    [self closeDetailView:view withCompletion:^{
+        [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+        [self openDetailForItemAtIndexPath:indexPath];
+    }];
 }
 
 @end
