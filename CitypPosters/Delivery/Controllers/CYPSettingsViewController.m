@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *background2;
 @property (weak, nonatomic) IBOutlet UIImageView *background3;
 @property (weak, nonatomic) IBOutlet UIImageView *background4;
+@property (weak, nonatomic) IBOutlet UIImageView *background5;
+@property (weak, nonatomic) IBOutlet UIImageView *backgorund6;
 
 @property (strong, nonatomic) NSArray *imagesArray;
 
@@ -36,7 +38,7 @@
 }
 
 - (void)prepareImages {
-    self.imagesArray = @[self.background1, self.background2, self.background3, self.background4];
+    self.imagesArray = @[self.background1, self.background2, self.background3, self.background4, self.background5, self.backgorund6];
     for (UIImageView *imageView in self.imagesArray) {
         [self prepareImage:imageView atIndex:[self.imagesArray indexOfObject:imageView]];
     }

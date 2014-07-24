@@ -47,8 +47,8 @@
                                     <outletCollection property="gestureRecognizers" destination="oF8-ai-VTf" appends="YES" id="sa2-t8-tA3"/>
                                 </connections>
                             </collectionView>
-                            <segmentedControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Syv-kd-AYY">
-                                <rect key="frame" x="20" y="483" width="280" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Syv-kd-AYY">
+                                <rect key="frame" x="30" y="483" width="260" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -57,6 +57,11 @@
                                     <segment title="Proximo Mes"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calendarControlChanged:" destination="ozD-3c-fAQ" eventType="valueChanged" id="MXI-ZK-Lnh"/>
                                 </connections>
@@ -73,8 +78,8 @@
                             <constraint firstItem="ao1-zs-VBM" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" id="eJp-Eo-vbZ"/>
                             <constraint firstItem="yjk-0S-ATd" firstAttribute="top" secondItem="jZr-d6-Zc6" secondAttribute="bottom" constant="20" id="j5N-mL-0RY"/>
                             <constraint firstAttribute="trailing" secondItem="yjk-0S-ATd" secondAttribute="trailing" constant="20" id="k4i-sC-kCH"/>
-                            <constraint firstAttribute="trailing" secondItem="Syv-kd-AYY" secondAttribute="trailing" constant="20" id="sMM-ca-saT"/>
-                            <constraint firstItem="Syv-kd-AYY" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="20" id="sT9-os-L3N"/>
+                            <constraint firstAttribute="trailing" secondItem="Syv-kd-AYY" secondAttribute="trailing" constant="30" id="sMM-ca-saT"/>
+                            <constraint firstItem="Syv-kd-AYY" firstAttribute="leading" secondItem="Flk-Vo-ocT" secondAttribute="leading" constant="30" id="sT9-os-L3N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7pr-Mz-6RE">
@@ -499,19 +504,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="816-c7-Q3Z">
-                                <rect key="frame" x="20" y="58" width="89" height="90"/>
+                                <rect key="frame" x="20" y="49" width="89" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJL-Ab-1HL">
-                                <rect key="frame" x="131" y="58" width="89" height="90"/>
+                                <rect key="frame" x="131" y="49" width="89" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-Du-Vvx">
-                                <rect key="frame" x="20" y="168" width="89" height="90"/>
+                                <rect key="frame" x="20" y="159" width="89" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rv5-gq-7oU">
-                                <rect key="frame" x="131" y="168" width="89" height="90"/>
+                                <rect key="frame" x="131" y="159" width="89" height="90"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zX-9h-asH">
+                                <rect key="frame" x="20" y="267" width="89" height="90"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4A-6s-MSb">
+                                <rect key="frame" x="131" y="267" width="89" height="90"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fondo de pared" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R08-kh-MFu">
@@ -526,10 +539,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="q3W-o3-CZX"/>
                     <connections>
+                        <outlet property="backgorund6" destination="E4A-6s-MSb" id="YZO-4M-3kE"/>
                         <outlet property="background1" destination="816-c7-Q3Z" id="6ls-pq-o1M"/>
                         <outlet property="background2" destination="qJL-Ab-1HL" id="PCU-z4-AQ6"/>
                         <outlet property="background3" destination="7MV-Du-Vvx" id="QEv-Zv-I1y"/>
                         <outlet property="background4" destination="Rv5-gq-7oU" id="gDa-gB-Y1r"/>
+                        <outlet property="background5" destination="9zX-9h-asH" id="Oko-aU-0lz"/>
                         <outlet property="userDefaults" destination="JfM-Pl-z2U" id="T12-Tu-5Kz"/>
                     </connections>
                 </viewController>
