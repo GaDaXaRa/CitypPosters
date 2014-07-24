@@ -34,7 +34,9 @@
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         view.alpha = 0.9;
     } completion:^(BOOL finished) {
-        completion();
+        if (completion) {
+            completion();
+        }
     }];
 }
 
@@ -43,7 +45,9 @@
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         view.alpha = 0;
     } completion:^(BOOL finished) {
-        completion();
+        if (completion) {
+            completion();
+        }
     }];
 }
 

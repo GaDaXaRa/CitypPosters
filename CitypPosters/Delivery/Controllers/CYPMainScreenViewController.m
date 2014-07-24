@@ -37,6 +37,7 @@ enum {
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsBarButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *calendarSegmentedControl;
 @property (strong, nonatomic) IBOutlet CYPPosterCollectionDatasource *collectionDatasource;
+@property (weak, nonatomic) IBOutlet UIImageView *noResultsImage;
 
 @property (strong, nonatomic) CYPDetailViewController *detailViewController;
 
@@ -92,7 +93,8 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self configureDataSourceBlocks];
+    self.noResultsImage.alpha = 0;
     UIFont *font = [UIFont fontWithName:@"Avenir-Medium" size:13];
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                            forKey:NSFontAttributeName];
@@ -129,6 +131,16 @@ enum {
     }];
     
     self.screenState = inPoster;
+}
+
+- (void)configureDataSourceBlocks {
+     __weak typeof(self) bself = self;
+    [self.collectionDatasource setHasResultsBlock:^{
+        [bself.animationHelper animateViewFadeOut:bself.noResultsImage inRect:bself.posterCollectionView.frame completion:nil];
+    }];
+    [self.collectionDatasource setNoResultsBlock:^{
+        [bself.animationHelper animateViewFadeIn:bself.noResultsImage inRect:bself.posterCollectionView.frame completion:nil];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -12,4 +12,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultController;
 
+@property (nonatomic, copy) void (^noResultsBlock)();
+@property (nonatomic, copy) void (^hasResultsBlock)();
+
 @end

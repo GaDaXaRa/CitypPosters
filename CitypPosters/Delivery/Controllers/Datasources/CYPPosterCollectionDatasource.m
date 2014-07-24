@@ -17,7 +17,17 @@ static NSString *const defaultImageName = @"default_poster";
 @implementation CYPPosterCollectionDatasource
 
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSUInteger results = [[[self.fetchedResultController sections] firstObject] numberOfObjects];
+    if(results) {
+        if (self.hasResultsBlock) {
+            self.hasResultsBlock();
+        }
+    } else {
+        if (self.noResultsBlock) {
+            self.noResultsBlock();
+        }
+    }
     return [[[self.fetchedResultController sections] firstObject] numberOfObjects];
 }
 
