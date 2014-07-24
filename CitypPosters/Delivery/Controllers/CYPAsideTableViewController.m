@@ -8,7 +8,6 @@
 
 #import "CYPAsideTableViewController.h"
 #import "CYPCoordinatorViewController.h"
-#import "CYPImageTiler.h"
 #import "CYPUserDefaultsManager.h"
 #import "CYPGenreFilterTableViewController.h"
 

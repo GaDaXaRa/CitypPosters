@@ -51,10 +51,11 @@
                                 <rect key="frame" x="30" y="483" width="260" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <segments>
-                                    <segment title="Proxim Año"/>
+                                    <segment title="Próximo Año"/>
                                     <segment title="Tres meses"/>
-                                    <segment title="Proximo Mes"/>
+                                    <segment title="Próximo Mes"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -143,11 +144,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <barButtonItem title="Volver" id="y2Z-Lr-XLv">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="t1L-g3-4U1"/>
+                                    <barButtonItem image="iconmonstr-x-mark-4-icon-32" id="y2Z-Lr-XLv">
                                         <connections>
                                             <segue destination="g9T-TN-Hed" kind="unwind" unwindAction="exitFromMap:" id="6O0-11-ale"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a8x-3I-0SQ"/>
                                 </items>
                                 <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -321,6 +324,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -642,6 +646,7 @@
         <image name="iconmonstr-download-2-icon-32" width="32" height="32"/>
         <image name="iconmonstr-location-icon-32" width="32" height="32"/>
         <image name="iconmonstr-share-icon-32" width="32" height="32"/>
+        <image name="iconmonstr-x-mark-4-icon-32" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

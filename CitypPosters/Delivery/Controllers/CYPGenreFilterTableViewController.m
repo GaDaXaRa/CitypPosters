@@ -9,7 +9,6 @@
 #import "CYPGenreFilterTableViewController.h"
 #import "CYPGenresFilterTableViewCell.h"
 #import "CYPUserDefaultsManager.h"
-#import "CYPImageTiler.h"
 #import "CYPGenre+Model.h"
 #import "CYPGenresFilterDatasource.h"
 

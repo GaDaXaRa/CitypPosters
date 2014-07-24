@@ -7,7 +7,6 @@
 //
 
 #import "CYPSettingsViewController.h"
-#import "CYPImageTiler.h"
 #import "CYPUserDefaultsManager.h"
 
 @interface CYPSettingsViewController ()

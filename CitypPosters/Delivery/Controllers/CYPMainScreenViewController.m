@@ -15,7 +15,6 @@
 #import "CYPEventManager.h"
 #import "CYPPosterCell.h"
 #import "CYPCoordinatorViewController.h"
-#import "CYPImageTiler.h"
 #import "CYPUserDefaultsManager.h"
 #import "CYPFlowLayoutHelper.h"
 
@@ -94,12 +93,18 @@ enum {
 {
     [super viewDidLoad];
     
+    UIFont *font = [UIFont fontWithName:@"Avenir-Medium" size:13];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                           forKey:NSFontAttributeName];
+    [self.calendarSegmentedControl setTitleTextAttributes:attributes
+                                    forState:UIControlStateNormal];
+    
     self.title = @"Citypposters";
     
-    self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+    self.imageView.image = [UIImage imageNamed:self.userDefaults.backgroundImage];
     self.calendarSegmentedControl.selectedSegmentIndex = self.userDefaults.selectedCalendar;
     [self.userDefaults notifyBackgroundChangesWithBlock:^(NSString *newImageName) {
-        self.imageView.image = [CYPImageTiler imgeTiledWithName:self.userDefaults.backgroundImage];
+        self.imageView.image = [UIImage imageNamed:self.userDefaults.backgroundImage];
     }];
     
     self.settingsBarButton.target = nil;
