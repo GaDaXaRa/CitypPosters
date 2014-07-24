@@ -104,7 +104,7 @@ enum {
     [self.calendarSegmentedControl setTitleTextAttributes:attributes
                                     forState:UIControlStateNormal];
     
-    self.title = @"Cityposters";
+    self.title = @"CityPosters";
     
     self.imageView.image = [UIImage imageNamed:self.userDefaults.backgroundImage];
     self.calendarSegmentedControl.selectedSegmentIndex = self.userDefaults.selectedCalendar;
