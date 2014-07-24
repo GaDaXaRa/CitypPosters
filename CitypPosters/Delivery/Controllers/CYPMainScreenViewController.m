@@ -43,6 +43,8 @@ enum {
 
 @property (nonatomic) ScreenState screenState;
 
+@property (nonatomic) BOOL calendarEnabled;
+
 @end
 
 @implementation CYPMainScreenViewController
@@ -93,6 +95,7 @@ enum {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.calendarEnabled = YES;
     [self configureDataSourceBlocks];
     self.noResultsImage.alpha = 0;
     UIFont *font = [UIFont fontWithName:@"Avenir-Medium" size:13];
@@ -179,6 +182,9 @@ enum {
     self.calendarSegmentedControl.userInteractionEnabled = NO;
     [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
         [self.detailViewController didMoveToParentViewController:self];
+        if (self.calendarEnabled) {
+            [self.animationHelper animateViewFadeOut:self.calendarSegmentedControl inRect:self.calendarSegmentedControl.frame completion:nil];
+        }
     }];
 }
 
@@ -195,6 +201,9 @@ enum {
         [self.detailViewController didMoveToParentViewController:nil];
         self.posterCollectionView.userInteractionEnabled = YES;
         self.calendarSegmentedControl.userInteractionEnabled = YES;
+        if (self.calendarEnabled) {
+            [self.animationHelper animateViewFadeIn:self.calendarSegmentedControl inRect:self.calendarSegmentedControl.frame completion:nil];
+        }
         if (completion) {
             completion();
         }
@@ -202,6 +211,7 @@ enum {
 }
 
 - (void)detailViewControllerFished:(CYPDetailViewController *)controller {
+    self.calendarEnabled = YES;
     [self closeDetailView:controller.view];
 }
 
@@ -224,6 +234,7 @@ enum {
 }
 
 - (void)moveCollectionView:(UICollectionView *)collectionView detailView:(UIView *)view ToIndexPath:(NSIndexPath *)indexPath {
+    self.calendarEnabled = NO;
     [self closeDetailView:view withCompletion:^{
         [self.posterCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
         [self openDetailForItemAtIndexPath:indexPath];
