@@ -180,7 +180,8 @@ enum {
     [self.view addSubview:self.detailViewController.view];
     self.posterCollectionView.userInteractionEnabled = NO;
     self.calendarSegmentedControl.userInteractionEnabled = NO;
-    [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:self.posterCollectionView.frame completion:^{
+    CGRect rect = CGRectInset(self.posterCollectionView.frame, 10, 0);
+    [self.animationHelper animateViewFadeIn:self.detailViewController.view inRect:rect completion:^{
         [self.detailViewController didMoveToParentViewController:self];
         if (self.calendarEnabled) {
             [self.animationHelper animateViewFadeOut:self.calendarSegmentedControl inRect:self.calendarSegmentedControl.frame completion:nil];
