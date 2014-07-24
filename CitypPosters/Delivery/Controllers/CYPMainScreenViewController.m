@@ -139,10 +139,11 @@ enum {
 - (void)configureDataSourceBlocks {
      __weak typeof(self) bself = self;
     [self.collectionDatasource setHasResultsBlock:^{
-        [bself.animationHelper animateViewFadeOut:bself.noResultsImage inRect:bself.posterCollectionView.frame completion:nil];
+        [bself.animationHelper animateViewFadeOut:bself.noResultsImage inRect:bself.noResultsImage.frame completion:nil];
     }];
     [self.collectionDatasource setNoResultsBlock:^{
-        [bself.animationHelper animateViewFadeIn:bself.noResultsImage inRect:bself.posterCollectionView.frame completion:nil];
+        CGRect rect = CGRectInset(bself.posterCollectionView.frame, 20, 0);
+        [bself.animationHelper animateViewFadeIn:bself.noResultsImage inRect:rect completion:nil];
     }];
 }
 
