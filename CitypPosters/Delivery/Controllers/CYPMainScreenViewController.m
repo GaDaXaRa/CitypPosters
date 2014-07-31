@@ -86,10 +86,12 @@ enum {
 
 - (void)layoutFullScreen {
     [self.posterCollectionView setCollectionViewLayout:[self.layoutHelper fullScreenFlowLayoutWithItemSize:self.posterCollectionView.frame.size] animated:YES];
+    self.posterCollectionView.pagingEnabled = YES;
 }
 
 - (void)layoutZoom {
     [self.posterCollectionView setCollectionViewLayout:[self.layoutHelper zoomFlowLayoutWithItemSize:self.posterCollectionView.frame.size] animated:YES];
+    self.posterCollectionView.pagingEnabled = NO;
 }
 
 - (void)viewDidLoad
