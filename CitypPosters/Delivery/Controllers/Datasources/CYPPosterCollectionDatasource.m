@@ -14,8 +14,13 @@
 static NSString *const cellID = @"posterCell";
 static NSString *const defaultImageName = @"default_poster";
 
-@implementation CYPPosterCollectionDatasource
+@interface CYPPosterCollectionDatasource ()
 
+@property (strong, nonatomic) NSCache *imagesCache;
+
+@end
+
+@implementation CYPPosterCollectionDatasource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSUInteger results = [[[self.fetchedResultController sections] firstObject] numberOfObjects];
@@ -43,12 +48,30 @@ static NSString *const defaultImageName = @"default_poster";
 }
 
 - (UIImage *)imageForEventId:(NSString *)eventId {
-    UIImage *image = [CYPImagePersistence imageWithFileName:eventId];
+    UIImage *image = [self.imagesCache objectForKey:eventId];
+    
+    if (!image) {
+        image = [CYPImagePersistence imageWithFileName:eventId];
+        [self.imagesCache setObject:image forKey:eventId];
+    }
+    
     if (!image) {
         image = [UIImage imageNamed:defaultImageName];
     }
     
     return image;
+}
+
+- (NSCache *)imagesCache {
+    if (!_imagesCache) {
+        _imagesCache = [[NSCache alloc] init];
+    }
+    
+    return _imagesCache;
+}
+
+- (void)imageDidUpdated:(UIImage *)image forEventId:(NSString *)eventId {
+    [self.imagesCache setObject:image forKey:eventId];
 }
 
 @end

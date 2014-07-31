@@ -104,7 +104,7 @@ enum {
     NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                            forKey:NSFontAttributeName];
     [self.calendarSegmentedControl setTitleTextAttributes:attributes
-                                    forState:UIControlStateNormal];
+                                                 forState:UIControlStateNormal];
     
     self.title = @"CityPosters";
     
@@ -129,9 +129,9 @@ enum {
     self.posterCollectionView.dataSource = self.collectionDatasource;
     
     __weak typeof(self) bself = self;
-    [self.eventManager setImageDidPersistBlock:^(NSString *eventId) {
+    [self.eventManager setImageDidPersistBlock:^(NSString *eventId, UIImage *image) {
         dispatch_async(MAIN_QUEUE, ^{
-            [bself updateImageForEventId:eventId];
+            [bself updateImage:image forEventId:eventId];
         });
     }];
     
@@ -139,7 +139,7 @@ enum {
 }
 
 - (void)configureDataSourceBlocks {
-     __weak typeof(self) bself = self;
+    __weak typeof(self) bself = self;
     [self.collectionDatasource setHasResultsBlock:^{
         [bself.animationHelper animateViewFadeOut:bself.noResultsImage inRect:bself.noResultsImage.frame completion:nil];
     }];
@@ -157,10 +157,11 @@ enum {
     [self layoutFullScreen];
 }
 
-- (void)updateImageForEventId:(NSString *)eventId {
+- (void)updateImage:(UIImage *)image forEventId:(NSString *)eventId {
     CYPEvent *event = [self.model fetchEventById:eventId];
     NSIndexPath *indexPath = [self.fetchResultControllerManager.fetchedResultsController indexPathForObject:event];
     if (indexPath) {
+        [self.collectionDatasource imageDidUpdated:image forEventId:eventId];
         [self.posterCollectionView reloadItemsAtIndexPaths:@[indexPath]];
     }
 }

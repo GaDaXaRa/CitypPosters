@@ -19,11 +19,11 @@
             NSString *eventId = eventDictionary[@"eventId"];
             NSString *posterUrl = eventDictionary[@"eventPoster"];
             if ([CYPImagePersistence existsImage:eventId]) {
-                [self callBackIfNeeded:eventId];
+                [self callBackIfNeededWithEventId:eventId image:[CYPImagePersistence imageWithFileName:eventId]];
             } else {
                 [CYPNetworkManager downloadImageWithUrl:posterUrl completion:^(UIImage *image) {
                     [CYPImagePersistence persistImage:image withFilename:eventId];
-                    [self callBackIfNeeded:eventId];
+                    [self callBackIfNeededWithEventId:eventId image:image];
                 }];
             }
         }
@@ -31,9 +31,9 @@
     }];
 }
 
-- (void)callBackIfNeeded:(NSString *)eventId {
+- (void)callBackIfNeededWithEventId:(NSString *)eventId image:(UIImage *)image{
     if (self.imageDidPersistBlock) {
-        self.imageDidPersistBlock(eventId);
+        self.imageDidPersistBlock(eventId, image);
     }
 }
 

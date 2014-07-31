@@ -15,4 +15,6 @@
 @property (nonatomic, copy) void (^noResultsBlock)();
 @property (nonatomic, copy) void (^hasResultsBlock)();
 
+- (void)imageDidUpdated:(UIImage *)image forEventId:(NSString *)eventId;
+
 @end
