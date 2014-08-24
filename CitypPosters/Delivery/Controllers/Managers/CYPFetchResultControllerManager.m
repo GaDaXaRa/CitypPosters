@@ -102,7 +102,7 @@
     }
 }
 
-- (void) observeManagedObjectContext {
+- (void)observeManagedObjectContext {
     [self addObserver:self forKeyPath:@"model.managedObjectContext" options:0 context:nil];
 }
 

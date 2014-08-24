@@ -21,11 +21,15 @@ static NSString *const venueName = @"Sala Caracol";
 static NSString *const venueAddress = @"Calle Valencia, 7";
 static NSString *const venueCityName = @"Madrid";
 static NSString *const venueCityCountry = @"Spain";
+static NSString *const firstEventId = @"First event id";
 static NSString *const firstEventName = @"1000 nombres para eso";
+static NSString *const secondEventId = @"Second event id";
 static NSString *const secondEventName = @"Metallica 30 Aniversary Tour";
 static NSString *const heavyMetal = @"Heavy Metal";
 static NSString *const coplaFreak = @"Copla Freak";
 static NSString *const rock = @"Rock";
+static NSString *const firstDate = @"08/03/2014 21:00";
+static NSString *const secondDate = @"08/05/2014 21:00";
 
 @interface CYPModelDocumentTests : XCTestCase {
     // Core Data stack objects.
@@ -47,9 +51,6 @@ static NSString *const rock = @"Rock";
     NSDictionary *firstEventDictionary;
     NSDictionary *secondEventDictionary;
     
-    NSDate *firstDate;
-    NSDate *secondDate;
-    
     NSArray *eventsArray;
 }
 
@@ -70,22 +71,12 @@ static NSString *const rock = @"Rock";
 }
 
 - (void) testAceptanceWithTwoEventsOneWithoutInvitedShouldReturnOrderedByDate {
-    [sut importDataWithEvents:eventsArray error:NULL];
+    [sut importEvents:eventsArray];
     
     NSArray *results = [context executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([CYPEvent class])]
                                               error:NULL];
     
     XCTAssertTrue(results.count == 2, @"Results should have two events");
-}
-
-- (void) testLoadDataFromUrl {
-    NSURL *url = [NSURL URLWithString:@"http://citypposters.apiary.io/events"];
-    [sut importDataWithUrl:url completion:^(BOOL error) {
-        XCTAssertFalse(error, @"Should not end with error");
-        NSArray *results = [context executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([CYPEvent class])]
-                                                  error:NULL];
-        XCTAssertNotNil(results, @"Must return results");
-    }];
 }
 
 #pragma mark - Set up and tear down
@@ -112,19 +103,17 @@ static NSString *const rock = @"Rock";
 }
 
 - (void) createFixture {
-    firstDate = [NSDate dateWithTimeIntervalSinceNow:24*60*60];
-    secondDate = [NSDate dateWithTimeIntervalSinceNow:2*24*60*60];
     venueZIP = @28012;
     latitude = [NSNumber numberWithDouble:40.404039];
     longitude = [NSNumber numberWithDouble:-3.700111];
     cityDictionary = @{cityNameKey: venueCityName, cityCountryKey: venueCityCountry};
-    venueDictionary = @{venueKey: @[@{venueNameKey: venueName, venueAddressKey: venueAddress, venueLatitudeKey: latitude, venueLongitudeKey: longitude, venueZipKey: venueZIP, venueCityKey: cityDictionary}]};
+    venueDictionary = @{venueNameKey: venueName, venueAddressKey: venueAddress, venueLatitudeKey: latitude, venueLongitudeKey: longitude, venueZipKey: venueZIP, venueCityKey: cityDictionary};
     mainArtistsDictionary =  @{mainArtistsKey: @[@{artistPropertyName: leonardoDantes}]};
     invitedArtistsDictionary = @{invitedArtistsKey: @[@{artistPropertyName: ironMaiden}]};
     
-    firstEventDictionary = @{eventNameKey: firstEventName, venueKey: venueDictionary, mainArtistsKey: @[mainArtistsDictionary], invitedArtistsKey: @[invitedArtistsDictionary], eventDatesKey: @[firstDate, secondDate], genresKey:@[coplaFreak]};
+    firstEventDictionary = @{eventIdKey: firstEventId, eventNameKey: firstEventName, venueKey: venueDictionary, mainArtistsKey: @[mainArtistsDictionary], invitedArtistsKey: @[invitedArtistsDictionary], eventDatesKey: @[firstDate, secondDate], genresKey:@[coplaFreak]};
     
-    secondEventDictionary = @{eventNameKey: firstEventName, venueKey: venueDictionary, mainArtistsKey: @[invitedArtistsDictionary], eventDatesKey: @[secondDate], genresKey:@[heavyMetal, rock]};
+    secondEventDictionary = @{eventIdKey: secondEventId, eventNameKey: firstEventName, venueKey: venueDictionary, mainArtistsKey: @[invitedArtistsDictionary], eventDatesKey: @[secondDate], genresKey:@[heavyMetal, rock]};
     
     eventsArray = @[secondEventDictionary, firstEventDictionary];
 }

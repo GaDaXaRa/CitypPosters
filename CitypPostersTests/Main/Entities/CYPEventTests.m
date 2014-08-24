@@ -20,6 +20,7 @@
 static NSString *const EVENT_NAME = @"Mega event";
 static NSString *const GENRE_ROCK = @"Rock";
 static NSString *const GENRE_HEAVY_METAL = @"Heavy Metal";
+static NSString *const EVENT_ID = @"Fixture eventId";
 
 @interface CYPEventTests : XCTestCase {
     // Core Data stack objects.
@@ -80,6 +81,7 @@ static NSString *const GENRE_HEAVY_METAL = @"Heavy Metal";
     sut.mainArtists = artists;
     sut.invitedArtists = artists;
     sut.dates = dates;
+    sut.eventId = EVENT_ID;
     sut.venue = eventVenue;
     [context save:NULL];
 }

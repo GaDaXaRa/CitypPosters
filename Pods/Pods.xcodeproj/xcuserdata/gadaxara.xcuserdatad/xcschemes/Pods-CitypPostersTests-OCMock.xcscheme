@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F28CD8823B9411B8358518B"
+               BlueprintIdentifier = "B14D7304D0FA4CF5980FEBE0"
                BuildableName = "libPods-CitypPostersTests-OCMock.a"
                BlueprintName = "Pods-CitypPostersTests-OCMock"
                ReferencedContainer = "container:Pods.xcodeproj">
